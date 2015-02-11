@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C03B7B1A1A8ADB480043E5A1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */; };
+		C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = C03B7B231A8ADE630043E5A1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */; };
+		C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */; };
 		C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B0BB1A898A7E00752E0E /* FoodForMe.xcdatamodeld */; };
 		C0F0B0C41A898A7E00752E0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F0B0C21A898A7E00752E0E /* Main.storyboard */; };
 		C0F0B0C61A898A7E00752E0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F0B0C51A898A7E00752E0E /* Images.xcassets */; };
@@ -23,6 +26,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C03B7B221A8ADE630043E5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 27AB60071A7FAFBF0069F786;
+			remoteInfo = Alamofire;
+		};
+		C03B7B241A8ADE630043E5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 27AB60121A7FAFBF0069F786;
+			remoteInfo = AlamofireTests;
+		};
+		C03B7B261A8ADE8D0043E5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 27AB60061A7FAFBF0069F786;
+			remoteInfo = Alamofire;
+		};
 		C0F0B0CF1A898A7E00752E0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C0F0B0AC1A898A7E00752E0E /* Project object */;
@@ -32,8 +56,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C03B7B281A8ADEA80043E5A1 /* Copy Files (1 item) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */,
+			);
+			name = "Copy Files (1 item)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMLocalizedConstants.swift; sourceTree = "<group>"; };
+		C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMGlobalConstants.swift; sourceTree = "<group>"; };
 		C0F0B0B41A898A7E00752E0E /* FoodForMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodForMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F0B0B81A898A7E00752E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F0B0BC1A898A7E00752E0E /* FoodForMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodForMe.xcdatamodel; sourceTree = "<group>"; };
@@ -76,6 +117,7 @@
 		C03B7B171A8ADB0A0043E5A1 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C03B7B1C1A8ADE500043E5A1 /* Alamofire */,
 				C03B7B181A8ADB0A0043E5A1 /* Facebook */,
 			);
 			path = External;
@@ -87,6 +129,32 @@
 				C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */,
 			);
 			path = Facebook;
+			sourceTree = "<group>";
+		};
+		C03B7B1C1A8ADE500043E5A1 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		C03B7B1E1A8ADE630043E5A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C03B7B231A8ADE630043E5A1 /* Alamofire.framework */,
+				C03B7B251A8ADE630043E5A1 /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C03B7B2A1A8ADFC80043E5A1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */,
+				C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		C0F0B0AB1A898A7E00752E0E = {
@@ -150,6 +218,7 @@
 		C0F0B0DE1A89970B00752E0E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C03B7B2A1A8ADFC80043E5A1 /* Constants */,
 				C0F0B0E21A89970B00752E0E /* UI */,
 				C0F0B0DF1A89970B00752E0E /* DAL */,
 			);
@@ -204,10 +273,12 @@
 				C0F0B0B01A898A7E00752E0E /* Sources */,
 				C0F0B0B11A898A7E00752E0E /* Frameworks */,
 				C0F0B0B21A898A7E00752E0E /* Resources */,
+				C03B7B281A8ADEA80043E5A1 /* Copy Files (1 item) */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C03B7B271A8ADE8D0043E5A1 /* PBXTargetDependency */,
 			);
 			name = FoodForMe;
 			productName = FoodForMe;
@@ -261,6 +332,12 @@
 			mainGroup = C0F0B0AB1A898A7E00752E0E;
 			productRefGroup = C0F0B0B51A898A7E00752E0E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C03B7B1E1A8ADE630043E5A1 /* Products */;
+					ProjectRef = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C0F0B0B31A898A7E00752E0E /* FoodForMe */,
@@ -268,6 +345,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C03B7B231A8ADE630043E5A1 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C03B7B221A8ADE630043E5A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C03B7B251A8ADE630043E5A1 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = C03B7B241A8ADE630043E5A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C0F0B0B21A898A7E00752E0E /* Resources */ = {
@@ -296,7 +390,9 @@
 			files = (
 				C0F0B0E81A89970B00752E0E /* AppDelegate.swift in Sources */,
 				C0F0B1AE1A8A2E7700752E0E /* UserProfile.swift in Sources */,
+				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
 				C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */,
+				C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */,
 				C0F0B1B31A8A2FE700752E0E /* CoreDataStore.swift in Sources */,
 				C0F0B1AC1A8A2E7700752E0E /* Event.swift in Sources */,
 				C0F0B1B21A8A2FE700752E0E /* CoreDataDAL.swift in Sources */,
@@ -316,6 +412,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C03B7B271A8ADE8D0043E5A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = C03B7B261A8ADE8D0043E5A1 /* PBXContainerItemProxy */;
+		};
 		C0F0B0D01A898A7E00752E0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C0F0B0B31A898A7E00752E0E /* FoodForMe */;

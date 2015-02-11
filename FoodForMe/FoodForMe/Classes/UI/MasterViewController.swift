@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
@@ -27,6 +28,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.navigationItem.rightBarButtonItem = addButton
         var coreDataDal:CoreDataDAL = CoreDataDAL()
         self.managedObjectContext = coreDataDal.managedObjectContext
+        
+        
+       Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+           .response { (request, response, data, error) in
+               println(request)
+               println(response)
+               println(error)
+       }
 
     }
 
