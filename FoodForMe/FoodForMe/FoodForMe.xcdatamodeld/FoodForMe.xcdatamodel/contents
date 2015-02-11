@@ -3,19 +3,19 @@
     <entity name="Ingredient" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" syncable="YES"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <entity name="Recipe" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preparation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="starts" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="videoUri" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="images" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="RecipeImage" syncable="YES"/>
-        <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Ingredient" syncable="YES"/>
+        <relationship name="images" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="RecipeImage" inverseName="recipe" inverseEntity="RecipeImage" syncable="YES"/>
+        <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Ingredient" inverseName="recipes" inverseEntity="Ingredient" syncable="YES"/>
     </entity>
     <entity name="RecipeImage" syncable="YES">
         <attribute name="uri" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="images" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <entity name="UserProfile" representedClassName="FoodForMe.UserProfile" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
@@ -27,9 +27,9 @@
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserProfile" positionX="261" positionY="198" width="128" height="148"/>
-        <element name="RecipeImage" positionX="261" positionY="207" width="128" height="73"/>
-        <element name="Recipe" positionX="270" positionY="216" width="128" height="133"/>
         <element name="Ingredient" positionX="288" positionY="225" width="128" height="88"/>
+        <element name="Recipe" positionX="270" positionY="216" width="128" height="135"/>
+        <element name="RecipeImage" positionX="261" positionY="207" width="128" height="75"/>
+        <element name="UserProfile" positionX="261" positionY="198" width="128" height="148"/>
     </elements>
 </model>
