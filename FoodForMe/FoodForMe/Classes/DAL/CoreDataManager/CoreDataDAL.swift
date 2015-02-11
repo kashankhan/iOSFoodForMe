@@ -101,46 +101,4 @@ class CoreDataDAL: NSObject {
         }
     }
     
-    func fecthRequest(entityName: String, predicate: NSPredicate, managedObjectContext:NSManagedObjectContext, ascending: Bool, key: String) -> [AnyObject]? {
-    
-        var error: NSError? = nil
-        var fReq: NSFetchRequest = NSFetchRequest(entityName: entityName)
-        fReq.predicate = predicate
-        if !key.isEmpty {
-            var sorter: NSSortDescriptor = NSSortDescriptor(key: key, ascending: ascending)
-            fReq.sortDescriptors = [sorter]
-        }
-        
-       return managedObjectContext.executeFetchRequest(fReq, error:&error)
-    }
-    
-    
-    func fecthRequest(entityName: String, predicate: NSPredicate, managedObjectContext:NSManagedObjectContext) -> [AnyObject]? {
-        
-      return fecthRequest(entityName, predicate: predicate, managedObjectContext: managedObjectContext, ascending: true, key: "")
-    }
-    
-    func createEntity(entityName: String, managedObjectContext:NSManagedObjectContext) -> AnyObject {
-       
-        return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext:managedObjectContext)
-    }
-    
-    func deleteManagedObject(managedObject: NSManagedObject, managedObjectContext:NSManagedObjectContext) {
-    
-         managedObjectContext.deleteObject(managedObject)
-    }
-    
-    func findManagedObject(entityName: String, predicate: NSPredicate, managedObjectContext:NSManagedObjectContext, createNewIfNotFount: Bool) -> AnyObject {
-    
-        var manageObject: AnyObject?
-        let result =  fecthRequest(entityName, predicate: predicate, managedObjectContext: managedObjectContext)! as NSArray
-        if result.count > 0 {
-            manageObject = result[0]
-        }
-        else {
-            manageObject = self.createEntity(entityName, managedObjectContext: self.backgroundContext!)
-        }
-        
-        return manageObject!
-    }
 }

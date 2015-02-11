@@ -20,7 +20,6 @@
 		C0F0B0E91A89970B00752E0E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B0E41A89970B00752E0E /* DetailViewController.swift */; };
 		C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B0E51A89970B00752E0E /* MasterViewController.swift */; };
 		C0F0B1AC1A8A2E7700752E0E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B1AB1A8A2E7700752E0E /* Event.swift */; };
-		C0F0B1AE1A8A2E7700752E0E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B1AD1A8A2E7700752E0E /* UserProfile.swift */; };
 		C0F0B1B21A8A2FE700752E0E /* CoreDataDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B1B01A8A2FE700752E0E /* CoreDataDAL.swift */; };
 		C0F0B1B31A8A2FE700752E0E /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B1B11A8A2FE700752E0E /* CoreDataStore.swift */; };
 /* End PBXBuildFile section */
@@ -88,9 +87,7 @@
 		C0F0B0E41A89970B00752E0E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C0F0B0E51A89970B00752E0E /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		C0F0B0EB1A89973500752E0E /* FoodForMeBridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodForMeBridgeHeader.h; sourceTree = "<group>"; };
-		C0F0B1AA1A8A2E1100752E0E /* s.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = s.h; sourceTree = "<group>"; };
 		C0F0B1AB1A8A2E7700752E0E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		C0F0B1AD1A8A2E7700752E0E /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C0F0B1B01A8A2FE700752E0E /* CoreDataDAL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAL.swift; sourceTree = "<group>"; };
 		C0F0B1B11A8A2FE700752E0E /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,9 +244,7 @@
 		C0F0B14A1A8999AC00752E0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C0F0B1AD1A8A2E7700752E0E /* UserProfile.swift */,
 				C0F0B1AB1A8A2E7700752E0E /* Event.swift */,
-				C0F0B1AA1A8A2E1100752E0E /* s.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,7 +384,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F0B0E81A89970B00752E0E /* AppDelegate.swift in Sources */,
-				C0F0B1AE1A8A2E7700752E0E /* UserProfile.swift in Sources */,
 				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
 				C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */,
 				C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */,
