@@ -11,6 +11,11 @@
 		C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = C03B7B231A8ADE630043E5A1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */; };
 		C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */; };
+		C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */; };
+		C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */; };
+		C05486741A8C21F1002E55E1 /* FFMNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05486731A8C21F1002E55E1 /* FFMNavigationController.swift */; };
+		C05486761A8C2249002E55E1 /* FFMMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05486751A8C2249002E55E1 /* FFMMenuTableViewController.swift */; };
+		C05486791A8C25FE002E55E1 /* FFMProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05486781A8C25FE002E55E1 /* FFMProfileTableViewController.swift */; };
 		C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B0BB1A898A7E00752E0E /* FoodForMe.xcdatamodeld */; };
 		C0F0B0C41A898A7E00752E0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F0B0C21A898A7E00752E0E /* Main.storyboard */; };
 		C0F0B0C61A898A7E00752E0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F0B0C51A898A7E00752E0E /* Images.xcassets */; };
@@ -74,6 +79,11 @@
 		C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMLocalizedConstants.swift; sourceTree = "<group>"; };
 		C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMGlobalConstants.swift; sourceTree = "<group>"; };
+		C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		C05486731A8C21F1002E55E1 /* FFMNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMNavigationController.swift; sourceTree = "<group>"; };
+		C05486751A8C2249002E55E1 /* FFMMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMMenuTableViewController.swift; sourceTree = "<group>"; };
+		C05486781A8C25FE002E55E1 /* FFMProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMProfileTableViewController.swift; sourceTree = "<group>"; };
 		C0F0B0B41A898A7E00752E0E /* FoodForMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodForMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F0B0B81A898A7E00752E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F0B0BC1A898A7E00752E0E /* FoodForMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodForMe.xcdatamodel; sourceTree = "<group>"; };
@@ -114,6 +124,7 @@
 		C03B7B171A8ADB0A0043E5A1 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C054866D1A8C21AB002E55E1 /* SlideMenu */,
 				C03B7B1C1A8ADE500043E5A1 /* Alamofire */,
 				C03B7B181A8ADB0A0043E5A1 /* Facebook */,
 			);
@@ -152,6 +163,15 @@
 				C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		C054866D1A8C21AB002E55E1 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */,
+				C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */,
+			);
+			path = SlideMenu;
 			sourceTree = "<group>";
 		};
 		C0F0B0AB1A898A7E00752E0E = {
@@ -237,6 +257,9 @@
 				C0F0B0E31A89970B00752E0E /* AppDelegate.swift */,
 				C0F0B0E41A89970B00752E0E /* DetailViewController.swift */,
 				C0F0B0E51A89970B00752E0E /* MasterViewController.swift */,
+				C05486731A8C21F1002E55E1 /* FFMNavigationController.swift */,
+				C05486751A8C2249002E55E1 /* FFMMenuTableViewController.swift */,
+				C05486781A8C25FE002E55E1 /* FFMProfileTableViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -385,12 +408,17 @@
 			files = (
 				C0F0B0E81A89970B00752E0E /* AppDelegate.swift in Sources */,
 				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
+				C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */,
 				C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */,
 				C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */,
+				C05486791A8C25FE002E55E1 /* FFMProfileTableViewController.swift in Sources */,
 				C0F0B1B31A8A2FE700752E0E /* CoreDataStore.swift in Sources */,
 				C0F0B1AC1A8A2E7700752E0E /* Event.swift in Sources */,
 				C0F0B1B21A8A2FE700752E0E /* CoreDataDAL.swift in Sources */,
 				C0F0B0E91A89970B00752E0E /* DetailViewController.swift in Sources */,
+				C05486741A8C21F1002E55E1 /* FFMNavigationController.swift in Sources */,
+				C05486761A8C2249002E55E1 /* FFMMenuTableViewController.swift in Sources */,
+				C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */,
 				C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
