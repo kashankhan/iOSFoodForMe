@@ -134,6 +134,7 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     
     // Mark: Facebook
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
+        println(user.name)
         NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: user)
     }
     

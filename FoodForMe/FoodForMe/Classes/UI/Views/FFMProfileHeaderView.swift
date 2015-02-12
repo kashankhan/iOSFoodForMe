@@ -29,11 +29,11 @@ class FFMProfileHeaderView : UITableViewHeaderFooterView {
     func setUserInfo(notification: NSNotification) {
         self.profilePicView.profileID = nil
         self.nameLabel?.text = ""
-        if (notification.object is FBGraphUser) {
-            
-            var user: FBGraphUser = notification.object as FBGraphUser
-            self.profilePicView.profileID = user.objectID
-            self.nameLabel?.text = user.name
+    
+        if (notification.object is FBGraphObject) {
+            var userInfo: FBGraphObject = notification.object as FBGraphObject
+            self.profilePicView.profileID = userInfo["id"] as String
+            self.nameLabel?.text = userInfo["name"] as? String
         }
     }
 }
