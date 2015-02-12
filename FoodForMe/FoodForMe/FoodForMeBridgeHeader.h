@@ -11,5 +11,6 @@
 
 // Facebook
 #import <FacebookSDK/FacebookSDK.h>
-
+// MD5 
+#import <CommonCrypto/CommonCrypto.h>
 #endif

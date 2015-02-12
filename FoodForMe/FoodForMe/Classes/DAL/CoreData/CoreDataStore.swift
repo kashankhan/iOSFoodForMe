@@ -11,7 +11,7 @@ import CoreData
 
 private let _singletonInstance = CoreDataStore()
 
-class CoreDataStore: NSObject{
+class CoreDataStore: NSObject {
     
     let storeName = "FoodForMe"
     let storeFilename = "FoodForMe.sqlite"

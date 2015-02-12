@@ -20,6 +20,9 @@
 		C06C78941A8CF931001A9910 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78901A8CF931001A9910 /* Recipe.swift */; };
 		C06C78951A8CF931001A9910 /* RecipeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78911A8CF931001A9910 /* RecipeImage.swift */; };
 		C06C79121A8D50B7001A9910 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79111A8D50B7001A9910 /* UserProfile.swift */; };
+		C06C79161A8D60DA001A9910 /* BaseBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79151A8D60DA001A9910 /* BaseBal.swift */; };
+		C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */; };
+		C06C791B1A8D6656001A9910 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C791A1A8D6656001A9910 /* StringExtension.swift */; };
 		C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA90171A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift */; };
 		C0EA901B1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0EA901A1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib */; };
 		C0EA90281A8CE6E500BB62F0 /* FFMMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA90261A8CE6E500BB62F0 /* FFMMenuTableViewController.swift */; };
@@ -95,6 +98,9 @@
 		C06C78901A8CF931001A9910 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		C06C78911A8CF931001A9910 /* RecipeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImage.swift; sourceTree = "<group>"; };
 		C06C79111A8D50B7001A9910 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		C06C79151A8D60DA001A9910 /* BaseBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBal.swift; sourceTree = "<group>"; };
+		C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewAsyncImageExtension.swift; sourceTree = "<group>"; };
+		C06C791A1A8D6656001A9910 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C0EA90171A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMProfileHeaderView.swift; sourceTree = "<group>"; };
 		C0EA901A1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFMProfileHeaderView.xib; sourceTree = "<group>"; };
 		C0EA90261A8CE6E500BB62F0 /* FFMMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +221,30 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C06C79131A8D5BA2001A9910 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		C06C79141A8D608A001A9910 /* BAL */ = {
+			isa = PBXGroup;
+			children = (
+				C06C79151A8D60DA001A9910 /* BaseBal.swift */,
+			);
+			path = BAL;
+			sourceTree = "<group>";
+		};
+		C06C79171A8D648A001A9910 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */,
+				C06C791A1A8D6656001A9910 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C0EA90251A8CE6E500BB62F0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +318,8 @@
 				C03B7B2A1A8ADFC80043E5A1 /* Constants */,
 				C0F0B0E21A89970B00752E0E /* UI */,
 				C0F0B0DF1A89970B00752E0E /* DAL */,
+				C06C79141A8D608A001A9910 /* BAL */,
+				C06C79171A8D648A001A9910 /* Extensions */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -308,6 +340,7 @@
 				C0F0B0E31A89970B00752E0E /* AppDelegate.swift */,
 				C0F0B0E41A89970B00752E0E /* DetailViewController.swift */,
 				C0F0B0E51A89970B00752E0E /* MasterViewController.swift */,
+				C06C79131A8D5BA2001A9910 /* TableViewCell */,
 				C054868C1A8CD788002E55E1 /* Views */,
 				C05486851A8CD757002E55E1 /* Controllers */,
 			);
@@ -469,8 +502,11 @@
 				C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */,
 				C0EA90291A8CE6E500BB62F0 /* FFMNavigationController.swift in Sources */,
 				C06C78951A8CF931001A9910 /* RecipeImage.swift in Sources */,
+				C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */,
 				C06C78941A8CF931001A9910 /* Recipe.swift in Sources */,
 				C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */,
+				C06C79161A8D60DA001A9910 /* BaseBal.swift in Sources */,
+				C06C791B1A8D6656001A9910 /* StringExtension.swift in Sources */,
 				C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
