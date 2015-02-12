@@ -1,14 +1,15 @@
 //
-//  FFMProfileTableViewController.swift
+//  FFMRecipiesTableViewController.swift
 //  FoodForMe
 //
 //  Created by Kashan Khan on 12/02/2015.
 //  Copyright (c) 2015 Kashan Khan. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class FFMProfileTableViewController: UITableViewController , ENSideMenuDelegate {
+class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate {
     
     
     override func viewDidLoad() {

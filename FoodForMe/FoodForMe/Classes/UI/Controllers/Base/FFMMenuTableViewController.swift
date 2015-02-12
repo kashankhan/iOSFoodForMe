@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class FFMMenuTableViewController: UITableViewController {
+class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     var selectedMenuItem : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Customize apperance of table view
         tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0) //
         tableView.separatorStyle = .None
@@ -24,6 +24,8 @@ class FFMMenuTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         
         tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedMenuItem, inSection: 0), animated: false, scrollPosition: .Middle)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,7 +81,7 @@ class FFMMenuTableViewController: UITableViewController {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMProfileTableViewController") as FFMProfileTableViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipiesTableViewController") as FFMRecipiesTableViewController
             break
         case 1:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
@@ -94,8 +96,54 @@ class FFMMenuTableViewController: UITableViewController {
         sideMenuController()?.setContentViewController(destViewController)
 
     }
+    
+     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let identifierheaderView = "IdentifierFFMProfileHeaderView"
+        var profileHeaderView: FFMProfileHeaderView? = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMProfileHeaderView
+        if profileHeaderView == nil {
+            let nib: UINib = UINib(nibName: "FFMProfileHeaderView", bundle: NSBundle.mainBundle())
+            tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: identifierheaderView)
+            profileHeaderView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMProfileHeaderView
 
+        }
 
+        return profileHeaderView;
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 150.0;
+    }
+
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 75
+    }
+    
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRectMake(0.0, 0.0, CGRectGetWidth(tableView.frame), 50))
+        var loginView: FBLoginView = FBLoginView()
+        loginView.frame.size.width = CGRectGetWidth(tableView.frame) * 0.70
+        loginView.frame = CGRectOffset(loginView.frame, (tableView.center.x - (loginView.frame.size.width / 2)), 5)
+        loginView.readPermissions = ["public_profile", "email", "user_friends"];
+        loginView.delegate = self
+        footerView.addSubview(loginView)
+        
+        return footerView;
+        
+    }
+    
+    // Mark: Facebook
+    func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
+        NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: user)
+    }
+    
+    func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
+        NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLogoutNotification, object: nil)
+    }
+    
+    func loginView(loginView : FBLoginView!, handleError:NSError) {
+        println("Error: \(handleError.localizedDescription)")
+    }
 /*
 // MARK: - Navigation
 

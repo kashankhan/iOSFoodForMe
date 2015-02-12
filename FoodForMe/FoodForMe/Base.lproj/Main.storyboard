@@ -4,46 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--SwiftSideMenu-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="ViewController1" id="BYZ-38-t0r" customClass="ViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Ly-3z-uvT">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="7Ly-3z-uvT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fhE-9Q-jbu"/>
-                            <constraint firstAttribute="trailing" secondItem="7Ly-3z-uvT" secondAttribute="trailing" id="mev-cc-V4P"/>
-                            <constraint firstItem="7Ly-3z-uvT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qaZ-In-9k5"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7Ly-3z-uvT" secondAttribute="bottom" id="zGX-tT-cwe"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="SwiftSideMenu" id="xVG-Tf-vpo">
-                        <barButtonItem key="leftBarButtonItem" title="Toggle" id="sai-mr-tUc">
-                            <connections>
-                                <action selector="toggleSideMenu:" destination="BYZ-38-t0r" id="Izn-G1-zF1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="39" y="49"/>
-        </scene>
-        <!--SwiftSideMenu-->
+        <!--Recipies Table View Controller-->
         <scene sceneID="aSA-0X-0WW">
             <objects>
-                <tableViewController id="iGJ-R2-ubN" customClass="FFMProfileTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="iGJ-R2-ubN" customClass="FFMRecipiesTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yeH-zp-HTS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,8 +25,8 @@
                             <outlet property="delegate" destination="iGJ-R2-ubN" id="B8u-hR-LEs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SwiftSideMenu" id="2h0-NR-CWV">
-                        <barButtonItem key="leftBarButtonItem" title="Toggle" id="8pd-7v-ar2">
+                    <navigationItem key="navigationItem" id="2h0-NR-CWV">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="8pd-7v-ar2">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="iGJ-R2-ubN" id="GKl-aY-B66"/>
                             </connections>
@@ -71,7 +35,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50r-Mk-tlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-390" y="815"/>
+            <point key="canvasLocation" x="-12" y="49"/>
         </scene>
         <!--ViewController 3-->
         <scene sceneID="U2O-Gc-gp6">
@@ -193,7 +157,4 @@
             <point key="canvasLocation" x="-845" y="49"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="image.png" width="1174" height="1220"/>
-    </resources>
 </document>

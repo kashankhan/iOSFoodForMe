@@ -8,5 +8,6 @@
 
 import Foundation
 struct FFMGlobalConstants {
-    static let someNotification = "TEST"
+    static let UIFacebookUserDidLoginNotification  = "UIFacebookUserDidLoginNotification"
+    static let UIFacebookUserDidLogoutNotification = "UIFacebookUserDidLogoutNotification"
 }
