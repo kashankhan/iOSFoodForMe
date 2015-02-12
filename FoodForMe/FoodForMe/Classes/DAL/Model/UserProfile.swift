@@ -12,11 +12,12 @@ import CoreData
 class UserProfile: NSManagedObject {
 
     @NSManaged var birthday: String
-    @NSManaged var email: NSNumber
+    @NSManaged var email: String
     @NSManaged var firstName: String
     @NSManaged var gender: String
     @NSManaged var lastName: String
     @NSManaged var name: String
     @NSManaged var userId: String
+    @NSManaged var profileLink: String
 
 }

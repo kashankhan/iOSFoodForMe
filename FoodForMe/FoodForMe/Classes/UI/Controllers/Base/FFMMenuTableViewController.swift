@@ -24,8 +24,6 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
         self.clearsSelectionOnViewWillAppear = false
         
         tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedMenuItem, inSection: 0), animated: false, scrollPosition: .Middle)
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,6 +133,8 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     // Mark: Facebook
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
         NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: user)
+        let profileDal: FFMUserProfileDal =  FFMUserProfileDal()
+        profileDal.saveFacebookProfile(user)
     }
     
     func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {

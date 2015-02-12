@@ -19,7 +19,7 @@
 		C06C78931A8CF931001A9910 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C788F1A8CF931001A9910 /* Ingredient.swift */; };
 		C06C78941A8CF931001A9910 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78901A8CF931001A9910 /* Recipe.swift */; };
 		C06C78951A8CF931001A9910 /* RecipeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78911A8CF931001A9910 /* RecipeImage.swift */; };
-		C06C78981A8CFCB1001A9910 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78971A8CFCB1001A9910 /* UserProfile.swift */; };
+		C06C79121A8D50B7001A9910 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79111A8D50B7001A9910 /* UserProfile.swift */; };
 		C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA90171A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift */; };
 		C0EA901B1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0EA901A1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib */; };
 		C0EA90281A8CE6E500BB62F0 /* FFMMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA90261A8CE6E500BB62F0 /* FFMMenuTableViewController.swift */; };
@@ -94,7 +94,7 @@
 		C06C788F1A8CF931001A9910 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		C06C78901A8CF931001A9910 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		C06C78911A8CF931001A9910 /* RecipeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImage.swift; sourceTree = "<group>"; };
-		C06C78971A8CFCB1001A9910 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		C06C79111A8D50B7001A9910 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C0EA90171A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMProfileHeaderView.swift; sourceTree = "<group>"; };
 		C0EA901A1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFMProfileHeaderView.xib; sourceTree = "<group>"; };
 		C0EA90261A8CE6E500BB62F0 /* FFMMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 		C0F0B14A1A8999AC00752E0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C06C78971A8CFCB1001A9910 /* UserProfile.swift */,
+				C06C79111A8D50B7001A9910 /* UserProfile.swift */,
 				C06C788F1A8CF931001A9910 /* Ingredient.swift */,
 				C06C78901A8CF931001A9910 /* Recipe.swift */,
 				C06C78911A8CF931001A9910 /* RecipeImage.swift */,
@@ -464,7 +464,7 @@
 				C0F0B0E91A89970B00752E0E /* DetailViewController.swift in Sources */,
 				C0EA902B1A8CEA0400BB62F0 /* FFMRecipiesTableViewController.swift in Sources */,
 				C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */,
-				C06C78981A8CFCB1001A9910 /* UserProfile.swift in Sources */,
+				C06C79121A8D50B7001A9910 /* UserProfile.swift in Sources */,
 				C0EA90281A8CE6E500BB62F0 /* FFMMenuTableViewController.swift in Sources */,
 				C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */,
 				C0EA90291A8CE6E500BB62F0 /* FFMNavigationController.swift in Sources */,

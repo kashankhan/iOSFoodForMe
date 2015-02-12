@@ -62,7 +62,7 @@ class CoreDataDal: NSObject {
         }()
     
     
-    // save NSManagedObjectContext
+    //MARK: - save NSManagedObjectContext
     func saveContext (context: NSManagedObjectContext) {
         var error: NSError? = nil
         if context.hasChanges && !context.save(&error) {
@@ -75,6 +75,7 @@ class CoreDataDal: NSObject {
     
     func saveContext () {
         self.saveContext( self.backgroundContext! )
+        self.saveContext(self.managedObjectContext!)
     }
     
     // call back function by saveContext, support multi-thread
@@ -101,4 +102,37 @@ class CoreDataDal: NSObject {
         }
     }
     
+    //MARK: - Managed object fetching and creting
+    func createManagedObject(entityName: String, context: NSManagedObjectContext) -> NSManagedObject {
+        
+       return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: context) as NSManagedObject
+    }
+    
+    func fetchObjects(entityName: String, context: NSManagedObjectContext, predicate: NSPredicate, sortKey: String, ascending: Bool) -> [AnyObject]? {
+        var error: NSError? = nil
+        var fReq: NSFetchRequest = NSFetchRequest(entityName: entityName)
+        
+        fReq.predicate = predicate
+        
+        if !sortKey.isEmpty {
+            var sorter: NSSortDescriptor = NSSortDescriptor(key: sortKey , ascending: ascending)
+            fReq.sortDescriptors = [sorter]
+        }
+    
+        fReq.returnsObjectsAsFaults = false
+        
+        var result = context.executeFetchRequest(fReq, error:&error)
+        
+        return result
+    }
+    
+    func fetchObject(entityName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> NSManagedObject? {
+        var result = self.fetchObjects(entityName, context: context, predicate: predicate, sortKey: "", ascending: true)
+        var managedObject: NSManagedObject?
+        if result!.isEmpty == false {
+            managedObject = result?.last as? NSManagedObject
+        }
+        
+        return managedObject
+    }
 }
