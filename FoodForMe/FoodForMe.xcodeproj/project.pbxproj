@@ -13,9 +13,9 @@
 		C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */; };
 		C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */; };
 		C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */; };
-		C05486811A8CD70F002E55E1 /* CoreDataDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054867F1A8CD70F002E55E1 /* CoreDataDAL.swift */; };
+		C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054867F1A8CD70F002E55E1 /* CoreDataDal.swift */; };
 		C05486821A8CD70F002E55E1 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05486801A8CD70F002E55E1 /* CoreDataStore.swift */; };
-		C06C788C1A8CF873001A9910 /* FFMUserProfileDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C788B1A8CF873001A9910 /* FFMUserProfileDAL.swift */; };
+		C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */; };
 		C06C78931A8CF931001A9910 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C788F1A8CF931001A9910 /* Ingredient.swift */; };
 		C06C78941A8CF931001A9910 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78901A8CF931001A9910 /* Recipe.swift */; };
 		C06C78951A8CF931001A9910 /* RecipeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78911A8CF931001A9910 /* RecipeImage.swift */; };
@@ -88,9 +88,9 @@
 		C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMGlobalConstants.swift; sourceTree = "<group>"; };
 		C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
-		C054867F1A8CD70F002E55E1 /* CoreDataDAL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAL.swift; sourceTree = "<group>"; };
+		C054867F1A8CD70F002E55E1 /* CoreDataDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDal.swift; sourceTree = "<group>"; };
 		C05486801A8CD70F002E55E1 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
-		C06C788B1A8CF873001A9910 /* FFMUserProfileDAL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMUserProfileDAL.swift; sourceTree = "<group>"; };
+		C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMUserProfileDal.swift; sourceTree = "<group>"; };
 		C06C788F1A8CF931001A9910 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		C06C78901A8CF931001A9910 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		C06C78911A8CF931001A9910 /* RecipeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImage.swift; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 		C054867E1A8CD70F002E55E1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				C054867F1A8CD70F002E55E1 /* CoreDataDAL.swift */,
 				C05486801A8CD70F002E55E1 /* CoreDataStore.swift */,
+				C054867F1A8CD70F002E55E1 /* CoreDataDal.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			children = (
 				C054867E1A8CD70F002E55E1 /* CoreData */,
 				C0F0B14A1A8999AC00752E0E /* Model */,
-				C06C788B1A8CF873001A9910 /* FFMUserProfileDAL.swift */,
+				C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */,
 			);
 			path = DAL;
 			sourceTree = "<group>";
@@ -466,12 +466,12 @@
 				C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */,
 				C06C78981A8CFCB1001A9910 /* UserProfile.swift in Sources */,
 				C0EA90281A8CE6E500BB62F0 /* FFMMenuTableViewController.swift in Sources */,
-				C06C788C1A8CF873001A9910 /* FFMUserProfileDAL.swift in Sources */,
+				C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */,
 				C0EA90291A8CE6E500BB62F0 /* FFMNavigationController.swift in Sources */,
 				C06C78951A8CF931001A9910 /* RecipeImage.swift in Sources */,
 				C06C78941A8CF931001A9910 /* Recipe.swift in Sources */,
 				C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */,
-				C05486811A8CD70F002E55E1 /* CoreDataDAL.swift in Sources */,
+				C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

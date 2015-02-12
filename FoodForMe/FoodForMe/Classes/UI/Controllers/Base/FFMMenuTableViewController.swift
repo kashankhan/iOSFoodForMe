@@ -122,7 +122,7 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView(frame: CGRectMake(0.0, 0.0, CGRectGetWidth(tableView.frame), 50))
         var loginView: FBLoginView = FBLoginView()
-        loginView.frame.size.width = CGRectGetWidth(tableView.frame) * 0.70
+        loginView.frame.size.width = CGRectGetWidth(tableView.frame) * 0.95
         loginView.frame = CGRectOffset(loginView.frame, (tableView.center.x - (loginView.frame.size.width / 2)), 5)
         loginView.readPermissions = ["public_profile", "email", "user_friends"];
         loginView.delegate = self
@@ -134,7 +134,6 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     
     // Mark: Facebook
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
-        println(user.name)
         NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: user)
     }
     

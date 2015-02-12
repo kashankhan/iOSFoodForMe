@@ -16,7 +16,7 @@ class FFMNavigationController: ENSideMenuNavigationController, ENSideMenuDelegat
         
         sideMenu = ENSideMenu(sourceView: self.view, menuTableViewController: FFMMenuTableViewController(), menuPosition:.Left)
         //sideMenu?.delegate = self //optional
-        sideMenu?.menuWidth = 180.0 // optional, default is 160
+        sideMenu?.menuWidth = 210.0 // optional, default is 160
         //sideMenu?.bouncingEnabled = false
         
         // make navigation bar showing over side menu

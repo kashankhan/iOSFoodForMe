@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class CoreDataDAL: NSObject {
+class CoreDataDal: NSObject {
     
     let store: CoreDataStore! = CoreDataStore()
     

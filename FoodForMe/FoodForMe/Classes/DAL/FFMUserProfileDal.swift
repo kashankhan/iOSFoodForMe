@@ -1,5 +1,5 @@
 //
-//  FFMUserProfileDAL.swift
+//  FFMUserProfileDal.swift
 //  FoodForMe
 //
 //  Created by Kashan Khan on 12/02/2015.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class FFMUserProfileDAL: CoreDataDAL {
+class FFMUserProfileDal: CoreDataDal {
     
     func saveFacebookProfile(user: FBGraphUser) -> UserProfile? {
         var userProile: UserProfile?
