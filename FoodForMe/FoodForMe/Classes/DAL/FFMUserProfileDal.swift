@@ -12,11 +12,12 @@ import CoreData
 class FFMUserProfileDal: CoreDataDal {
     
     func saveFacebookProfile(user: FBGraphUser) -> UserProfile? {
+        let context: NSManagedObjectContext = self.backgroundContext!
         let entityName = "UserProfile"
         let predicate = NSPredicate(format:"userId = %@", user.objectID)
-        var userProfile = fetchObject(entityName, context: self.managedObjectContext!, predicate: predicate!) as? UserProfile
+        var userProfile = fetchObject(entityName, context: context, predicate: predicate!) as? UserProfile
         if userProfile == nil {
-            userProfile = createManagedObject(entityName, context: self.managedObjectContext!) as? UserProfile
+            userProfile = createManagedObject(entityName, context: context) as? UserProfile
         }
         userProfile?.userId = user.objectID
         userProfile?.name = user.name
@@ -26,6 +27,8 @@ class FFMUserProfileDal: CoreDataDal {
         var userEmail = user.objectForKey("email") as String
         userProfile?.email = userEmail
         userProfile?.profileLink = user.link
+        
+        self.saveContext(context)
         
         return userProfile
     
