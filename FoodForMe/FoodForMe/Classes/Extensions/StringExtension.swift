@@ -26,4 +26,9 @@ extension String  {
         
         return String(format: hash)
     }
+    
+    var test: String! {
+        
+        return "hello"
+    }
 }

@@ -15,6 +15,9 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sideMenuController()?.sideMenu?.delegate = self;
+        
+       let recipesBal = FFMRecipesBal()
+        recipesBal.searchRecipe("oysters")
     }
     
     override func didReceiveMemoryWarning() {

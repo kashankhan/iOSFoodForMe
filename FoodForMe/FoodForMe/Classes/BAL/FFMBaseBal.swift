@@ -1,5 +1,5 @@
 //
-//  BaseBal.swift
+//  FFMBaseBal.swift
 //  FoodForMe
 //
 //  Created by Kashan Khan on 12/02/2015.
@@ -9,15 +9,15 @@
 import Foundation
 import Alamofire
 
-class BaseBal: NSObject {
+class FFMBaseBal: NSObject {
 
-    func performGetRequest(uri: String, parameters: [String : AnyObject]?) {
-        Alamofire.request(.GET, uri, parameters: parameters)
+    func performGetRequest() {
+       
+        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
             .response { (request, response, data, error) in
                 println(request)
                 println(response)
                 println(error)
         }
     }
-    
 }

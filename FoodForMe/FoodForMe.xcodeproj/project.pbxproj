@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */; };
+		C019F3F61A8F889800766D7C /* YummlyRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */; };
+		C019F3F81A8F88AF00766D7C /* BigOvenRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F71A8F88AF00766D7C /* BigOvenRecipesBal.swift */; };
 		C03B7B1A1A8ADB480043E5A1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */; };
 		C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = C03B7B231A8ADE630043E5A1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */; };
@@ -20,9 +23,10 @@
 		C06C78941A8CF931001A9910 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78901A8CF931001A9910 /* Recipe.swift */; };
 		C06C78951A8CF931001A9910 /* RecipeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C78911A8CF931001A9910 /* RecipeImage.swift */; };
 		C06C79121A8D50B7001A9910 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79111A8D50B7001A9910 /* UserProfile.swift */; };
-		C06C79161A8D60DA001A9910 /* BaseBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79151A8D60DA001A9910 /* BaseBal.swift */; };
+		C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */; };
 		C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */; };
 		C06C791B1A8D6656001A9910 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C791A1A8D6656001A9910 /* StringExtension.swift */; };
+		C07379F01A8F806D0069F678 /* AlamofireExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07379EF1A8F806D0069F678 /* AlamofireExtension.swift */; };
 		C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA90171A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift */; };
 		C0EA901B1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0EA901A1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib */; };
 		C0EA90281A8CE6E500BB62F0 /* FFMMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA90261A8CE6E500BB62F0 /* FFMMenuTableViewController.swift */; };
@@ -85,6 +89,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipesBal.swift; sourceTree = "<group>"; };
+		C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YummlyRecipesBal.swift; sourceTree = "<group>"; };
+		C019F3F71A8F88AF00766D7C /* BigOvenRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigOvenRecipesBal.swift; sourceTree = "<group>"; };
 		C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMLocalizedConstants.swift; sourceTree = "<group>"; };
@@ -98,9 +105,10 @@
 		C06C78901A8CF931001A9910 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		C06C78911A8CF931001A9910 /* RecipeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImage.swift; sourceTree = "<group>"; };
 		C06C79111A8D50B7001A9910 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		C06C79151A8D60DA001A9910 /* BaseBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBal.swift; sourceTree = "<group>"; };
+		C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMBaseBal.swift; sourceTree = "<group>"; };
 		C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewAsyncImageExtension.swift; sourceTree = "<group>"; };
 		C06C791A1A8D6656001A9910 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		C07379EF1A8F806D0069F678 /* AlamofireExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtension.swift; sourceTree = "<group>"; };
 		C0EA90171A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMProfileHeaderView.swift; sourceTree = "<group>"; };
 		C0EA901A1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFMProfileHeaderView.xib; sourceTree = "<group>"; };
 		C0EA90261A8CE6E500BB62F0 /* FFMMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +149,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C019F3F21A8F883800766D7C /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */,
+				C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */,
+				C019F3F71A8F88AF00766D7C /* BigOvenRecipesBal.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
 		C03B7B171A8ADB0A0043E5A1 /* External */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,7 +249,8 @@
 		C06C79141A8D608A001A9910 /* BAL */ = {
 			isa = PBXGroup;
 			children = (
-				C06C79151A8D60DA001A9910 /* BaseBal.swift */,
+				C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */,
+				C019F3F21A8F883800766D7C /* Recipes */,
 			);
 			path = BAL;
 			sourceTree = "<group>";
@@ -241,6 +260,7 @@
 			children = (
 				C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */,
 				C06C791A1A8D6656001A9910 /* StringExtension.swift */,
+				C07379EF1A8F806D0069F678 /* AlamofireExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -491,22 +511,26 @@
 				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
 				C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */,
 				C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */,
+				C019F3F81A8F88AF00766D7C /* BigOvenRecipesBal.swift in Sources */,
 				C06C78931A8CF931001A9910 /* Ingredient.swift in Sources */,
 				C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */,
 				C0F0B1AC1A8A2E7700752E0E /* Event.swift in Sources */,
 				C0F0B0E91A89970B00752E0E /* DetailViewController.swift in Sources */,
 				C0EA902B1A8CEA0400BB62F0 /* FFMRecipiesTableViewController.swift in Sources */,
 				C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */,
+				C019F3F61A8F889800766D7C /* YummlyRecipesBal.swift in Sources */,
 				C06C79121A8D50B7001A9910 /* UserProfile.swift in Sources */,
 				C0EA90281A8CE6E500BB62F0 /* FFMMenuTableViewController.swift in Sources */,
 				C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */,
 				C0EA90291A8CE6E500BB62F0 /* FFMNavigationController.swift in Sources */,
+				C07379F01A8F806D0069F678 /* AlamofireExtension.swift in Sources */,
 				C06C78951A8CF931001A9910 /* RecipeImage.swift in Sources */,
 				C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */,
 				C06C78941A8CF931001A9910 /* Recipe.swift in Sources */,
 				C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */,
-				C06C79161A8D60DA001A9910 /* BaseBal.swift in Sources */,
+				C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */,
 				C06C791B1A8D6656001A9910 /* StringExtension.swift in Sources */,
+				C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */,
 				C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

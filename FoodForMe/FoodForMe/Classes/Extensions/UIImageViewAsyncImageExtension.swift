@@ -12,12 +12,10 @@ import Foundation
 
 extension UIImageView {
     func loadImage(url: String, autoCache: Bool) {
-        var urlId = NSString(string: url).md5
-        
+        var urlId: String = NSString(string: url)
         var fileHandler : NSFileController = NSFileController()
-        var cacheDir : String = "Documents/cache/images/\(urlId)"
+        var cacheDir : String = "Documents/cache/images/\(urlId.md5)"
         var existFileData : NSData? = fileHandler.readFile(cacheDir)
-        
         if (existFileData != nil) {
             var imageUrl = NSURL(string: url)
             var request = NSURLRequest(URL: imageUrl!)
