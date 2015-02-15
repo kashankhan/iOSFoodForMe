@@ -36,6 +36,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
         recipesBal.searchRecipe("oysters")
         
     }
+    
     func registerNibs() {
         let nib: UINib = UINib(nibName: "FFMRecipeTableViewCell", bundle: NSBundle.mainBundle())
         self.tableView.registerNib(nib, forCellReuseIdentifier: identifierCell)
@@ -68,8 +69,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: FFMRecipeTableViewCell  = tableView.dequeueReusableCellWithIdentifier(identifierCell, forIndexPath: indexPath) as FFMRecipeTableViewCell
-        cell.recipeLabel?.text = "fasdfasdfasfd"
-        //self.configureCell(cell, atIndexPath: indexPath)
+        self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
     

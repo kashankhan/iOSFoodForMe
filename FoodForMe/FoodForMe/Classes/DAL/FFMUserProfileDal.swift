@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class FFMUserProfileDal: CoreDataDal {
+class FFMUserProfileDal: FFMBaseDal {
     
     func saveFacebookProfile(user: FBGraphUser) -> UserProfile? {
         let context: NSManagedObjectContext = self.backgroundContext!

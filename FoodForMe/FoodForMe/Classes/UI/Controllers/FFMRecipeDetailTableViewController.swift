@@ -11,5 +11,18 @@ import UIKit
 
 class FFMRecipeDetailTableViewController: UITableViewController {
 
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureViews()
+    }
+    
+    // MARK: - Private Methods
+    func configureViews() {
+        registerNibs()
+    }
+    
+    
+    func registerNibs() {
+    }
+    
 }

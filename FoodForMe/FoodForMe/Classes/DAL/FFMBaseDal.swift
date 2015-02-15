@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import CoreData
+
+class FFMBaseDal: CoreDataDal {
+
+
+}
