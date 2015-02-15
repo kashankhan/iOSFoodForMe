@@ -2,7 +2,7 @@
 //  Recipe.swift
 //  FoodForMe
 //
-//  Created by Kashan Khan on 11/02/2015.
+//  Created by Kashan Khan on 15/02/2015.
 //  Copyright (c) 2015 Kashan Khan. All rights reserved.
 //
 
@@ -11,11 +11,19 @@ import CoreData
 
 class Recipe: NSManagedObject {
 
-    @NSManaged var name: String
+    @NSManaged var title: String
     @NSManaged var preparation: String
-    @NSManaged var starts: NSNumber
+    @NSManaged var starRating: NSNumber
     @NSManaged var videoUri: String
-    @NSManaged var images: NSManagedObject
-    @NSManaged var ingredients: NSManagedObject
+    @NSManaged var recipeId: String
+    @NSManaged var totalTries: NSNumber
+    @NSManaged var category: String
+    @NSManaged var cuisine: String
+    @NSManaged var bookmark: NSNumber
+    @NSManaged var reviewCount: NSNumber
+    @NSManaged var imageUri: String
+    @NSManaged var largeImageUri: String
+    @NSManaged var subcategory: String
+    @NSManaged var ingredients: Ingredient
 
 }

@@ -2,7 +2,7 @@
 //  UserProfile.swift
 //  FoodForMe
 //
-//  Created by Kashan Khan on 12/02/2015.
+//  Created by Kashan Khan on 15/02/2015.
 //  Copyright (c) 2015 Kashan Khan. All rights reserved.
 //
 
@@ -17,7 +17,7 @@ class UserProfile: NSManagedObject {
     @NSManaged var gender: String
     @NSManaged var lastName: String
     @NSManaged var name: String
-    @NSManaged var userId: String
     @NSManaged var profileLink: String
+    @NSManaged var userId: String
 
 }
