@@ -132,7 +132,7 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     
     // Mark: Facebook
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
-       // NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: user)
+        NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: user)
         let profileDal: FFMUserProfileDal =  FFMUserProfileDal()
         profileDal.saveFacebookProfile(user)
     }

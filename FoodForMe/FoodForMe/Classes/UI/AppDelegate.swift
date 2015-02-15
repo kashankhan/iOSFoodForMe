@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.setupStyle()
         return true
     }
 
@@ -48,6 +49,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let wasHandled = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
         
         return wasHandled;
+    }
+    
+    //MARK: - Private methods
+    func setupStyle() {
+        
+        let font = UIFont(name: "HelveticaNeue-UltraLight", size: 20.0)!
+        UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName : font ]
+        UIBarButtonItem.appearance().setTitleTextAttributes([ NSFontAttributeName : font ], forState: .Normal)
+//        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+//       // UINavigationBar.appearance().barTintColor = UIColor.HNColor()
+//        UINavigationBar.appearance().translucent = true
+//        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(),
+//            NSFontAttributeName: UIFont(name: "HelveticaNeue-UltraLight", size: 16.0)!]
+
     }
 }
 

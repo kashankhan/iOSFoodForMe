@@ -19,7 +19,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recipes" id="2h0-NR-CWV">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="8pd-7v-ar2">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="8pd-7v-ar2">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="iGJ-R2-ubN" id="GKl-aY-B66"/>
                             </connections>
@@ -168,4 +168,7 @@
             <point key="canvasLocation" x="-845" y="49"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="28" height="20"/>
+    </resources>
 </document>
