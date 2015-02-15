@@ -12,6 +12,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="2Z8-li-enS">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="iGJ-R2-ubN" id="JNh-eV-5n2"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeTableViewCell" rowHeight="60" id="PXK-GT-WKs" customClass="FFMRecipeTableViewCell" customModule="FoodForMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -102,14 +110,26 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recipes" id="2h0-NR-CWV">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="8pd-7v-ar2">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="8pd-7v-ar2">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="iGJ-R2-ubN" id="GKl-aY-B66"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="FC5-VM-lAV" id="SZP-9K-24a"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50r-Mk-tlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="FC5-VM-lAV">
+                    <connections>
+                        <outlet property="delegate" destination="iGJ-R2-ubN" id="0xs-Dw-KBK"/>
+                        <outlet property="searchBar" destination="2Z8-li-enS" id="KVB-tc-6wK"/>
+                        <outlet property="searchContentsController" destination="iGJ-R2-ubN" id="Udd-eY-bHH"/>
+                        <outlet property="searchResultsDataSource" destination="iGJ-R2-ubN" id="zDk-bz-2fa"/>
+                        <outlet property="searchResultsDelegate" destination="iGJ-R2-ubN" id="ppm-Ta-Xfz"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-185" y="46"/>
         </scene>
@@ -255,5 +275,6 @@
     <resources>
         <image name="StarEmpty" width="22" height="22"/>
         <image name="StarFull" width="22" height="22"/>
+        <image name="menu" width="28" height="20"/>
     </resources>
 </document>

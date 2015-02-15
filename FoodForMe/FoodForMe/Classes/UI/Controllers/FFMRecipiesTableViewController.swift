@@ -53,6 +53,10 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     
     // MARK: - Table View
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60.0
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
     }
@@ -63,7 +67,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: FFMRecipeTableViewCell  = tableView.dequeueReusableCellWithIdentifier(identifierCell, forIndexPath: indexPath) as FFMRecipeTableViewCell
+        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell, forIndexPath: indexPath) as FFMRecipeTableViewCell
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
