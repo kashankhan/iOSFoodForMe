@@ -4,28 +4,21 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Recipies Table View Controller-->
+        <!--Recipes-->
         <scene sceneID="aSA-0X-0WW">
             <objects>
-                <tableViewController id="iGJ-R2-ubN" customClass="FFMRecipiesTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yeH-zp-HTS">
+                <tableViewController storyboardIdentifier="FFMRecipiesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iGJ-R2-ubN" customClass="FFMRecipiesTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="yeH-zp-HTS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="I16-ik-Xy8">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I16-ik-Xy8" id="g08-66-FZz">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="iGJ-R2-ubN" id="2Cs-hK-vCk"/>
                             <outlet property="delegate" destination="iGJ-R2-ubN" id="B8u-hR-LEs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="2h0-NR-CWV">
+                    <navigationItem key="navigationItem" title="Recipes" id="2h0-NR-CWV">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="8pd-7v-ar2">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="iGJ-R2-ubN" id="GKl-aY-B66"/>
@@ -35,7 +28,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50r-Mk-tlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-12" y="49"/>
+            <point key="canvasLocation" x="-185" y="49"/>
+        </scene>
+        <!--Recipe Detail Table View Controller-->
+        <scene sceneID="QKj-TG-t4D">
+            <objects>
+                <tableViewController storyboardIdentifier="FFMRecipeDetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l6A-f9-Zgl" customClass="FFMRecipeDetailTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sW9-cp-mB7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="l6A-f9-Zgl" id="Cox-gC-YS0"/>
+                            <outlet property="delegate" destination="l6A-f9-Zgl" id="Bd8-N2-yNx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kwl-fU-B2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="461" y="49"/>
         </scene>
         <!--ViewController 3-->
         <scene sceneID="U2O-Gc-gp6">
@@ -65,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdQ-Jr-QE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="685" y="49"/>
+            <point key="canvasLocation" x="1491" y="49"/>
         </scene>
         <!--ViewController 4-->
         <scene sceneID="7sn-3Y-MdV">

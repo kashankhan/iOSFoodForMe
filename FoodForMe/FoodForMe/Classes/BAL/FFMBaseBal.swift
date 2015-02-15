@@ -11,6 +11,7 @@ import Alamofire
 
 class FFMBaseBal: NSObject {
 
+
     func performGetRequest() {
        
         Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])

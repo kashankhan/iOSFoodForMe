@@ -10,6 +10,10 @@
 		C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */; };
 		C019F3F61A8F889800766D7C /* YummlyRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */; };
 		C019F3F81A8F88AF00766D7C /* BigOvenRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F71A8F88AF00766D7C /* BigOvenRecipesBal.swift */; };
+		C019F3FD1A90230D00766D7C /* FFMRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C019F3FC1A90230D00766D7C /* FFMRecipeTableViewCell.xib */; };
+		C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4001A9026EE00766D7C /* FloatRatingView.swift */; };
+		C019F4031A90273200766D7C /* FFMRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4021A90273200766D7C /* FFMRecipeTableViewCell.swift */; };
+		C019F4061A90E95600766D7C /* FFMRecipeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */; };
 		C03B7B1A1A8ADB480043E5A1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */; };
 		C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = C03B7B231A8ADE630043E5A1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */; };
@@ -92,6 +96,10 @@
 		C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipesBal.swift; sourceTree = "<group>"; };
 		C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YummlyRecipesBal.swift; sourceTree = "<group>"; };
 		C019F3F71A8F88AF00766D7C /* BigOvenRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigOvenRecipesBal.swift; sourceTree = "<group>"; };
+		C019F3FC1A90230D00766D7C /* FFMRecipeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFMRecipeTableViewCell.xib; sourceTree = "<group>"; };
+		C019F4001A9026EE00766D7C /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
+		C019F4021A90273200766D7C /* FFMRecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipeDetailTableViewController.swift; sourceTree = "<group>"; };
 		C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMLocalizedConstants.swift; sourceTree = "<group>"; };
@@ -159,9 +167,18 @@
 			path = Recipes;
 			sourceTree = "<group>";
 		};
+		C019F3FF1A9026ED00766D7C /* FloatRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				C019F4001A9026EE00766D7C /* FloatRatingView.swift */,
+			);
+			path = FloatRatingView;
+			sourceTree = "<group>";
+		};
 		C03B7B171A8ADB0A0043E5A1 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C019F3FF1A9026ED00766D7C /* FloatRatingView */,
 				C054866D1A8C21AB002E55E1 /* SlideMenu */,
 				C03B7B1C1A8ADE500043E5A1 /* Alamofire */,
 				C03B7B181A8ADB0A0043E5A1 /* Facebook */,
@@ -226,6 +243,7 @@
 			children = (
 				C0EA90251A8CE6E500BB62F0 /* Base */,
 				C0EA902A1A8CEA0400BB62F0 /* FFMRecipiesTableViewController.swift */,
+				C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,6 +260,8 @@
 		C06C79131A8D5BA2001A9910 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C019F3FC1A90230D00766D7C /* FFMRecipeTableViewCell.xib */,
+				C019F4021A90273200766D7C /* FFMRecipeTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -487,6 +507,7 @@
 				C0F0B0C41A898A7E00752E0E /* Main.storyboard in Resources */,
 				C0F0B0C91A898A7E00752E0E /* LaunchScreen.xib in Resources */,
 				C0F0B0C61A898A7E00752E0E /* Images.xcassets in Resources */,
+				C019F3FD1A90230D00766D7C /* FFMRecipeTableViewCell.xib in Resources */,
 				C0EA901B1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +528,7 @@
 			files = (
 				C05486821A8CD70F002E55E1 /* CoreDataStore.swift in Sources */,
 				C0F0B0E81A89970B00752E0E /* AppDelegate.swift in Sources */,
+				C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */,
 				C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */,
 				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
 				C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */,
@@ -514,6 +536,7 @@
 				C019F3F81A8F88AF00766D7C /* BigOvenRecipesBal.swift in Sources */,
 				C06C78931A8CF931001A9910 /* Ingredient.swift in Sources */,
 				C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */,
+				C019F4061A90E95600766D7C /* FFMRecipeDetailTableViewController.swift in Sources */,
 				C0F0B1AC1A8A2E7700752E0E /* Event.swift in Sources */,
 				C0F0B0E91A89970B00752E0E /* DetailViewController.swift in Sources */,
 				C0EA902B1A8CEA0400BB62F0 /* FFMRecipiesTableViewController.swift in Sources */,
@@ -529,6 +552,7 @@
 				C06C78941A8CF931001A9910 /* Recipe.swift in Sources */,
 				C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */,
 				C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */,
+				C019F4031A90273200766D7C /* FFMRecipeTableViewCell.swift in Sources */,
 				C06C791B1A8D6656001A9910 /* StringExtension.swift in Sources */,
 				C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */,
 				C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */,

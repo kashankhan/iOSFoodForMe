@@ -11,13 +11,10 @@ import UIKit
 
 class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate {
     
-    
+    let identifierCell = "IdentifierFFMRecipeTableViewCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sideMenuController()?.sideMenu?.delegate = self;
-        
-       let recipesBal = FFMRecipesBal()
-        recipesBal.searchRecipe("oysters")
+        configureViews()
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,6 +25,20 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     
     @IBAction func toggleSideMenu(sender: AnyObject) {
         toggleSideMenuView()
+    }
+    
+    // MARK: - Private Methods
+    func configureViews() {
+        self.sideMenuController()?.sideMenu?.delegate = self;
+        registerNibs()
+        
+        let recipesBal = FFMRecipesBal()
+        recipesBal.searchRecipe("oysters")
+        
+    }
+    func registerNibs() {
+        let nib: UINib = UINib(nibName: "FFMRecipeTableViewCell", bundle: NSBundle.mainBundle())
+        self.tableView.registerNib(nib, forCellReuseIdentifier: identifierCell)
     }
     
     // MARK: - ENSideMenu Delegate
@@ -42,5 +53,29 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     func sideMenuShouldOpenSideMenu() -> Bool {
         println("sideMenuShouldOpenSideMenu")
         return true;
+    }
+    
+    
+    // MARK: - Table View
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: FFMRecipeTableViewCell  = tableView.dequeueReusableCellWithIdentifier(identifierCell, forIndexPath: indexPath) as FFMRecipeTableViewCell
+        cell.recipeLabel?.text = "fasdfasdfasfd"
+        //self.configureCell(cell, atIndexPath: indexPath)
+        return cell
+    }
+    
+    func configureCell(cell: FFMRecipeTableViewCell, atIndexPath indexPath: NSIndexPath) {
+//        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+//        cell.textLabel!.text = object.valueForKey("name")!.description
+        cell.configureCell()
     }
 }
