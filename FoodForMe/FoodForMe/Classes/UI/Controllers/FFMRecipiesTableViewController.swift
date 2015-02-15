@@ -17,7 +17,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     let identifierCell = "IdentifierFFMRecipeTableViewCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
+       // configureViews()
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,13 +33,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     // MARK: - Private Methods
     func configureViews() {
         self.sideMenuController()?.sideMenu?.delegate = self;
-        registerNibs()
         
-    }
-    
-    func registerNibs() {
-        let nib: UINib = UINib(nibName: "FFMRecipeTableViewCell", bundle: NSBundle.mainBundle())
-        self.tableView.registerNib(nib, forCellReuseIdentifier: identifierCell)
     }
     
     // MARK: - ENSideMenu Delegate

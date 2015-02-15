@@ -10,7 +10,6 @@
 		C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */; };
 		C019F3F61A8F889800766D7C /* YummlyRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */; };
 		C019F3F81A8F88AF00766D7C /* BigOvenRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F71A8F88AF00766D7C /* BigOvenRecipesBal.swift */; };
-		C019F3FD1A90230D00766D7C /* FFMRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C019F3FC1A90230D00766D7C /* FFMRecipeTableViewCell.xib */; };
 		C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4001A9026EE00766D7C /* FloatRatingView.swift */; };
 		C019F4031A90273200766D7C /* FFMRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4021A90273200766D7C /* FFMRecipeTableViewCell.swift */; };
 		C019F4061A90E95600766D7C /* FFMRecipeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */; };
@@ -98,7 +97,6 @@
 		C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipesBal.swift; sourceTree = "<group>"; };
 		C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YummlyRecipesBal.swift; sourceTree = "<group>"; };
 		C019F3F71A8F88AF00766D7C /* BigOvenRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigOvenRecipesBal.swift; sourceTree = "<group>"; };
-		C019F3FC1A90230D00766D7C /* FFMRecipeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFMRecipeTableViewCell.xib; sourceTree = "<group>"; };
 		C019F4001A9026EE00766D7C /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		C019F4021A90273200766D7C /* FFMRecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipeDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 		C06C79131A8D5BA2001A9910 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C019F3FC1A90230D00766D7C /* FFMRecipeTableViewCell.xib */,
 				C019F4021A90273200766D7C /* FFMRecipeTableViewCell.swift */,
 			);
 			path = TableViewCell;
@@ -521,7 +518,6 @@
 				C0F0B0C41A898A7E00752E0E /* Main.storyboard in Resources */,
 				C0F0B0C91A898A7E00752E0E /* LaunchScreen.xib in Resources */,
 				C0F0B0C61A898A7E00752E0E /* Images.xcassets in Resources */,
-				C019F3FD1A90230D00766D7C /* FFMRecipeTableViewCell.xib in Resources */,
 				C0EA901B1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

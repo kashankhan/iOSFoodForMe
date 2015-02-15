@@ -12,6 +12,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeTableViewCell" rowHeight="60" id="PXK-GT-WKs" customClass="FFMRecipeTableViewCell" customModule="FoodForMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PXK-GT-WKs" id="uZd-9f-ypI">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj0-b6-nJV">
+                                            <rect key="frame" x="65" y="8" width="500" height="21"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Review: 99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeT-a4-dr5">
+                                            <rect key="frame" x="440" y="35" width="57" height="15"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="57" id="0Wb-8e-HQt"/>
+                                                <constraint firstAttribute="width" constant="57" id="Qpz-BR-W7K"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCy-BV-HQ9">
+                                            <rect key="frame" x="13" y="8" width="45" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="45" id="dpg-dN-v4U"/>
+                                                <constraint firstAttribute="height" constant="45" id="nNW-SL-3uV"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucn-bL-aqU">
+                                            <rect key="frame" x="66" y="35" width="150" height="15"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="e8c-Ox-6q1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPa-8U-HN9" customClass="FloatRatingView" customModule="FoodForMe" customModuleProvider="target">
+                                            <rect key="frame" x="499" y="34" width="63" height="20"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="63" id="wh9-KT-2gX"/>
+                                                <constraint firstAttribute="height" constant="20" id="yee-Cb-RWP"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="TCy-BV-HQ9" secondAttribute="centerY" id="AIK-Nd-4R6"/>
+                                        <constraint firstItem="TCy-BV-HQ9" firstAttribute="leading" secondItem="uZd-9f-ypI" secondAttribute="leading" constant="13" id="EM6-h4-c5p"/>
+                                        <constraint firstAttribute="trailing" secondItem="UPa-8U-HN9" secondAttribute="trailing" constant="5" id="MCs-lh-wlI"/>
+                                        <constraint firstAttribute="bottom" secondItem="VeT-a4-dr5" secondAttribute="bottom" constant="10" id="daf-JU-ZW6"/>
+                                        <constraint firstItem="Wj0-b6-nJV" firstAttribute="leading" secondItem="uZd-9f-ypI" secondAttribute="leading" constant="65" id="fJI-jZ-NQR"/>
+                                        <constraint firstAttribute="bottom" secondItem="ucn-bL-aqU" secondAttribute="bottom" constant="10" id="hdu-rT-ESy"/>
+                                        <constraint firstAttribute="bottom" secondItem="UPa-8U-HN9" secondAttribute="bottom" constant="5" id="hpF-QP-28g"/>
+                                        <constraint firstItem="Wj0-b6-nJV" firstAttribute="top" secondItem="uZd-9f-ypI" secondAttribute="top" constant="8" id="kmS-xE-aag"/>
+                                        <constraint firstAttribute="trailing" secondItem="Wj0-b6-nJV" secondAttribute="trailing" constant="2" id="qp7-uH-NHa"/>
+                                        <constraint firstItem="ucn-bL-aqU" firstAttribute="leading" secondItem="uZd-9f-ypI" secondAttribute="leading" constant="66" id="r40-za-GaU"/>
+                                        <constraint firstAttribute="trailing" secondItem="VeT-a4-dr5" secondAttribute="trailing" constant="70" id="x8B-e2-rE0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarimageView" destination="TCy-BV-HQ9" id="kmT-9c-EZC"/>
+                                    <outlet property="catagoryLabel" destination="ucn-bL-aqU" id="XoX-yx-ooP"/>
+                                    <outlet property="ratingStarView" destination="UPa-8U-HN9" id="2XH-v2-mNC"/>
+                                    <outlet property="recipeLabel" destination="Wj0-b6-nJV" id="Zg4-tN-LbF"/>
+                                    <outlet property="reviewLabel" destination="VeT-a4-dr5" id="B3t-xk-MK0"/>
+                                    <segue destination="l6A-f9-Zgl" kind="show" id="uUP-br-3nN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="iGJ-R2-ubN" id="2Cs-hK-vCk"/>
@@ -19,7 +101,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recipes" id="2h0-NR-CWV">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="8pd-7v-ar2">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="8pd-7v-ar2">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="iGJ-R2-ubN" id="GKl-aY-B66"/>
                             </connections>
@@ -28,7 +110,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50r-Mk-tlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-185" y="49"/>
+            <point key="canvasLocation" x="-185" y="46"/>
         </scene>
         <!--Recipe Detail Table View Controller-->
         <scene sceneID="QKj-TG-t4D">
@@ -43,10 +125,11 @@
                             <outlet property="delegate" destination="l6A-f9-Zgl" id="Bd8-N2-yNx"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="qWo-1y-gLe"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwl-fU-B2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="49"/>
+            <point key="canvasLocation" x="592" y="49"/>
         </scene>
         <!--ViewController 3-->
         <scene sceneID="U2O-Gc-gp6">
@@ -169,6 +252,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="menu" width="28" height="20"/>
+        <image name="StarEmpty" width="22" height="22"/>
+        <image name="StarFull" width="22" height="22"/>
     </resources>
 </document>
