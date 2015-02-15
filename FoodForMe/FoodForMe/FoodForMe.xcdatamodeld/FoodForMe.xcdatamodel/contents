@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14D72i" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
+    <entity name="Ingredient" representedClassName="FoodForMe.Ingredient" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe" syncable="YES"/>
     </entity>
-    <entity name="Recipe" representedClassName="Recipe" syncable="YES">
+    <entity name="Recipe" representedClassName="FoodForMe.Recipe" syncable="YES">
         <attribute name="bookmark" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cuisine" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,7 +32,7 @@
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Ingredient" positionX="349" positionY="-18" width="128" height="88"/>
+        <element name="Ingredient" positionX="349" positionY="-18" width="128" height="90"/>
         <element name="Recipe" positionX="52" positionY="-126" width="128" height="253"/>
         <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="163"/>
     </elements>
