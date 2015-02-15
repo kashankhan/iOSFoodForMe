@@ -19,14 +19,14 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PXK-GT-WKs" id="uZd-9f-ypI">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj0-b6-nJV">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj0-b6-nJV">
                                             <rect key="frame" x="65" y="8" width="500" height="21"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Review: 99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeT-a4-dr5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review: 99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeT-a4-dr5">
                                             <rect key="frame" x="440" y="35" width="57" height="15"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -37,14 +37,14 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCy-BV-HQ9">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TCy-BV-HQ9">
                                             <rect key="frame" x="13" y="8" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="dpg-dN-v4U"/>
                                                 <constraint firstAttribute="height" constant="45" id="nNW-SL-3uV"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucn-bL-aqU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucn-bL-aqU">
                                             <rect key="frame" x="66" y="35" width="150" height="15"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -54,7 +54,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPa-8U-HN9" customClass="FloatRatingView" customModule="FoodForMe" customModuleProvider="target">
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPa-8U-HN9" customClass="FloatRatingView" customModule="FoodForMe" customModuleProvider="target">
                                             <rect key="frame" x="499" y="34" width="63" height="20"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -71,12 +71,13 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="TCy-BV-HQ9" secondAttribute="centerY" id="AIK-Nd-4R6"/>
+                                        <constraint firstAttribute="centerY" secondItem="TCy-BV-HQ9" secondAttribute="centerY" constant="-1" id="AIK-Nd-4R6"/>
                                         <constraint firstItem="TCy-BV-HQ9" firstAttribute="leading" secondItem="uZd-9f-ypI" secondAttribute="leading" constant="13" id="EM6-h4-c5p"/>
                                         <constraint firstAttribute="trailing" secondItem="UPa-8U-HN9" secondAttribute="trailing" constant="5" id="MCs-lh-wlI"/>
-                                        <constraint firstAttribute="bottom" secondItem="VeT-a4-dr5" secondAttribute="bottom" constant="10" id="daf-JU-ZW6"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ucn-bL-aqU" secondAttribute="bottom" constant="9" id="ZGf-MJ-4bC"/>
+                                        <constraint firstAttribute="bottom" secondItem="VeT-a4-dr5" secondAttribute="bottom" constant="9" id="daf-JU-ZW6"/>
                                         <constraint firstItem="Wj0-b6-nJV" firstAttribute="leading" secondItem="uZd-9f-ypI" secondAttribute="leading" constant="65" id="fJI-jZ-NQR"/>
-                                        <constraint firstAttribute="bottom" secondItem="ucn-bL-aqU" secondAttribute="bottom" constant="10" id="hdu-rT-ESy"/>
+                                        <constraint firstAttribute="bottom" secondItem="ucn-bL-aqU" secondAttribute="bottom" constant="9" id="hdu-rT-ESy"/>
                                         <constraint firstAttribute="bottom" secondItem="UPa-8U-HN9" secondAttribute="bottom" constant="5" id="hpF-QP-28g"/>
                                         <constraint firstItem="Wj0-b6-nJV" firstAttribute="top" secondItem="uZd-9f-ypI" secondAttribute="top" constant="8" id="kmS-xE-aag"/>
                                         <constraint firstAttribute="trailing" secondItem="Wj0-b6-nJV" secondAttribute="trailing" constant="2" id="qp7-uH-NHa"/>
