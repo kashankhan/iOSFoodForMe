@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class FFMRecipeTableViewCell: UITableViewCell {
    
@@ -22,8 +23,14 @@ class FFMRecipeTableViewCell: UITableViewCell {
         avatarimageView.clipsToBounds = true
     }
     
-    func configureCell() {
-    
+    func configureCell(recipe: Recipe) {
+        
+        self.avatarimageView.image = nil
+        self.avatarimageView.loadImage(recipe.imageUri, autoCache: true)
+        self.recipeLabel?.text = recipe.title
+        self.catagoryLabel?.text = recipe.category + "-" + recipe.subcategory
+        self.ratingStarView.rating = recipe.starRating.floatValue
+        self.reviewLabel?.text =  NSLS.review + ": " + recipe.reviewCount.stringValue
     }
     
 }

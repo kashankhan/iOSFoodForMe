@@ -11,54 +11,49 @@ import UIKit
 import Foundation
 
 extension UIImageView {
-    func loadImage(url: String, autoCache: Bool) {
-        var urlId: String = NSString(string: url)
-        var fileHandler : NSFileController = NSFileController()
-        var cacheDir : String = "Documents/cache/images/\(urlId.md5)"
-        var existFileData : NSData? = fileHandler.readFile(cacheDir)
-        if (existFileData != nil) {
-            var imageUrl = NSURL(string: url)
-            var request = NSURLRequest(URL: imageUrl!)
-            var requestQueue : NSOperationQueue = NSOperationQueue()
-            println("uncache")
-            NSURLConnection.sendAsynchronousRequest(request, queue: requestQueue, completionHandler:
-                {(response: NSURLResponse!, responseData: NSData!, error: NSError!) -> Void in
-                    if error != nil {
-                        println("error")
-                    }
-                    else {
-                        println(fileHandler.writeFile(cacheDir, fileContent: responseData))
-                        self.image = UIImage(data: responseData)
-                    }
-            })
+    func loadImage(uri: String, autoCache: Bool) {
+        let url: NSURL = NSURL(string: uri)!
+        var urlId = url.hash
+        
+        var fileHandler = FileController()
+        var cacheDir = "Documents/cache/images/\(urlId)"
+        var existFileData = fileHandler.readFile(cacheDir)
+        
+        if existFileData == nil {
+            NSURLSession.sharedSession().dataTaskWithURL(url) {
+                (data: NSData!, response: NSURLResponse!, error: NSError!) in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) { self.image = UIImage(data: data) }
+                }
+                }.resume()
+        } else {
+            image = UIImage(data: existFileData!)
         }
-        else {
-            println("cache")
-            self.image = UIImage(data: existFileData!)
+    }
+    
+    private class FileController {
+        func writeFile(fileDir: String, fileContent: NSData) -> Bool {
+            var filePath = NSHomeDirectory().stringByAppendingPathComponent(fileDir)
+            
+            return fileContent.writeToFile(filePath, atomically: true)
+        }
+        
+        func readFile(fileDir: String) -> NSData? {
+            var filePath = NSHomeDirectory().stringByAppendingPathComponent(fileDir)
+            if let fileHandler = NSFileHandle(forReadingAtPath: filePath) {
+                var fileData = fileHandler.readDataToEndOfFile()
+                fileHandler.closeFile()
+                return fileData
+            } else {
+                return nil
+            }
+        }
+        
+        func mkdir(fileDir: String) -> Bool {
+            var filePath = NSHomeDirectory().stringByAppendingPathComponent(fileDir)
+            return NSFileManager.defaultManager().createDirectoryAtPath(filePath, withIntermediateDirectories: true, attributes: nil, error: nil)
         }
     }
 }
 
-class NSFileController : NSObject {
-    var fileManager : NSFileManager = NSFileManager.defaultManager()
-    func writeFile(fileDir: String, fileContent: NSData) -> Bool {
-        var filePath : String = NSHomeDirectory().stringByAppendingPathComponent(fileDir)
-        
-        var writePointer : Bool = fileContent.writeToFile(filePath, atomically: true)
-        return writePointer
-    }
-    
-    func readFile(fileDir: String) -> NSData? {
-        var filePath : String = NSHomeDirectory().stringByAppendingPathComponent(fileDir)
-        var fileHandler : NSFileHandle = NSFileHandle(forReadingAtPath: filePath)!
-        var fileData : NSData? = fileHandler.readDataToEndOfFile()
-        fileHandler.closeFile()
-        return fileData
-    }
-    
-    func mkdir(fileDir: String) -> Bool {
-        var filePath : String = NSHomeDirectory().stringByAppendingPathComponent(fileDir)
-        var createHandler : Bool = fileManager.createDirectoryAtPath(filePath, withIntermediateDirectories: true, attributes: nil, error: nil)
-        return createHandler
-    }
-}
+

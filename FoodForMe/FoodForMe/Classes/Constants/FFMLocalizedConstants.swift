@@ -11,6 +11,7 @@ import Foundation
 struct NSLS {
     static let settings = localizedString("SETTINGS", "Settings");
     static let recipes  = localizedString("RECIPICES", "Recipes");
+    static let review  = localizedString("REVIEW", "Review");
 }
 
 func localizedString(key: String, value: String)->String {

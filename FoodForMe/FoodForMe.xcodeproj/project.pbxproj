@@ -32,7 +32,6 @@
 		C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */; };
 		C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */; };
 		C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */; };
-		C06C791B1A8D6656001A9910 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C791A1A8D6656001A9910 /* StringExtension.swift */; };
 		C07379F01A8F806D0069F678 /* AlamofireExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07379EF1A8F806D0069F678 /* AlamofireExtension.swift */; };
 		C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EA90171A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift */; };
 		C0EA901B1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0EA901A1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib */; };
@@ -121,7 +120,6 @@
 		C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMUserProfileDal.swift; sourceTree = "<group>"; };
 		C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMBaseBal.swift; sourceTree = "<group>"; };
 		C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewAsyncImageExtension.swift; sourceTree = "<group>"; };
-		C06C791A1A8D6656001A9910 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		C07379EF1A8F806D0069F678 /* AlamofireExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireExtension.swift; sourceTree = "<group>"; };
 		C0EA90171A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMProfileHeaderView.swift; sourceTree = "<group>"; };
 		C0EA901A1A8CD8FA00BB62F0 /* FFMProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFMProfileHeaderView.xib; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */,
-				C06C791A1A8D6656001A9910 /* StringExtension.swift */,
 				C07379EF1A8F806D0069F678 /* AlamofireExtension.swift */,
 			);
 			path = Extensions;
@@ -573,7 +570,6 @@
 				C019F4121A90F06700766D7C /* Recipe.swift in Sources */,
 				C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */,
 				C019F4031A90273200766D7C /* FFMRecipeTableViewCell.swift in Sources */,
-				C06C791B1A8D6656001A9910 /* StringExtension.swift in Sources */,
 				C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */,
 				C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */,
 			);
