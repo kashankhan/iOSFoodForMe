@@ -2,16 +2,61 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14D72i" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Ingredient" representedClassName="FoodForMe.Ingredient" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="department" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="displayQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="ingredientID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isHeading" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isLinked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="metricDisplayQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="metricQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="metricUnit" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="preparationNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="recipeId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe" syncable="YES"/>
     </entity>
+    <entity name="NutritionInfo" representedClassName="FoodForMe.NutritionInfo" syncable="YES">
+        <attribute name="caloriesFromFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cholesterol" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cholesterolPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dietaryFiber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dietaryFiberPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="monoFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="polyFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="potassium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="potassiumPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="protein" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="proteinPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="satFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="satFatPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="singularYieldUnit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sodium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sodiumPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sugar" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalCalories" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalCarbs" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalCarbsPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalFatPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="nutritionInfo" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
     <entity name="Recipe" representedClassName="FoodForMe.Recipe" syncable="YES">
+        <attribute name="activeMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="allCategoriesText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bookmark" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cuisine" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favoriteCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="imageUri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="largeImageUri" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preparation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primaryIngredient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipeDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="recipeId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reviewCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="starRating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -19,7 +64,10 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalTries" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="videoUri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yieldNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="yieldUnit" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ingredients" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Ingredient" inverseName="recipes" inverseEntity="Ingredient" syncable="YES"/>
+        <relationship name="nutritionInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="NutritionInfo" inverseName="recipe" inverseEntity="NutritionInfo" syncable="YES"/>
     </entity>
     <entity name="UserProfile" representedClassName="FoodForMe.UserProfile" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,8 +80,9 @@
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Ingredient" positionX="349" positionY="-18" width="128" height="90"/>
-        <element name="Recipe" positionX="52" positionY="-126" width="128" height="253"/>
+        <element name="Ingredient" positionX="349" positionY="-18" width="128" height="283"/>
+        <element name="Recipe" positionX="52" positionY="-126" width="128" height="388"/>
         <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="163"/>
+        <element name="NutritionInfo" positionX="90" positionY="27" width="128" height="403"/>
     </elements>
 </model>

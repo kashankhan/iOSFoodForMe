@@ -15,15 +15,16 @@
 		C019F4061A90E95600766D7C /* FFMRecipeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */; };
 		C019F40A1A90EDF100766D7C /* FFMBaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4091A90EDF100766D7C /* FFMBaseParser.swift */; };
 		C019F40C1A90EE2000766D7C /* FFMRecipesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F40B1A90EE2000766D7C /* FFMRecipesParser.swift */; };
-		C019F4121A90F06700766D7C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4111A90F06700766D7C /* Recipe.swift */; };
-		C019F4141A90F06700766D7C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4131A90F06700766D7C /* UserProfile.swift */; };
-		C019F4161A90F06700766D7C /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4151A90F06700766D7C /* Ingredient.swift */; };
 		C019F4191A90F13B00766D7C /* FFMRecipesDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4181A90F13B00766D7C /* FFMRecipesDal.swift */; };
 		C019F41C1A90F16500766D7C /* FFMBaseDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F41B1A90F16500766D7C /* FFMBaseDal.swift */; };
 		C03B7B1A1A8ADB480043E5A1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */; };
 		C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = C03B7B231A8ADE630043E5A1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */; };
 		C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */; };
+		C04489FD1A9292F70039CB11 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04489FC1A9292F70039CB11 /* Recipe.swift */; };
+		C04489FF1A9292F80039CB11 /* NutritionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04489FE1A9292F80039CB11 /* NutritionInfo.swift */; };
+		C0448A011A9292F80039CB11 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0448A001A9292F80039CB11 /* Ingredient.swift */; };
+		C0448A031A9292F90039CB11 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0448A021A9292F90039CB11 /* UserProfile.swift */; };
 		C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */; };
 		C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */; };
 		C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054867F1A8CD70F002E55E1 /* CoreDataDal.swift */; };
@@ -102,15 +103,16 @@
 		C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipeDetailTableViewController.swift; sourceTree = "<group>"; };
 		C019F4091A90EDF100766D7C /* FFMBaseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMBaseParser.swift; sourceTree = "<group>"; };
 		C019F40B1A90EE2000766D7C /* FFMRecipesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipesParser.swift; sourceTree = "<group>"; };
-		C019F4111A90F06700766D7C /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		C019F4131A90F06700766D7C /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		C019F4151A90F06700766D7C /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		C019F4181A90F13B00766D7C /* FFMRecipesDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipesDal.swift; sourceTree = "<group>"; };
 		C019F41B1A90F16500766D7C /* FFMBaseDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMBaseDal.swift; sourceTree = "<group>"; };
 		C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMLocalizedConstants.swift; sourceTree = "<group>"; };
 		C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMGlobalConstants.swift; sourceTree = "<group>"; };
+		C04489FC1A9292F70039CB11 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		C04489FE1A9292F80039CB11 /* NutritionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionInfo.swift; sourceTree = "<group>"; };
+		C0448A001A9292F80039CB11 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		C0448A021A9292F90039CB11 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
 		C054867F1A8CD70F002E55E1 /* CoreDataDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDal.swift; sourceTree = "<group>"; };
@@ -402,9 +404,10 @@
 		C0F0B14A1A8999AC00752E0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C019F4151A90F06700766D7C /* Ingredient.swift */,
-				C019F4131A90F06700766D7C /* UserProfile.swift */,
-				C019F4111A90F06700766D7C /* Recipe.swift */,
+				C0448A021A9292F90039CB11 /* UserProfile.swift */,
+				C0448A001A9292F80039CB11 /* Ingredient.swift */,
+				C04489FE1A9292F80039CB11 /* NutritionInfo.swift */,
+				C04489FC1A9292F70039CB11 /* Recipe.swift */,
 				C0F0B1AB1A8A2E7700752E0E /* Event.swift */,
 			);
 			path = Model;
@@ -538,24 +541,26 @@
 			files = (
 				C05486821A8CD70F002E55E1 /* CoreDataStore.swift in Sources */,
 				C0F0B0E81A89970B00752E0E /* AppDelegate.swift in Sources */,
-				C019F4141A90F06700766D7C /* UserProfile.swift in Sources */,
 				C019F4191A90F13B00766D7C /* FFMRecipesDal.swift in Sources */,
 				C019F40C1A90EE2000766D7C /* FFMRecipesParser.swift in Sources */,
 				C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */,
+				C0448A031A9292F90039CB11 /* UserProfile.swift in Sources */,
 				C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */,
 				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
 				C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */,
+				C04489FF1A9292F80039CB11 /* NutritionInfo.swift in Sources */,
 				C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */,
+				C04489FD1A9292F70039CB11 /* Recipe.swift in Sources */,
 				C019F3F81A8F88AF00766D7C /* BigOvenRecipesBal.swift in Sources */,
 				C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */,
 				C019F41C1A90F16500766D7C /* FFMBaseDal.swift in Sources */,
 				C019F4061A90E95600766D7C /* FFMRecipeDetailTableViewController.swift in Sources */,
 				C0F0B1AC1A8A2E7700752E0E /* Event.swift in Sources */,
 				C0F0B0E91A89970B00752E0E /* DetailViewController.swift in Sources */,
-				C019F4161A90F06700766D7C /* Ingredient.swift in Sources */,
 				C0EA902B1A8CEA0400BB62F0 /* FFMRecipiesTableViewController.swift in Sources */,
 				C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */,
 				C019F3F61A8F889800766D7C /* YummlyRecipesBal.swift in Sources */,
+				C0448A011A9292F80039CB11 /* Ingredient.swift in Sources */,
 				C0EA90281A8CE6E500BB62F0 /* FFMMenuTableViewController.swift in Sources */,
 				C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */,
 				C019F40A1A90EDF100766D7C /* FFMBaseParser.swift in Sources */,
@@ -563,7 +568,6 @@
 				C07379F01A8F806D0069F678 /* AlamofireExtension.swift in Sources */,
 				C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */,
 				C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */,
-				C019F4121A90F06700766D7C /* Recipe.swift in Sources */,
 				C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */,
 				C019F4031A90273200766D7C /* FFMRecipeTableViewCell.swift in Sources */,
 				C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */,

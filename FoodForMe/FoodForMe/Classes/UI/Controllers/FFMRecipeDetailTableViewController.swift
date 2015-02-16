@@ -8,21 +8,33 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class FFMRecipeDetailTableViewController: UITableViewController {
 
+    var recipe: Recipe? {
+        didSet {
+            // Update the view.
+            self.configureView()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
+        configureView()
     }
     
     // MARK: - Private Methods
-    func configureViews() {
-        registerNibs()
+    func configureView() {
+        fetchRecipe()
     }
     
-    
-    func registerNibs() {
+    func fetchRecipe() {
+        if let recipe: Recipe = self.recipe {
+            let recipeBal: FFMRecipesBal = FFMRecipesBal()
+            recipeBal.getRecipe(recipe.recipeId)
+        }
+
     }
     
 }

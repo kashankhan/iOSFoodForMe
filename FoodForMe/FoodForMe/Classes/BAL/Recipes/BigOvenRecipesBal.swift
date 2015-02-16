@@ -20,16 +20,18 @@ class BigOvenRecipesBal: FFMBaseBal {
         static let apiKey        = "dvxYzGm1S642ur3foOj587frkxR5xOI0"
         static let perPage       = 20
         //http://api.bigoven.com/recipes?title_kw=oysters&pg=1&rpp=20&api_key={your-api-key}
+       
         case Search(query: String, page: Int)
+        case Recipe(recipeId: String)
         
         // MARK: URLRequestConvertible
         var URLRequest: NSURLRequest {
             let (path: String, parameters: [String: AnyObject]?) = {
                 switch self {
-                case .Search(let query, let page) where page > 0:
+                case .Search(let query, let page):
                     return ("/recipes", ["title_kw": query, "pg": page, "rpp": Router.perPage, "api_key": Router.apiKey])
-                case .Search(let query, _):
-                    return ("/search", ["q": query])
+                case .Recipe(let recipeId):
+                    return ("/recipe/" + recipeId, ["api_key": Router.apiKey])
                 }
                 }()
             let uri = Router.baseUri + path

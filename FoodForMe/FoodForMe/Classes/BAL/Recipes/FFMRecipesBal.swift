@@ -19,7 +19,12 @@ class FFMRecipesBal: FFMBaseBal {
             println(response)
             println(data)
             self.recipesParse.parsedRecipes(data!)
-            //self.recipesParse.parsedRecipes([])
-            }
         }
     }
+   
+    func getRecipe(recipeId: String) {
+        Alamofire.request(BigOvenRecipesBal.Router.Recipe(recipeId: recipeId)).responseJSON { (request, response, data, error) in
+            println(data)
+        }
+    }
+}

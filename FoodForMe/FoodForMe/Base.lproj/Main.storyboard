@@ -99,7 +99,7 @@
                                     <outlet property="ratingStarView" destination="UPa-8U-HN9" id="2XH-v2-mNC"/>
                                     <outlet property="recipeLabel" destination="Wj0-b6-nJV" id="Zg4-tN-LbF"/>
                                     <outlet property="reviewLabel" destination="VeT-a4-dr5" id="B3t-xk-MK0"/>
-                                    <segue destination="l6A-f9-Zgl" kind="show" id="uUP-br-3nN"/>
+                                    <segue destination="l6A-f9-Zgl" kind="show" identifier="IdentifierSegueShowRecipeDetail" id="uUP-br-3nN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -12,12 +12,13 @@ import CoreData
 
 class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate {
     
+    let identifierCell = "IdentifierFFMRecipeTableViewCell"
+    let recipesBal: FFMRecipesBal = FFMRecipesBal()
     var managedObjectContext: NSManagedObjectContext? = FFMRecipesDal().managedObjectContext
     
-    let identifierCell = "IdentifierFFMRecipeTableViewCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-       // configureViews()
+        configureView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,7 +32,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     }
     
     // MARK: - Private Methods
-    func configureViews() {
+    func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
         
     }
@@ -79,6 +80,17 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
         recipeCell.configureCell(recipe)
     }
     
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "IdentifierSegueShowRecipeDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
+                (segue.destinationViewController as FFMRecipeDetailTableViewController).recipe = object
+            }
+        }
+    }
+    
     // MARK: - Fetched results controller
     
     var fetchedResultsController: NSFetchedResultsController {
@@ -116,6 +128,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
         
         return _fetchedResultsController!
     }
+    
     var _fetchedResultsController: NSFetchedResultsController? = nil
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
