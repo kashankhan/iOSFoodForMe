@@ -75,7 +75,6 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let recipeCell:FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
         let recipe: Recipe = self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
-        //cell.textLabel!.text = object.valueForKey("title")!.description
         recipeCell.configureCell(recipe)
     }
     

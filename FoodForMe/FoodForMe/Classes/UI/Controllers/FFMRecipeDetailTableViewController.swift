@@ -32,9 +32,10 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     func fetchRecipe() {
         if let recipe: Recipe = self.recipe {
             let recipeBal: FFMRecipesBal = FFMRecipesBal()
-            recipeBal.getRecipe(recipe.recipeId)
+            recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
+                println(recipe?.recipeId)
+            })
         }
-
     }
     
     // MARK: - Table View

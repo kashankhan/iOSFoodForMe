@@ -14,21 +14,20 @@ class FFMRecipesBal: FFMBaseBal {
     let page = 1
     let recipesParse: FFMRecipesParser = FFMRecipesParser()
     
-    func searchRecipe(query: String) {
+    func searchRecipe(query: String, completion: ([Recipe]?) -> Void) {
         Alamofire.request(BigOvenRecipesBal.Router.Search(query: query, page: page)).responseJSON { (request, response, data, error) in
             println(response)
             println(data)
-            self.recipesParse.parseRecipes(data!)
+            completion (self.recipesParse.parseRecipes(data!))
         }
     }
    
-    func getRecipe(recipeId: String) {
-        BigOvenRecipesBal.Router.Recipe(recipeId: recipeId)
+    func getRecipe(recipeId: String, completion: (Recipe?) -> Void) {
         Alamofire.request(BigOvenRecipesBal.Router.Recipe(recipeId: recipeId)).responseJSON
             { (request, response, data, error) in
                 println(response)
                 println(data)
-                self.recipesParse.parseRecipe(data!)
+                completion(self.recipesParse.parseRecipe(data!))
         }
     }
 }
