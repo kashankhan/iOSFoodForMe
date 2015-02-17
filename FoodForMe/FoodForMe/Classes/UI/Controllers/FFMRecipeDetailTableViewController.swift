@@ -46,7 +46,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
             tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: identifierheaderView)
             recipeDetailHeaderView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMRecipeDetailHeaderView
         }
-        
+        recipeDetailHeaderView?.configureView(self.recipe!)
         return recipeDetailHeaderView;
     }
     
