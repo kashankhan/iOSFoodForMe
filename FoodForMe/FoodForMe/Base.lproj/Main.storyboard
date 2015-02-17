@@ -94,7 +94,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="avatarimageView" destination="TCy-BV-HQ9" id="kmT-9c-EZC"/>
+                                    <outlet property="avatarImageView" destination="TCy-BV-HQ9" id="PMr-6H-v4H"/>
                                     <outlet property="catagoryLabel" destination="ucn-bL-aqU" id="XoX-yx-ooP"/>
                                     <outlet property="ratingStarView" destination="UPa-8U-HN9" id="2XH-v2-mNC"/>
                                     <outlet property="recipeLabel" destination="Wj0-b6-nJV" id="Zg4-tN-LbF"/>

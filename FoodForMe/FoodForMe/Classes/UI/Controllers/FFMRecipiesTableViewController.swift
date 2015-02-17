@@ -34,7 +34,6 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     // MARK: - Private Methods
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
-        
     }
     
     // MARK: - ENSideMenu Delegate

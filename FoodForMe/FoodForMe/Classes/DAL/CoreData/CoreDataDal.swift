@@ -74,7 +74,7 @@ class CoreDataDal: NSObject {
     }
     
     func saveContext () {
-        self.saveContext( self.backgroundContext! )
+        self.saveContext(self.backgroundContext!)
         self.saveContext(self.managedObjectContext!)
     }
     
@@ -133,6 +133,14 @@ class CoreDataDal: NSObject {
             managedObject = result?.last as? NSManagedObject
         }
         
+        return managedObject
+    }
+    
+    func findOrCreate(entityName: String, context: NSManagedObjectContext, predicate: NSPredicate) -> NSManagedObject?  {
+        var managedObject = self.fetchObject(entityName, context: context, predicate: predicate)
+        if managedObject == nil {
+            managedObject = self.createManagedObject(entityName, context: context)
+        }
         return managedObject
     }
 }

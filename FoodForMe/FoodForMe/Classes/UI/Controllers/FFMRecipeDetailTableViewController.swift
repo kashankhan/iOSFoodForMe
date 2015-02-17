@@ -37,4 +37,21 @@ class FFMRecipeDetailTableViewController: UITableViewController {
 
     }
     
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let identifierheaderView = "IdentifierFFMRecipeDetailHeaderView"
+        var recipeDetailHeaderView: FFMRecipeDetailHeaderView? = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMRecipeDetailHeaderView
+        if recipeDetailHeaderView == nil {
+            let nib: UINib = UINib(nibName: "FFMRecipeDetailHeaderView", bundle: NSBundle.mainBundle())
+            tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: identifierheaderView)
+            recipeDetailHeaderView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMRecipeDetailHeaderView
+        }
+        
+        return recipeDetailHeaderView;
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200.0;
+    }
+    
 }
