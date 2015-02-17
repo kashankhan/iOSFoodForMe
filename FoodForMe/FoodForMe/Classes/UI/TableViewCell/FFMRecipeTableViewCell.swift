@@ -23,7 +23,7 @@ class FFMRecipeTableViewCell: UITableViewCell {
         self.avatarImageView.clipsToBounds = true
     }
     
-    func configureView(recipe: Recipe) {
+    func configureCell(recipe: Recipe) {
         
         self.avatarImageView.image = nil
         self.avatarImageView.loadImage(recipe.imageUri, autoCache: true)

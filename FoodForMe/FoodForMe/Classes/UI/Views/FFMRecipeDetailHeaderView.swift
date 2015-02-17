@@ -19,7 +19,7 @@ class FFMRecipeDetailHeaderView : UITableViewHeaderFooterView {
     func configureView(recipe: Recipe) {
         
         self.avatarImageView.image = nil
-        self.avatarImageView.loadImage(recipe.imageUri, autoCache: true)
+        self.avatarImageView.loadImage(recipe.largeImageUri, autoCache: true)
         self.recipeTitleLabel?.text = recipe.title
         self.recipeTitleLabel?.text = recipe.category + "-" + recipe.subcategory
         self.ratingStarView.rating = recipe.starRating.floatValue

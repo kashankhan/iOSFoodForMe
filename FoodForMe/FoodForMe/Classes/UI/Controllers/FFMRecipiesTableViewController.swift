@@ -12,7 +12,6 @@ import CoreData
 
 class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate {
     
-    let identifierCell = "IdentifierFFMRecipeTableViewCell"
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
     var managedObjectContext: NSManagedObjectContext? = FFMRecipesDal().managedObjectContext
     
@@ -67,6 +66,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let identifierCell = "IdentifierFFMRecipeTableViewCell"
         var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell, forIndexPath: indexPath) as FFMRecipeTableViewCell
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
