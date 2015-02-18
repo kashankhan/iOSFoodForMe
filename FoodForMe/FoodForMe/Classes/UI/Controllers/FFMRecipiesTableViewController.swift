@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 import CoreData
 
-class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate {
+class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate, UISearchControllerDelegate, UISearchBarDelegate {
     
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
     var managedObjectContext: NSManagedObjectContext? = FFMRecipesDal().managedObjectContext
+    var searchResult: NSArray? = NSArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,33 +58,56 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.fetchedResultsController.sections?.count ?? 0
+        return (tableView == self.searchDisplayController?.searchResultsTableView) ? 1: self.fetchedResultsController.sections?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
-        return sectionInfo.numberOfObjects
+        var rows = sectionInfo.numberOfObjects
+        if tableView == self.searchDisplayController?.searchResultsTableView {
+            rows = (searchResult != nil) ? searchResult!.count : 0
+        }
+        return rows
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierFFMRecipeTableViewCell"
-        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell, forIndexPath: indexPath) as FFMRecipeTableViewCell
-        self.configureCell(cell, atIndexPath: indexPath)
+        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeTableViewCell
+        self.configureCell(tableView, cell: cell, atIndexPath: indexPath)
         return cell
     }
     
-    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let recipeCell:FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
-        let recipe: Recipe = self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
+    func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
+
+        let recipeCell: FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
+        let recipe: Recipe = (tableView == self.searchDisplayController?.searchResultsTableView) ?
+        self.searchResult?.objectAtIndex(indexPath.row) as Recipe : self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
         recipeCell.configureCell(recipe)
+    }
+    
+    // MARK: - Search Bar
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        weak var recipiesTableViewController: FFMRecipiesTableViewController? = self
+        recipesBal.searchRecipe(searchBar.text, completion: { recipes in
+            if (recipes?.count > 0) {
+                recipiesTableViewController?.searchResult = recipes
+                if (recipiesTableViewController?.searchDisplayController?.active == true) {
+                    recipiesTableViewController?.searchDisplayController?.searchResultsTableView.reloadData()
+                }
+            }
+        })
     }
     
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "IdentifierSegueShowRecipeDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
+            let tableView: UITableView = ((self.searchDisplayController?.active) == true) ? self.searchDisplayController?.searchResultsTableView : self.tableView
+            if let indexPath = tableView.indexPathForSelectedRow() {
+                let object =  ((self.searchDisplayController?.active) == true) ?
+                    self.searchResult?.objectAtIndex(indexPath.row) as Recipe : self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
                 (segue.destinationViewController as FFMRecipeDetailTableViewController).recipe = object
             }
         }
@@ -151,7 +175,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
         case .Delete:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update:
-            self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, atIndexPath: indexPath!)
+            self.configureCell(self.tableView, cell: tableView.cellForRowAtIndexPath(indexPath!)!, atIndexPath: indexPath!)
         case .Move:
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)

@@ -14,7 +14,7 @@ class FFMRecipesBal: FFMBaseBal {
     let page = 1
     let recipesParse: FFMRecipesParser = FFMRecipesParser()
     
-    func searchRecipe(query: String, completion: ([Recipe]?) -> Void) {
+    func searchRecipe(query: String, completion: (NSArray?) -> Void) {
         Alamofire.request(BigOvenRecipesBal.Router.Search(query: query, page: page)).responseJSON { (request, response, data, error) in
             println(response)
             println(data)

@@ -11,7 +11,7 @@ import CoreData
 
 class FFMRecipesParser: FFMBaseParser {
     
-    let parseRecipes =  { (response: AnyObject) -> [Recipe]? in
+    let parseRecipes =  { (response: AnyObject) -> NSArray? in
         var list: [Recipe] = []
         let recipesDal:FFMRecipesDal = FFMRecipesDal()
         let context: NSManagedObjectContext = recipesDal.backgroundContext!
@@ -34,7 +34,6 @@ class FFMRecipesParser: FFMBaseParser {
                 recipe?.largeImageUri = recipeInfo["HeroPhotoUrl"] as String
                 //recipe?.videoUri = recipeInfo["T"] as String
                 //recipe?.preparation = recipeInfo["T"] as String
-                println(recipe)
                 list.append(recipe!)
             
             }
