@@ -18,7 +18,9 @@ class FFMRecipesBal: FFMBaseBal {
         Alamofire.request(BigOvenRecipesBal.Router.Search(query: query, page: page)).responseJSON { (request, response, data, error) in
             println(response)
             println(data)
-            completion (self.recipesParse.parseRecipes(data!))
+            self.recipesParse.parseRecipes(data!, completion: { recipes in
+                completion(recipes!)
+            })
         }
     }
    
@@ -27,7 +29,7 @@ class FFMRecipesBal: FFMBaseBal {
             { (request, response, data, error) in
                 println(response)
                 println(data)
-                completion(self.recipesParse.parseRecipe(data!))
+                //completion(self.recipesParse.parseRecipe(data!))
         }
     }
 }

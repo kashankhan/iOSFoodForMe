@@ -12,23 +12,26 @@ import Foundation
 
 extension UIImageView {
     func loadImage(uri: String, autoCache: Bool) {
-        let url: NSURL = NSURL(string: uri)!
-        var urlId = url.hash
         
-        var fileHandler = FileController()
-        var cacheDir = "Documents/cache/images/\(urlId)"
-        var existFileData = fileHandler.readFile(cacheDir)
-        
-        if existFileData == nil {
-            NSURLSession.sharedSession().dataTaskWithURL(url) {
-                (data: NSData!, response: NSURLResponse!, error: NSError!) in
-                if error == nil {
-                    dispatch_async(dispatch_get_main_queue()) { self.image = UIImage(data: data) }
-                }
-                }.resume()
-        } else {
-            image = UIImage(data: existFileData!)
+        if let url: NSURL = NSURL(string: uri) {
+            let urlId = url.hash
+            var fileHandler = FileController()
+            var cacheDir = "Documents/cache/images/\(urlId)"
+            var existFileData = fileHandler.readFile(cacheDir)
+            
+            if existFileData == nil {
+                NSURLSession.sharedSession().dataTaskWithURL(url) {
+                    (data: NSData!, response: NSURLResponse!, error: NSError!) in
+                    if error == nil {
+                        dispatch_async(dispatch_get_main_queue()) { self.image = UIImage(data: data) }
+                    }
+                    }.resume()
+            } else {
+                image = UIImage(data: existFileData!)
+            }
         }
+        
+
     }
     
     private class FileController {

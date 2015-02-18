@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 import CoreData
+import AlecrimCoreData
 
 class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate, UISearchControllerDelegate, UISearchBarDelegate {
     
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
-    var managedObjectContext: NSManagedObjectContext? = FFMRecipesDal().managedObjectContext
     var searchResult: NSArray? = NSArray()
     
     override func viewDidLoad() {
@@ -32,6 +32,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     }
     
     // MARK: - Private Methods
+    
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
     }
@@ -63,7 +64,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+        let sectionInfo = self.fetchedResultsController.sections![section]
         var rows = sectionInfo.numberOfObjects
         if tableView == self.searchDisplayController?.searchResultsTableView {
             rows = (searchResult != nil) ? searchResult!.count : 0
@@ -82,7 +83,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
 
         let recipeCell: FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
         let recipe: Recipe = (tableView == self.searchDisplayController?.searchResultsTableView) ?
-        self.searchResult?.objectAtIndex(indexPath.row) as Recipe : self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
+        self.searchResult?.objectAtIndex(indexPath.row) as Recipe : self.fetchedResultsController.entityAtIndexPath(indexPath)
         recipeCell.configureCell(recipe)
     }
     
@@ -107,7 +108,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
             let tableView: UITableView = ((self.searchDisplayController?.active) == true) ? self.searchDisplayController?.searchResultsTableView : self.tableView
             if let indexPath = tableView.indexPathForSelectedRow() {
                 let object =  ((self.searchDisplayController?.active) == true) ?
-                    self.searchResult?.objectAtIndex(indexPath.row) as Recipe : self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
+                    self.searchResult?.objectAtIndex(indexPath.row) as Recipe :self.fetchedResultsController.entityAtIndexPath(indexPath)
                 (segue.destinationViewController as FFMRecipeDetailTableViewController).recipe = object
             }
         }
@@ -115,47 +116,13 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     
     // MARK: - Fetched results controller
     
-    var fetchedResultsController: NSFetchedResultsController {
-        if _fetchedResultsController != nil {
-            return _fetchedResultsController!
-        }
-        
-        let fetchRequest = NSFetchRequest()
-        // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Recipe", inManagedObjectContext: self.managedObjectContext!)
-        fetchRequest.entity = entity
-        
-        // Set the batch size to a suitable number.
-        fetchRequest.fetchBatchSize = 20
-        
-        // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: false)
-        let sortDescriptors = [sortDescriptor]
-        
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        // Edit the section name key path and cache name if appropriate.
-        // nil for section name key path means "no sections".
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
-        aFetchedResultsController.delegate = self
-        _fetchedResultsController = aFetchedResultsController
-        
-        var error: NSError? = nil
-        if !_fetchedResultsController!.performFetch(&error) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //println("Unresolved error \(error), \(error.userInfo)")
-            abort()
-        }
-        
-        return _fetchedResultsController!
-    }
     
-    var _fetchedResultsController: NSFetchedResultsController? = nil
-    
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        self.tableView.beginUpdates()
-    }
+    lazy var fetchedResultsController: FetchedResultsController<Recipe> = {
+        let frc = dataContext.recipes.orderByDescending("title").toFetchedResultsController()
+        frc.bindToTableView(self.tableView)
+        
+        return frc
+        }()
     
     func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {

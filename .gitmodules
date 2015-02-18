@@ -1,3 +1,6 @@
 [submodule "FoodForMe/Alamofire"]
 	path = FoodForMe/Alamofire
 	url = https://github.com/Alamofire/Alamofire.git
+[submodule "FoodForMe/AlecrimCoreData"]
+	path = FoodForMe/AlecrimCoreData
+	url = https://github.com/Alecrim/AlecrimCoreData.git

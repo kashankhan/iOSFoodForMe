@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class FFMBaseDal: CoreDataDal {
+class FFMBaseDal {
 
 
 }

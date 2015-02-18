@@ -26,8 +26,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
-        var coreDataDal: CoreDataDal = CoreDataDal()
-        self.managedObjectContext = coreDataDal.managedObjectContext
+//        var coreDataDal: CoreDataDal = CoreDataDal()
+//        self.managedObjectContext coreDataDal.managedObjectContext
         
         
        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])

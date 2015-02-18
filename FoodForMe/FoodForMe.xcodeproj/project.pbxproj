@@ -26,8 +26,7 @@
 		C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */; };
 		C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */; };
 		C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */; };
-		C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054867F1A8CD70F002E55E1 /* CoreDataDal.swift */; };
-		C05486821A8CD70F002E55E1 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05486801A8CD70F002E55E1 /* CoreDataStore.swift */; };
+		C061191D1A95481000185559 /* DataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061191C1A95481000185559 /* DataContext.swift */; };
 		C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */; };
 		C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */; };
 		C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */; };
@@ -73,6 +72,20 @@
 			remoteGlobalIDString = 27AB60061A7FAFBF0069F786;
 			remoteInfo = Alamofire;
 		};
+		C061191A1A9547B900185559 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14FB83461A2BC1AC00FCBD7C;
+			remoteInfo = AlecrimCoreData;
+		};
+		C061191E1A95486500185559 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 14FB83451A2BC1AC00FCBD7C;
+			remoteInfo = AlecrimCoreData;
+		};
 		C0F0B0CF1A898A7E00752E0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C0F0B0AC1A898A7E00752E0E /* Project object */;
@@ -116,8 +129,8 @@
 		C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMGlobalConstants.swift; sourceTree = "<group>"; };
 		C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
-		C054867F1A8CD70F002E55E1 /* CoreDataDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDal.swift; sourceTree = "<group>"; };
-		C05486801A8CD70F002E55E1 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlecrimCoreData.xcodeproj; path = AlecrimCoreData/Source/iOS/AlecrimCoreData.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C061191C1A95481000185559 /* DataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContext.swift; sourceTree = "<group>"; };
 		C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMUserProfileDal.swift; sourceTree = "<group>"; };
 		C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMBaseBal.swift; sourceTree = "<group>"; };
 		C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewAsyncImageExtension.swift; sourceTree = "<group>"; };
@@ -195,6 +208,7 @@
 		C03B7B171A8ADB0A0043E5A1 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				C06119141A95475600185559 /* AlecrimCoreData */,
 				C019F3FF1A9026ED00766D7C /* FloatRatingView */,
 				C054866D1A8C21AB002E55E1 /* SlideMenu */,
 				C03B7B1C1A8ADE500043E5A1 /* Alamofire */,
@@ -249,8 +263,7 @@
 		C054867E1A8CD70F002E55E1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				C05486801A8CD70F002E55E1 /* CoreDataStore.swift */,
-				C054867F1A8CD70F002E55E1 /* CoreDataDal.swift */,
+				C061191C1A95481000185559 /* DataContext.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -274,6 +287,22 @@
 				C07F1E071A93D6A00052A5B5 /* FFMRecipeDetailHeaderView.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C06119141A95475600185559 /* AlecrimCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */,
+			);
+			name = AlecrimCoreData;
+			sourceTree = "<group>";
+		};
+		C06119171A9547B900185559 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C061191B1A9547B900185559 /* AlecrimCoreData.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C06C79131A8D5BA2001A9910 /* TableViewCell */ = {
@@ -434,6 +463,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C061191F1A95486500185559 /* PBXTargetDependency */,
 				C03B7B271A8ADE8D0043E5A1 /* PBXTargetDependency */,
 			);
 			name = FoodForMe;
@@ -493,6 +523,10 @@
 					ProductGroup = C03B7B1E1A8ADE630043E5A1 /* Products */;
 					ProjectRef = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = C06119171A9547B900185559 /* Products */;
+					ProjectRef = C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -515,6 +549,13 @@
 			fileType = wrapper.cfbundle;
 			path = AlamofireTests.xctest;
 			remoteRef = C03B7B241A8ADE630043E5A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C061191B1A9547B900185559 /* AlecrimCoreData.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AlecrimCoreData.framework;
+			remoteRef = C061191A1A9547B900185559 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -547,12 +588,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C07F1E061A93D68C0052A5B5 /* FFMRecipeDetailHeaderView.swift in Sources */,
-				C05486821A8CD70F002E55E1 /* CoreDataStore.swift in Sources */,
 				C0F0B0E81A89970B00752E0E /* AppDelegate.swift in Sources */,
 				C019F4191A90F13B00766D7C /* FFMRecipesDal.swift in Sources */,
 				C019F40C1A90EE2000766D7C /* FFMRecipesParser.swift in Sources */,
 				C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */,
 				C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */,
+				C061191D1A95481000185559 /* DataContext.swift in Sources */,
 				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
 				C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */,
 				C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */,
@@ -578,7 +619,6 @@
 				C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */,
 				C019F4031A90273200766D7C /* FFMRecipeTableViewCell.swift in Sources */,
 				C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */,
-				C05486811A8CD70F002E55E1 /* CoreDataDal.swift in Sources */,
 				C07F1E041A93D4810052A5B5 /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +638,11 @@
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			targetProxy = C03B7B261A8ADE8D0043E5A1 /* PBXContainerItemProxy */;
+		};
+		C061191F1A95486500185559 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AlecrimCoreData;
+			targetProxy = C061191E1A95486500185559 /* PBXContainerItemProxy */;
 		};
 		C0F0B0D01A898A7E00752E0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

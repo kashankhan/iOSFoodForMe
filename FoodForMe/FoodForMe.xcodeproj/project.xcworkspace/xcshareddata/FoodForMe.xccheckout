@@ -14,6 +14,8 @@
 		<string>https://github.com/Alamofire/Alamofire.git</string>
 		<key>A253B9B4301A80334FF2A6415C79DBFB02A57246</key>
 		<string>https://github.com/kashankhan/iOSFoodForMe.git</string>
+		<key>D240516802CF077A7A082675F4C7FA7DB155FFF6</key>
+		<string>https://github.com/Alecrim/AlecrimCoreData.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>FoodForMe/FoodForMe.xcodeproj</string>
@@ -23,6 +25,8 @@
 		<string>../../..FoodForMe/Alamofire</string>
 		<key>A253B9B4301A80334FF2A6415C79DBFB02A57246</key>
 		<string>../../..</string>
+		<key>D240516802CF077A7A082675F4C7FA7DB155FFF6</key>
+		<string>../../../../YO/FoodForMe/AlecrimCoreData</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kashankhan/iOSFoodForMe.git</string>
@@ -39,6 +43,14 @@
 			<string>67620B5EFA902936DF04070AF595B76AB0333747</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Alamofire</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D240516802CF077A7A082675F4C7FA7DB155FFF6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AlecrimCoreData</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
