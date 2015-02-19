@@ -272,8 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				C0EA90251A8CE6E500BB62F0 /* Base */,
-				C0EA902A1A8CEA0400BB62F0 /* FFMRecipiesTableViewController.swift */,
 				C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */,
+				C0EA902A1A8CEA0400BB62F0 /* FFMRecipiesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

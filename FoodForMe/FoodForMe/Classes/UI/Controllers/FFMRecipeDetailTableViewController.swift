@@ -48,9 +48,9 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     
     // MARK: - Table View
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60.0
-    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 60.0
+//    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
@@ -72,7 +72,8 @@ class FFMRecipeDetailTableViewController: UITableViewController {
 //        let recipe: Recipe = self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
         //cell.textLabel!.text = object.valueForKey("title")!.description
         //recipeCell.configureCell(recipe)
-        recipeCell.titleLabel?.text = "You can initialize an array with an array literal, which is a shorthand way to write one or more values as an array collection. An array literal is written as a list of values, separated by commas, surrounded by a pair of square brackets"
+        let str = (indexPath.row % 2 == 0) ? "You can initialize an array with an array literal, which is a shorthand way to write one or more values as an array collection. An array literal is written as a list of values, separated by commas, surrounded by a pair of square brackets...You can initialize an array with an array literal, which is a shorthand way to write one or more values as an array collection. An array literal is written as a list of values, separated by commas, surrounded by a pair of square brackets" : "Pappppp"
+        recipeCell.titleLabel?.text = str
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -106,5 +107,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionsTitle[section]
     }
+
+    
     
 }

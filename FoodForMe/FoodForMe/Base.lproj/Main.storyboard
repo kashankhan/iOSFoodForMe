@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xKr-44-F3h">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Recipes-->
@@ -143,28 +142,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeDetailTableViewCell" id="e0l-lO-wkV" customClass="FFMRecipeDetailTableViewCell" customModule="FoodForMe" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeDetailTableViewCell" id="qAZ-G6-dvp" customClass="FFMRecipeDetailTableViewCell" customModule="FoodForMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" tableViewCell="e0l-lO-wkV" id="CXN-xU-gXs">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qAZ-G6-dvp" id="dKN-i9-buZ">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCi-zM-1ak">
-                                            <rect key="frame" x="8" y="8" width="37" height="22"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9U-bm-rvu">
+                                            <rect key="frame" x="20" y="10" width="560" height="23"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="MCi-zM-1ak" firstAttribute="top" secondItem="CXN-xU-gXs" secondAttribute="topMargin" id="YOd-us-AQz"/>
-                                        <constraint firstItem="MCi-zM-1ak" firstAttribute="leading" secondItem="CXN-xU-gXs" secondAttribute="leadingMargin" id="gVR-YK-zwg"/>
-                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="MCi-zM-1ak" secondAttribute="trailing" constant="10" id="ho2-66-JfK"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="MCi-zM-1ak" secondAttribute="bottom" constant="5" id="yDX-h3-tAJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="u9U-bm-rvu" secondAttribute="trailing" constant="20" id="9SO-Z8-gqJ"/>
+                                        <constraint firstItem="u9U-bm-rvu" firstAttribute="leading" secondItem="dKN-i9-buZ" secondAttribute="leading" constant="20" id="MKY-3G-ftp"/>
+                                        <constraint firstItem="u9U-bm-rvu" firstAttribute="top" secondItem="dKN-i9-buZ" secondAttribute="top" constant="10" id="dW3-qo-ILz"/>
+                                        <constraint firstAttribute="bottom" secondItem="u9U-bm-rvu" secondAttribute="bottom" constant="10" id="yIK-6v-GSr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="titleLabel" destination="MCi-zM-1ak" id="URV-L6-aDP"/>
+                                    <outlet property="titleLabel" destination="u9U-bm-rvu" id="Lgo-49-343"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -177,7 +176,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwl-fU-B2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592" y="43"/>
+            <point key="canvasLocation" x="592" y="42"/>
         </scene>
         <!--ViewController 3-->
         <scene sceneID="U2O-Gc-gp6">

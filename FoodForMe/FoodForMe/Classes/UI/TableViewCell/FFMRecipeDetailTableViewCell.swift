@@ -12,4 +12,5 @@ import UIKit
 class FFMRecipeDetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
+
 }
