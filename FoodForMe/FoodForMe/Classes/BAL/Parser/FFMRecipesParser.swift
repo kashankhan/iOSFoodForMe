@@ -118,10 +118,11 @@ class FFMRecipesParser: FFMBaseParser {
     }
 
     private func parseIngredient(response: AnyObject, context: DataContext, recipe: Recipe) -> Ingredient {
-        let ingredient = dataContext.ingredients.createOrGetFirstEntity(whereAttribute: "recipe.recipeId", isEqualTo: recipe.recipeId)
+        let ingredient = dataContext.ingredients.createOrGetFirstEntity(whereAttribute: "recipeId", isEqualTo: recipe.recipeId)
          let ingredientID = NSString(format:"%d", response["IngredientID"] as Int)
         ingredient.displayIndex = response["DisplayIndex"] as Int
         ingredient.ingredientID = ingredientID
+        ingredient.recipeId = recipe.recipeId
         ingredient.isHeading = response["IsHeading"] as Int
         ingredient.isLinked = response["IsLinked"] as Int
         ingredient.metricDisplayQuantity = response["MetricDisplayQuantity"] as String
