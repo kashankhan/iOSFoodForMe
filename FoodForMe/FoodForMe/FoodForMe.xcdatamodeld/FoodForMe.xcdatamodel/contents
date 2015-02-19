@@ -29,6 +29,7 @@
         <attribute name="potassiumPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="protein" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="proteinPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="recipeId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="satFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="satFatPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="singularYieldUnit" optional="YES" attributeType="String" syncable="YES"/>
@@ -81,7 +82,7 @@
     </entity>
     <elements>
         <element name="Ingredient" positionX="349" positionY="-18" width="128" height="270"/>
-        <element name="NutritionInfo" positionX="90" positionY="27" width="128" height="403"/>
+        <element name="NutritionInfo" positionX="90" positionY="27" width="128" height="418"/>
         <element name="Recipe" positionX="52" positionY="-126" width="128" height="403"/>
         <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="163"/>
     </elements>

@@ -2,7 +2,7 @@
 //  NutritionInfo.swift
 //  FoodForMe
 //
-//  Created by Kashan Khan on 16/02/2015.
+//  Created by Kashan Khan on 19/02/2015.
 //  Copyright (c) 2015 Kashan Khan. All rights reserved.
 //
 
@@ -34,6 +34,7 @@ class NutritionInfo: NSManagedObject {
     @NSManaged var totalFat: NSNumber
     @NSManaged var totalFatPct: NSNumber
     @NSManaged var transFat: NSNumber
-    @NSManaged var recipe: Recipe
+    @NSManaged var recipeId: String
+    @NSManaged var recipe: FoodForMe.Recipe
 
 }

@@ -118,7 +118,7 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     
     
     lazy var fetchedResultsController: FetchedResultsController<Recipe> = {
-        let frc = dataContext.recipes.orderByDescending("title").toFetchedResultsController()
+        let frc = dataContext.recipes.orderByAscending("title").toFetchedResultsController()
         frc.bindToTableView(self.tableView)
         
         return frc

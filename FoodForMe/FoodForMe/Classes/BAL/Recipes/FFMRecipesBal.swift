@@ -16,8 +16,6 @@ class FFMRecipesBal: FFMBaseBal {
     
     func searchRecipe(query: String, completion: (NSArray?) -> Void) {
         Alamofire.request(BigOvenRecipesBal.Router.Search(query: query, page: page)).responseJSON { (request, response, data, error) in
-            println(response)
-            println(data)
             self.recipesParse.parseRecipes(data!, completion: { recipes in
                 completion(recipes!)
             })
@@ -27,9 +25,9 @@ class FFMRecipesBal: FFMBaseBal {
     func getRecipe(recipeId: String, completion: (Recipe?) -> Void) {
         Alamofire.request(BigOvenRecipesBal.Router.Recipe(recipeId: recipeId)).responseJSON
             { (request, response, data, error) in
-                println(response)
-                println(data)
-                //completion(self.recipesParse.parseRecipe(data!))
+                self.recipesParse.parseRecipe(data!, completion: { recipe in
+                    completion(recipe)
+                })
         }
     }
 }

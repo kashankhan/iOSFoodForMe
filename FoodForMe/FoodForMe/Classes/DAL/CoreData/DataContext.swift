@@ -18,6 +18,6 @@ final class DataContext: AlecrimCoreData.Context {
     
     var recipes: AlecrimCoreData.Table<Recipe> { return AlecrimCoreData.Table<Recipe>(context: self) }
     var ingredients: AlecrimCoreData.Table<Ingredient> { return AlecrimCoreData.Table<Ingredient>(context: self) }
-    var nutritionInfos: AlecrimCoreData.Table<NutritionInfo> { return AlecrimCoreData.Table<NutritionInfo>(context: self) }
+    var nutritions: AlecrimCoreData.Table<NutritionInfo> { return AlecrimCoreData.Table<NutritionInfo>(context: self) }
     
 }
