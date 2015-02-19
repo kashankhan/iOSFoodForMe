@@ -21,7 +21,7 @@ class FFMRecipeDetailHeaderView : UITableViewHeaderFooterView {
         self.avatarImageView.image = nil
         self.avatarImageView.loadImage(recipe.largeImageUri, autoCache: true)
         self.recipeTitleLabel?.text = recipe.title
-        self.recipeTitleLabel?.text = recipe.category + "-" + recipe.subcategory
+        self.recipeCatagoryLabel?.text = recipe.category + "-" + recipe.subcategory + "hadajsdlkajs l asd pasanda"
         self.ratingStarView.rating = recipe.starRating.floatValue
     }
 }

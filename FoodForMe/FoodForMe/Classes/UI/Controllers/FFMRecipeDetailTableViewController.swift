@@ -32,9 +32,9 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     func fetchRecipe() {
         if let recipe: Recipe = self.recipe {
             let recipeBal: FFMRecipesBal = FFMRecipesBal()
-            recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
-                println(recipe?.recipeId)
-            })
+//            recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
+//                println(recipe?.recipeId)
+//            })
         }
     }
     
@@ -45,7 +45,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,7 +80,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200.0;
+        return 270.0;
     }
     
 }

@@ -133,7 +133,7 @@
             </objects>
             <point key="canvasLocation" x="-185" y="46"/>
         </scene>
-        <!--Recipe Detail Table View Controller-->
+        <!--Recipe Detail-->
         <scene sceneID="QKj-TG-t4D">
             <objects>
                 <tableViewController storyboardIdentifier="FFMRecipeDetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l6A-f9-Zgl" customClass="FFMRecipeDetailTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,7 +146,7 @@
                             <outlet property="delegate" destination="l6A-f9-Zgl" id="Bd8-N2-yNx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qWo-1y-gLe"/>
+                    <navigationItem key="navigationItem" title="Recipe Detail" id="qWo-1y-gLe"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwl-fU-B2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -134,8 +134,9 @@ class FFMRecipesParser: FFMBaseParser {
         ingredient.recipeId = recipe.recipeId
         ingredient.unit = (response["Unit"] is String) ? response["Unit"] as String : ""
         ingredient.displayQuantity = (response["DisplayQuantity"] is String) ? response["DisplayQuantity"] as String : ""
-        let ingredientInfo: NSDictionary =  response["IngredientInfo"] as NSDictionary
-        ingredient.department = ingredientInfo["Department"] as String
+        if let ingredientInfo: NSDictionary =  response["IngredientInfo"] as? NSDictionary {
+            ingredient.department = ingredientInfo["Department"] as String
+        }
         //recipes
         var recipes = ingredient.recipes.mutableSetValueForKey("recipes")
         recipes.addObject(ingredient)
