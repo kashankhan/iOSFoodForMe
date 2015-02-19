@@ -28,6 +28,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     
     // MARK: - Private Methods
     func configureView() {
+        configureTableView()
         fetchRecipe()
     }
     
@@ -38,6 +39,11 @@ class FFMRecipeDetailTableViewController: UITableViewController {
 //                println(recipe?.recipeId)
 //            })
         }
+    }
+    
+    func configureTableView() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 160.0
     }
     
     // MARK: - Table View
@@ -51,21 +57,22 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return (section == 0) ? 0 : 2
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let identifierCell = "IdentifierFFMRecipeTableViewCell"
-        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeTableViewCell
+        let identifierCell = "IdentifierFFMRecipeDetailTableViewCell"
+        var cell: FFMRecipeDetailTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeDetailTableViewCell
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let recipeCell:FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
+        let recipeCell:FFMRecipeDetailTableViewCell = cell as FFMRecipeDetailTableViewCell
 //        let recipe: Recipe = self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
         //cell.textLabel!.text = object.valueForKey("title")!.description
         //recipeCell.configureCell(recipe)
+        recipeCell.titleLabel?.text = "You can initialize an array with an array literal, which is a shorthand way to write one or more values as an array collection. An array literal is written as a list of values, separated by commas, surrounded by a pair of square brackets"
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xKr-44-F3h">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Recipes-->
@@ -141,6 +142,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeDetailTableViewCell" id="e0l-lO-wkV" customClass="FFMRecipeDetailTableViewCell" customModule="FoodForMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" tableViewCell="e0l-lO-wkV" id="CXN-xU-gXs">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCi-zM-1ak">
+                                            <rect key="frame" x="8" y="8" width="37" height="22"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MCi-zM-1ak" firstAttribute="top" secondItem="CXN-xU-gXs" secondAttribute="topMargin" id="YOd-us-AQz"/>
+                                        <constraint firstItem="MCi-zM-1ak" firstAttribute="leading" secondItem="CXN-xU-gXs" secondAttribute="leadingMargin" id="gVR-YK-zwg"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="MCi-zM-1ak" secondAttribute="trailing" constant="10" id="ho2-66-JfK"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="MCi-zM-1ak" secondAttribute="bottom" constant="5" id="yDX-h3-tAJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="MCi-zM-1ak" id="URV-L6-aDP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="l6A-f9-Zgl" id="Cox-gC-YS0"/>
                             <outlet property="delegate" destination="l6A-f9-Zgl" id="Bd8-N2-yNx"/>
@@ -150,7 +177,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwl-fU-B2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592" y="49"/>
+            <point key="canvasLocation" x="592" y="43"/>
         </scene>
         <!--ViewController 3-->
         <scene sceneID="U2O-Gc-gp6">

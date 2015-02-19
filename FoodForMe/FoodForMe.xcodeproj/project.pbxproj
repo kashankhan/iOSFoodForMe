@@ -26,6 +26,7 @@
 		C05486711A8C21AB002E55E1 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */; };
 		C061191D1A95481000185559 /* DataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061191C1A95481000185559 /* DataContext.swift */; };
 		C06119291A95633900185559 /* NutritionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06119281A95633900185559 /* NutritionInfo.swift */; };
+		C06119651A962F0C00185559 /* FFMRecipeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06119641A962F0C00185559 /* FFMRecipeDetailTableViewCell.swift */; };
 		C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */; };
 		C06C79161A8D60DA001A9910 /* FFMBaseBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */; };
 		C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */; };
@@ -129,6 +130,7 @@
 		C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlecrimCoreData.xcodeproj; path = AlecrimCoreData/Source/iOS/AlecrimCoreData.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C061191C1A95481000185559 /* DataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContext.swift; sourceTree = "<group>"; };
 		C06119281A95633900185559 /* NutritionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionInfo.swift; sourceTree = "<group>"; };
+		C06119641A962F0C00185559 /* FFMRecipeDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipeDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMUserProfileDal.swift; sourceTree = "<group>"; };
 		C06C79151A8D60DA001A9910 /* FFMBaseBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMBaseBal.swift; sourceTree = "<group>"; };
 		C06C79181A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewAsyncImageExtension.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				C019F4021A90273200766D7C /* FFMRecipeTableViewCell.swift */,
+				C06119641A962F0C00185559 /* FFMRecipeDetailTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				C019F40C1A90EE2000766D7C /* FFMRecipesParser.swift in Sources */,
 				C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */,
 				C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */,
+				C06119651A962F0C00185559 /* FFMRecipeDetailTableViewCell.swift in Sources */,
 				C061191D1A95481000185559 /* DataContext.swift in Sources */,
 				C06119291A95633900185559 /* NutritionInfo.swift in Sources */,
 				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
