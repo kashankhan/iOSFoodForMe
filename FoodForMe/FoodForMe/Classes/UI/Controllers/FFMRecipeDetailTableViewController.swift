@@ -12,6 +12,8 @@ import CoreData
 
 class FFMRecipeDetailTableViewController: UITableViewController {
 
+    let sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.prepration]
+    let sectionsHeight: [CGFloat] = [320.0,  40.0, 40.0]
     var recipe: Recipe? {
         didSet {
             // Update the view.
@@ -45,7 +47,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,20 +69,35 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var recipeDetailHeaderView: FFMRecipeDetailHeaderView?
         
-        let identifierheaderView = "IdentifierFFMRecipeDetailHeaderView"
-        var recipeDetailHeaderView: FFMRecipeDetailHeaderView? = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMRecipeDetailHeaderView
-        if recipeDetailHeaderView == nil {
-            let nib: UINib = UINib(nibName: "FFMRecipeDetailHeaderView", bundle: NSBundle.mainBundle())
-            tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: identifierheaderView)
+        if section == 0 {
+            let identifierheaderView = "IdentifierFFMRecipeDetailHeaderView"
             recipeDetailHeaderView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMRecipeDetailHeaderView
+            if recipeDetailHeaderView == nil {
+                let nib: UINib = UINib(nibName: "FFMRecipeDetailHeaderView", bundle: NSBundle.mainBundle())
+                tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: identifierheaderView)
+                recipeDetailHeaderView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMRecipeDetailHeaderView
+            }
+            recipeDetailHeaderView?.configureView(self.recipe!)
         }
-        recipeDetailHeaderView?.configureView(self.recipe!)
-        return recipeDetailHeaderView;
+
+        return recipeDetailHeaderView
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 270.0;
+        return sectionsHeight[section]
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        let header:UITableViewHeaderFooterView = view as UITableViewHeaderFooterView
+        header.textLabel.font = UIFont(name: FFMGlobalConstants.UIAppFontName, size: 18.0)!
+        header.textLabel.frame = header.frame
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionsTitle[section]
     }
     
 }

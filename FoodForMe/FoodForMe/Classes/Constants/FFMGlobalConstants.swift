@@ -8,6 +8,8 @@
 
 import Foundation
 struct FFMGlobalConstants {
+    static let UIAppFontName = "HelveticaNeue-UltraLight"
+    
     static let UIFacebookUserDidLoginNotification  = "UIFacebookUserDidLoginNotification"
     static let UIFacebookUserDidLogoutNotification = "UIFacebookUserDidLogoutNotification"
 }

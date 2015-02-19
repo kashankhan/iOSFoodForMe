@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: - Private methods
     func setupStyle() {
         
-        let font = UIFont(name: "HelveticaNeue-UltraLight", size: 20.0)!
+        let font = UIFont(name: FFMGlobalConstants.UIAppFontName, size: 20.0)!
         UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName : font ]
         UIBarButtonItem.appearance().setTitleTextAttributes([ NSFontAttributeName : font ], forState: .Normal)
 //        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)

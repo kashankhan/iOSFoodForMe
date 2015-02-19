@@ -9,9 +9,11 @@
 import Foundation
 
 struct NSLS {
-    static let settings = localizedString("SETTINGS", "Settings");
-    static let recipes  = localizedString("RECIPICES", "Recipes");
-    static let review  = localizedString("REVIEW", "Review");
+    static let settings = localizedString("Settings", "Settings");
+    static let recipes  = localizedString("Recipes", "Recipes");
+    static let review  = localizedString("Review", "Review");
+    static let ingredients  = localizedString("Ingredients", "Ingredients");
+    static let prepration  = localizedString("Prepration", "Prepration");
 }
 
 func localizedString(key: String, value: String)->String {
