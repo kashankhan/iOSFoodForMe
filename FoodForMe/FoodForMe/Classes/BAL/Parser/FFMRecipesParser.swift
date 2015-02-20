@@ -60,17 +60,18 @@ class FFMRecipesParser: FFMBaseParser {
             recipe.totalMinutes = (response["TotalMinutes"] is Int) ? response["TotalMinutes"] as Int : 0
             recipe.yieldNumber = response["YieldNumber"] as Int
             recipe.yieldUnit = response["YieldUnit"] as String
+            recipe.instructions = response["Instructions"] as String
             
             //NutritionInfo
             let nutritionInfo: NutritionInfo = self.parseNutritionInfo(response["NutritionInfo"], context: dataContext, recipe: recipe) as NutritionInfo!
             recipe.nutritionInfo = nutritionInfo
             //Ingredient
+            var ingredientSet = NSMutableSet()
             for ingredientsInfo: AnyObject in response["Ingredients"] as Array {
                 let ingredient = self.parseIngredient(ingredientsInfo, context: dataContext, recipe: recipe) as Ingredient!
-                var ingredients = recipe.ingredients.mutableSetValueForKey("ingredients")
-                ingredients.addObject(ingredient!)
+                ingredientSet.addObject(ingredient)
             }
-            
+            recipe.ingredients = ingredientSet
             // Save the background data context.
             let (success, error) = backgroundDataContext.save()
             if !success {
@@ -86,7 +87,7 @@ class FFMRecipesParser: FFMBaseParser {
     
     private func parseNutritionInfo(response: AnyObject?, context: DataContext, recipe: Recipe) -> NutritionInfo? {
         let entityName = "NutritionInfo"
-        let nutritionInfo = dataContext.nutritions.createOrGetFirstEntity(whereAttribute: "recipeId", isEqualTo: recipe.recipeId)
+        let nutritionInfo = dataContext.nutritions.createEntity()
         nutritionInfo.caloriesFromFat = response?["CaloriesFromFat"] as Int
         nutritionInfo.cholesterol = response?["Cholesterol"] as Int
         nutritionInfo.cholesterolPct = response?["CholesterolPct"] as Int
@@ -118,7 +119,8 @@ class FFMRecipesParser: FFMBaseParser {
     }
 
     private func parseIngredient(response: AnyObject, context: DataContext, recipe: Recipe) -> Ingredient {
-        let ingredient = dataContext.ingredients.createOrGetFirstEntity(whereAttribute: "recipeId", isEqualTo: recipe.recipeId)
+        println(response)
+        let ingredient = dataContext.ingredients.createEntity()
          let ingredientID = NSString(format:"%d", response["IngredientID"] as Int)
         ingredient.displayIndex = response["DisplayIndex"] as Int
         ingredient.ingredientID = ingredientID
@@ -138,9 +140,9 @@ class FFMRecipesParser: FFMBaseParser {
             ingredient.department = ingredientInfo["Department"] as String
         }
         //recipes
-        var recipes = ingredient.recipes.mutableSetValueForKey("recipes")
-        recipes.addObject(ingredient)
-    
+//        var recipes = ingredient.recipes.mutableSetValueForKey("recipes")
+//        recipes.addObject(ingredient)
+//                    println(recipe.ingredients.count)
         return ingredient
     }
     

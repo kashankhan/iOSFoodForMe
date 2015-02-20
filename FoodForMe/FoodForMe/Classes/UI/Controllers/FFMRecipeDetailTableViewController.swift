@@ -14,12 +14,14 @@ class FFMRecipeDetailTableViewController: UITableViewController {
 
     let sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.prepration]
     let sectionsHeight: [CGFloat] = [320.0,  40.0, 40.0]
+    
     var recipe: Recipe? {
         didSet {
             // Update the view.
-            self.configureView()
+            self.tableView.reloadData()
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,32 +34,77 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         fetchRecipe()
     }
     
-    func fetchRecipe() {
+   private func fetchRecipe() {
         if let recipe: Recipe = self.recipe {
-            let recipeBal: FFMRecipesBal = FFMRecipesBal()
-//            recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
-//                println(recipe?.recipeId)
-//            })
+            if (self.recipe?.valueForKey("instructions") == nil || self.recipe?.valueForKey("ingredients") == nil) {
+
+                let recipeBal: FFMRecipesBal = FFMRecipesBal()
+                recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
+                    self.recipe = recipe
+                })
+            }
         }
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
     }
     
+    private func objectAtIndexPath(indexPath: NSIndexPath) -> String {
+        var object: String = ""
+        let section = indexPath.section
+        let row = indexPath.row
+        let objects = objectsInSection(section)
+        
+        println(objects)
+        
+        if !objects.isEmpty {
+            if section == 1 && !objects.isEmpty {
+                let ingredient: Ingredient = objects[row] as Ingredient
+                object = ingredient.name + " " + ingredient.quantity.stringValue + " " + ingredient.quantity.stringValue
+            }
+            else if section == 2 {
+                object = objects[row] as String
+            }
+        }
+        return object
+    }
+    
+    private func objectsInSection(section: Int) -> [AnyObject] {
+        var objects:[AnyObject] = []
+        if section == 1 {
+            if let ingredients = self.recipe?.ingredients.allObjects {
+                
+                objects = ingredients
+            }
+        }
+        else if (section == 2 && self.recipe?.valueForKey("instructions") != nil) {
+            let recipeDescription: AnyObject? = self.recipe?.instructions
+            objects.append(recipeDescription!)
+        }
+        return objects
+        
+    }
+    
+    private func numberOfSections() -> Int {
+        var sections: Int = 1
+        for index in 0...2 {
+            let objects = objectsInSection(index)
+            if !objects.isEmpty {
+                sections++
+            }
+        }
+        return sections
+    }
     // MARK: - Table View
     
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 60.0
-//    }
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return numberOfSections()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (section == 0) ? 0 : 2
+        return objectsInSection(section).count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -69,11 +116,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let recipeCell:FFMRecipeDetailTableViewCell = cell as FFMRecipeDetailTableViewCell
-//        let recipe: Recipe = self.fetchedResultsController.objectAtIndexPath(indexPath) as Recipe
-        //cell.textLabel!.text = object.valueForKey("title")!.description
-        //recipeCell.configureCell(recipe)
-        let str = (indexPath.row % 2 == 0) ? "You can initialize an array with an array literal, which is a shorthand way to write one or more values as an array collection. An array literal is written as a list of values, separated by commas, surrounded by a pair of square brackets...You can initialize an array with an array literal, which is a shorthand way to write one or more values as an array collection. An array literal is written as a list of values, separated by commas, surrounded by a pair of square brackets" : "Pappppp"
-        recipeCell.titleLabel?.text = str
+        recipeCell.titleLabel?.text = objectAtIndexPath(indexPath) as String
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -98,7 +141,6 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        
         let header:UITableViewHeaderFooterView = view as UITableViewHeaderFooterView
         header.textLabel.font = UIFont(name: FFMGlobalConstants.UIAppFontName, size: 18.0)!
         header.textLabel.frame = header.frame
