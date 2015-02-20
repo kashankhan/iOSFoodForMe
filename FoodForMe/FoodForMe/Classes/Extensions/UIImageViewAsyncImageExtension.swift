@@ -30,8 +30,6 @@ extension UIImageView {
                 image = UIImage(data: existFileData!)
             }
         }
-        
-
     }
     
     private class FileController {

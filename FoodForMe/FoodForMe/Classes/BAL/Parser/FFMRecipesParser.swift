@@ -119,7 +119,6 @@ class FFMRecipesParser: FFMBaseParser {
     }
 
     private func parseIngredient(response: AnyObject, context: DataContext, recipe: Recipe) -> Ingredient {
-        println(response)
         let ingredient = dataContext.ingredients.createEntity()
          let ingredientID = NSString(format:"%d", response["IngredientID"] as Int)
         ingredient.displayIndex = response["DisplayIndex"] as Int
@@ -139,10 +138,7 @@ class FFMRecipesParser: FFMBaseParser {
         if let ingredientInfo: NSDictionary =  response["IngredientInfo"] as? NSDictionary {
             ingredient.department = ingredientInfo["Department"] as String
         }
-        //recipes
-//        var recipes = ingredient.recipes.mutableSetValueForKey("recipes")
-//        recipes.addObject(ingredient)
-//                    println(recipe.ingredients.count)
+        
         return ingredient
     }
     

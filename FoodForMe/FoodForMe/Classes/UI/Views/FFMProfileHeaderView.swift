@@ -14,6 +14,8 @@ class FFMProfileHeaderView : UITableViewHeaderFooterView {
     @IBOutlet weak var profilePicView: FBProfilePictureView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    private var userProfile: UserProfile?
+    
     override func awakeFromNib() {
         profilePicView.layer.cornerRadius = profilePicView.frame.size.width / 2
         profilePicView.clipsToBounds = true
@@ -30,10 +32,18 @@ class FFMProfileHeaderView : UITableViewHeaderFooterView {
         self.profilePicView.profileID = nil
         self.nameLabel?.text = ""
     
-        if (notification.object is FBGraphObject) {
-            var userInfo: FBGraphObject = notification.object as FBGraphObject
-            self.profilePicView.profileID = userInfo["id"] as String
-            self.nameLabel?.text = userInfo["name"] as? String
+        if(notification.object is UserProfile) {
+            userProfile = notification.object as? UserProfile
+            self.profilePicView.profileID = userProfile?.userId
+            self.nameLabel?.text = userProfile?.name
         }
+        else if (userProfile != nil) {
+            dataContext.userProfiles.deleteEntity(userProfile!)
+        }
+//        if (notification.object is FBGraphObject) {
+//            var userInfo: FBGraphObject = notification.object as FBGraphObject
+//            self.profilePicView.profileID = userInfo["id"] as String
+//            self.nameLabel?.text = userInfo["name"] as? String
+//        }
     }
 }

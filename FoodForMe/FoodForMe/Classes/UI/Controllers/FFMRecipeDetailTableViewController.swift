@@ -37,7 +37,6 @@ class FFMRecipeDetailTableViewController: UITableViewController {
    private func fetchRecipe() {
         if let recipe: Recipe = self.recipe {
             if (self.recipe?.valueForKey("instructions") == nil || self.recipe?.valueForKey("ingredients") == nil) {
-
                 let recipeBal: FFMRecipesBal = FFMRecipesBal()
                 recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
                     self.recipe = recipe
@@ -62,7 +61,8 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         if !objects.isEmpty {
             if section == 1 && !objects.isEmpty {
                 let ingredient: Ingredient = objects[row] as Ingredient
-                object = ingredient.name + " " + ingredient.quantity.stringValue + " " + ingredient.quantity.stringValue
+                //               MetricQuantity + MetricUnit + Name + PreparationNotes
+                object  = ingredient.metricDisplayQuantity + " " + ingredient.metricUnit + " " + ingredient.name + " " + ingredient.preparationNotes
             }
             else if section == 2 {
                 object = objects[row] as String
@@ -75,7 +75,6 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         var objects:[AnyObject] = []
         if section == 1 {
             if let ingredients = self.recipe?.ingredients.allObjects {
-                
                 objects = ingredients
             }
         }
@@ -97,6 +96,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         }
         return sections
     }
+    
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
