@@ -9,14 +9,16 @@
 import Foundation
 
 struct NSLS {
-    static let settings = localizedString("Settings", "Settings");
-    static let recipes  = localizedString("Recipes", "Recipes");
-    static let review  = localizedString("Review", "Review");
-    static let ingredients  = localizedString("Ingredients", "Ingredients");
-    static let prepration  = localizedString("Prepration", "Prepration");
+    static let settings = localizedString("Settings", "Settings")
+    static let recipes  = localizedString("Recipes", "Recipes")
+    static let review  = localizedString("Review", "Review")
+    static let ingredients  = localizedString("Ingredients", "Ingredients")
+    static let prepration  = localizedString("Prepration", "Prepration")
+    static let recommendations = localizedString("Recommendations", "Recommendations")
+    static let popularRecipes = localizedString("PopularRecipes", "Popular Recipes")
 }
 
 func localizedString(key: String, value: String)->String {
-    return NSLocalizedString(key, value:value, comment: "");
+    return NSLocalizedString(key, value:value, comment: "")
     
 }
