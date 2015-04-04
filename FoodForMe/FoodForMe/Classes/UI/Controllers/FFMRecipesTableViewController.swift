@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 import AlecrimCoreData
 
-class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate, UISearchControllerDelegate, UISearchBarDelegate {
+class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate, UISearchControllerDelegate, UISearchBarDelegate {
     
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
     var searchResult: NSArray? = NSArray()
@@ -90,12 +90,12 @@ class FFMRecipiesTableViewController: UITableViewController , ENSideMenuDelegate
     // MARK: - Search Bar
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        weak var recipiesTableViewController: FFMRecipiesTableViewController? = self
+        weak var recipesTableViewController: FFMRecipesTableViewController? = self
         recipesBal.searchRecipe(searchBar.text, completion: { recipes in
             if (recipes?.count > 0) {
-                recipiesTableViewController?.searchResult = recipes
-                if (recipiesTableViewController?.searchDisplayController?.active == true) {
-                    recipiesTableViewController?.searchDisplayController?.searchResultsTableView.reloadData()
+                recipesTableViewController?.searchResult = recipes
+                if (recipesTableViewController?.searchDisplayController?.active == true) {
+                    recipesTableViewController?.searchDisplayController?.searchResultsTableView.reloadData()
                 }
             }
         })

@@ -1,17 +1,18 @@
 //
-//  FFMRecipeDetailTableViewController.swift
+//  FFMRecommendedRecipeDetailTableViewController.swift
 //  FoodForMe
 //
-//  Created by Kashan Khan on 15/02/2015.
+//  Created by Kashan Khan on 04/04/2015.
 //  Copyright (c) 2015 Kashan Khan. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import CoreData
+import AlecrimCoreData
 
-class FFMRecipeDetailTableViewController: UITableViewController {
-
+class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
+    
     let sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.prepration]
     let sectionsHeight: [CGFloat] = [320.0,  40.0, 40.0]
     
@@ -21,7 +22,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         fetchRecipe()
     }
     
-   private func fetchRecipe() {
+    private func fetchRecipe() {
         if let recipe: Recipe = self.recipe {
             if (self.recipe?.valueForKey("instructions") == nil || self.recipe?.valueForKey("ingredients") == nil) {
                 let recipeBal: FFMRecipesBal = FFMRecipesBal()
@@ -132,7 +133,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
             }
             recipeDetailHeaderView?.configureView(self.recipe!)
         }
-
+        
         return recipeDetailHeaderView
     }
     
@@ -149,7 +150,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionsTitle[section]
     }
+    
+    
 
-    
-    
 }

@@ -7,7 +7,10 @@
 //
 
 import Foundation
+
 struct FFMGlobalConstants {
+    static let FFMBaseServerUrl = "http://localhost:8080/rest"
+    
     static let UIAppFontName = "HelveticaNeue-UltraLight"
     
     static let UIFacebookUserDidLoginNotification  = "UIFacebookUserDidLoginNotification"

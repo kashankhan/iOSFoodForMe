@@ -79,10 +79,10 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipiesTableViewController") as FFMRecipiesTableViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipesTableViewController") as FFMRecipesTableViewController
             break
         case 1:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecommendedRecipesTableViewController") as FFMRecommendedRecipesTableViewController
             break
         case 2:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
@@ -130,7 +130,7 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
         
     }
     
-    // Mark: Facebook
+    // MARK: Facebook
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
         let profileDal: FFMUserProfileDal =  FFMUserProfileDal()
         let userProfile =  profileDal.saveFacebookProfile(user)
