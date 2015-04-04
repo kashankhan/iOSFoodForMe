@@ -20,6 +20,7 @@ class FFMRecipesBalURLRequest : FFMBaseBal {
         case RateRecipe()
         case PopularRecipes()
         case MyRecommendations(userId: String, cousin: String)
+        case AllRecipeCategories()
         
         // MARK: URLRequestConvertible
 
@@ -41,7 +42,9 @@ class FFMRecipesBalURLRequest : FFMBaseBal {
                     
                 case MyRecommendations(let userId, let cousin):
                     return ("/myrecommendations", ["userId": userId])
-                    
+                
+                case AllRecipeCategories():
+                    return ("/allrecipecategories", nil)
                 }
                 }()
             
