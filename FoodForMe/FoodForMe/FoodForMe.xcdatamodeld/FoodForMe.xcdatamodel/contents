@@ -69,6 +69,10 @@
         <relationship name="nutritionInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="NutritionInfo" inverseName="recipe" inverseEntity="NutritionInfo" syncable="YES"/>
         <relationship name="recommendation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="RecommendedRecipe" inverseName="recipe" inverseEntity="RecommendedRecipe" syncable="YES"/>
     </entity>
+    <entity name="RecipeCategory" representedClassName="FoodForMe.RecipeCategory" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+    </entity>
     <entity name="RecommendedRecipe" representedClassName="FoodForMe.RecommendedRecipe" syncable="YES">
         <attribute name="favoriteIngredientsInRepcie" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -91,5 +95,6 @@
         <element name="RecommendedRecipe" positionX="90" positionY="27" width="128" height="103"/>
         <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="163"/>
         <element name="Ingredient" positionX="-9" positionY="-81" width="128" height="268"/>
+        <element name="RecipeCategory" positionX="0" positionY="36" width="128" height="73"/>
     </elements>
 </model>

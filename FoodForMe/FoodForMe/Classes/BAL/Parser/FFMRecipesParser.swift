@@ -88,6 +88,28 @@ class FFMRecipesParser: FFMBaseParser {
         }
     }
     
+    func parseRecipeCategories(response: AnyObject, completion: (NSArray?) -> Void) {
+        performInBackground(dataContext) { backgroundDataContext in
+            var list: [RecipeCategory] = []
+            if response is NSArray {
+                for name in response as NSArray {
+                    let recipeCategory : RecipeCategory = backgroundDataContext.recipeCategories.createOrGetFirstEntity(whereAttribute: "name", isEqualTo: name)
+                    list.append(recipeCategory)
+                }
+                
+                // Save the background data context.
+                let (success, error) = backgroundDataContext.save()
+                if !success {
+                    // Replace this implementation with code to handle the error appropriately.
+                    println("Unresolved error \(error), \(error?.userInfo)")
+                    
+                }
+                completion(list)
+            }
+        }
+    }
+
+    
     private func parseRecipe(response: AnyObject, context: DataContext) -> Recipe? {
         let recipeId = response["recipeId"] as Int
         let recipe = context.recipes.createOrGetFirstEntity(whereAttribute: "recipeId", isEqualTo: recipeId)
