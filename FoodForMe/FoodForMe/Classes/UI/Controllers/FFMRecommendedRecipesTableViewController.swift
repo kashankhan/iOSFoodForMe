@@ -53,7 +53,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     // MARK: - Table View
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60.0
+        return 65.0
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

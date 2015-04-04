@@ -33,7 +33,7 @@ class FFMRecipesBal: FFMBaseBal {
     
     func getPopularRecipes(completion: (NSArray?) -> Void) {
         Alamofire.request(FFMRecipesBalURLRequest.Router.PopularRecipes()).responseJSON { (request, response, data, error) in
-            self.recipesParse.parseRecipes(data!, completion: { recipes in
+            self.recipesParse.parseRecipes(data, completion: { recipes in
                 completion(recipes!)
             })
         }
@@ -47,7 +47,7 @@ class FFMRecipesBal: FFMBaseBal {
     }
     
     func getMyRecommendations(userId: String, category: String, completion: (NSArray?) -> Void) {
-        Alamofire.request(FFMRecipesBalURLRequest.Router.MyRecommendations(userId: userId, cousin: category)).responseJSON { (request, response, data, error) in
+        Alamofire.request(FFMRecipesBalURLRequest.Router.MyRecommendations(userId: userId, category: category)).responseJSON { (request, response, data, error) in
             self.recipesParse.parseRecommendedRecipes(data!, completion: { recipes in
                 completion(recipes!)
             })

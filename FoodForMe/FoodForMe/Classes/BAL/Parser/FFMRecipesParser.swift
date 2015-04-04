@@ -12,7 +12,7 @@ import AlecrimCoreData
 class FFMRecipesParser: FFMBaseParser {
     
     
-    func parseRecipes(response: AnyObject, completion: (NSArray?) -> Void) {
+    func parseRecipes(response: AnyObject?, completion: (NSArray?) -> Void) {
         performInBackground(dataContext) { backgroundDataContext in
             var list: [Recipe] = []
             if response is NSArray {
@@ -33,23 +33,23 @@ class FFMRecipesParser: FFMBaseParser {
         }
     }
     
-     func parseRecipeDetail(response: AnyObject, completion: (Recipe?) -> Void) {
+     func parseRecipeDetail(response: AnyObject?, completion: (Recipe?) -> Void) {
         performInBackground(dataContext) { backgroundDataContext in
-            let recipe: Recipe = self.parseRecipe(response, context: backgroundDataContext)!
-            recipe.activeMinutes =  (response["activeMinutes"] is Int) ? response["activeMinutes"] as Int : 0
-            recipe.recipeDescription = response["description"] as String
-            recipe.primaryIngredient = response["primaryIngredient"] as String
-            recipe.totalMinutes = (response["totalMinutes"] is Int) ? response["totalMinutes"] as Int : 0
-            recipe.yieldNumber = response["yieldNumber"] as Int
-            recipe.yieldUnit = response["yieldUnit"] as String
-            recipe.instructions = response["instructions"] as String
+            let recipe: Recipe = self.parseRecipe(response!, context: backgroundDataContext)!
+            recipe.activeMinutes =  (response?["activeMinutes"] is Int) ? response?["activeMinutes"] as Int : 0
+            recipe.recipeDescription = response?["description"] as String
+            recipe.primaryIngredient = response?["primaryIngredient"] as String
+            recipe.totalMinutes = (response?["totalMinutes"] is Int) ? response?["totalMinutes"] as Int : 0
+            recipe.yieldNumber = response?["yieldNumber"] as Int
+            recipe.yieldUnit = response?["yieldUnit"] as String
+            recipe.instructions = response?["instructions"] as String
             
             //NutritionInfo
-            let nutritionInfo: NutritionInfo = self.parseNutritionInfo(response["nutritionInfo"], context: dataContext, recipe: recipe) as NutritionInfo!
+            let nutritionInfo: NutritionInfo = self.parseNutritionInfo(response?["nutritionInfo"], context: dataContext, recipe: recipe) as NutritionInfo!
             recipe.nutritionInfo = nutritionInfo
             //Ingredient
             var ingredientSet = NSMutableSet()
-            for ingredientsInfo: AnyObject in response["ingredients"] as Array {
+            for ingredientsInfo: AnyObject in response?["ingredients"] as Array {
                 let ingredient = self.parseIngredient(ingredientsInfo, context: dataContext, recipe: recipe) as Ingredient!
                 ingredientSet.addObject(ingredient)
             }
@@ -121,8 +121,8 @@ class FFMRecipesParser: FFMBaseParser {
         recipe.subcategory = response["subcategory"] as String
         recipe.cuisine = (response["cuisine"] is String) ? response["cuisine"] as String : ""
         recipe.reviewCount = response["reviewCount"] as Int
-        recipe.imageUri = response["imageURL"] as String
-        recipe.largeImageUri = response["heroPhotoUrl"] as String
+        recipe.imageUri = response["imageUrl"] as String
+        recipe.largeImageUri = response["largeImageUrl"] as String
         return recipe
     }
     

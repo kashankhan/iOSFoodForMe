@@ -35,6 +35,13 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
+        fetchPopularRecipes()
+    }
+    
+    func fetchPopularRecipes() {
+        self.recipesBal.getPopularRecipes { recipes in
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - ENSideMenu Delegate
@@ -55,7 +62,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     // MARK: - Table View
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60.0
+        return 65.0
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
