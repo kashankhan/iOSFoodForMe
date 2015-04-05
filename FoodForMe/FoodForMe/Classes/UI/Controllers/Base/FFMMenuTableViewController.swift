@@ -40,7 +40,7 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 4
+        return 2
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,8 +66,6 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        println("did select row: \(indexPath.row)")
         
         if (indexPath.row == selectedMenuItem) {
             return
