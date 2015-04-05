@@ -2,7 +2,7 @@
 //  Ingredient.swift
 //  FoodForMe
 //
-//  Created by Kashan Khan on 04/04/2015.
+//  Created by Kashan Khan on 05/04/2015.
 //  Copyright (c) 2015 Kashan Khan. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ class Ingredient: NSManagedObject {
     @NSManaged var department: String
     @NSManaged var displayIndex: NSNumber
     @NSManaged var displayQuantity: String
-    @NSManaged var ingredientID: String
+    @NSManaged var ingredientId: String
     @NSManaged var isHeading: NSNumber
     @NSManaged var isLinked: NSNumber
     @NSManaged var metricDisplayQuantity: String

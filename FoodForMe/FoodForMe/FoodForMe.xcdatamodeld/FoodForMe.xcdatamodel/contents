@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D127a" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D130a" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Ingredient" representedClassName="FoodForMe.Ingredient" syncable="YES">
         <attribute name="department" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="displayQuantity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="ingredientID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredientId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isHeading" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isLinked" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="metricDisplayQuantity" optional="YES" attributeType="String" syncable="YES"/>
