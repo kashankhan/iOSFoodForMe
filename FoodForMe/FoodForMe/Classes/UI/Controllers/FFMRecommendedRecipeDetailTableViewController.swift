@@ -40,7 +40,7 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
             if (self.recipe?.valueForKey("instructions") == nil || self.recipe?.valueForKey("ingredients") == nil) {
                 let recipeBal: FFMRecipesBal = FFMRecipesBal()
                 recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
-                    self.recipe = recipe
+                    self.tableView.reloadData()
                 })
             }
         }
@@ -57,22 +57,19 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
         let row = indexPath.row
         let objects = objectsInSection(section)
         
-        println(objects)
-        
-        if !objects.isEmpty {
-            if section == 1 && !objects.isEmpty {
-                let ingredient: Ingredient = objects[row] as Ingredient
-                //               MetricQuantity + MetricUnit + Name + PreparationNotes
-                object  = ingredient.metricDisplayQuantity + " " + ingredient.metricUnit + " " + ingredient.name + " " + ingredient.preparationNotes
-            }
-            else if section == 2 {
-                object = objects[row] as String
-            }
+        if section == 1 &&  objects.count > 0 {
+            let ingredient: Ingredient = objects[row] as Ingredient
+            // MetricQuantity + MetricUnit + Name + PreparationNotes
+            object  = ingredient.metricDisplayQuantity + " " + ingredient.metricUnit + " " + ingredient.name + " " + ingredient.preparationNotes
         }
+        else if section == 2 {
+            object = objects[row] as String
+        }
+        
         return object
     }
     
-    private func objectsInSection(section: Int) -> [AnyObject] {
+    private func objectsInSection(section: Int) -> [AnyObject]{
         var objects:[AnyObject] = []
         if section == 1 {
             if let ingredients = self.recipe?.ingredients.allObjects {
@@ -88,14 +85,7 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
     }
     
     private func numberOfSections() -> Int {
-        var sections: Int = 1
-        for index in 0...2 {
-            let objects = objectsInSection(index)
-            if !objects.isEmpty {
-                sections++
-            }
-        }
-        return sections
+        return sectionsTitle.count
     }
     
     // MARK: - Table View
@@ -105,7 +95,12 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objectsInSection(section).count
+        var rows: Int = 0
+        let objects = objectsInSection(section)
+        if  objects.count > 0 {
+            rows = objects.count
+        }
+        return rows
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -150,7 +145,4 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionsTitle[section]
     }
-    
-    
-
 }
