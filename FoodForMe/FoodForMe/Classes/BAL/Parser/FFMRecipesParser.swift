@@ -72,9 +72,8 @@ class FFMRecipesParser: FFMBaseParser {
             var list: [RecommendedRecipe] = []
             if response is NSArray {
                 for recommendedRecipeInfo in response as NSArray {
-                    let recipeInfo = recommendedRecipeInfo["recipe"] as NSDictionary
-                    let recipe: Recipe = self.parseRecipe(recipeInfo, context: backgroundDataContext)!
-                    //list.append(recipe)
+                let recommendedRecipe: RecommendedRecipe = self.parseRecommendedRecipe(recommendedRecipeInfo, context: backgroundDataContext)
+                    list.append(recommendedRecipe)
                 }
                 
                 // Save the background data context.
@@ -181,6 +180,23 @@ class FFMRecipesParser: FFMBaseParser {
         return ingredient
     }
     
+    private func parseRecommendedRecipe(response: AnyObject, context: DataContext) -> RecommendedRecipe {
+        let recipeInfo = response["recipe"] as NSDictionary
+        let recipe: Recipe = self.parseRecipe(recipeInfo, context: context)!
+        let preferCookingTime = response["preferCookingTime"] as Int
+        var list: [String] = []
+        for ingredient: String in response["favoriteIngredientsInRepcie"] as Array {
+            list.append(ingredient)
+        }
+        let favoriteIngredientsInRepcie = list.description
+        let recommendedRecipe = context.recommendedRecipes.createEntity()
+        recommendedRecipe.preferCookingTime = preferCookingTime
+        recommendedRecipe.favoriteIngredientsInRepcie = favoriteIngredientsInRepcie
+        recommendedRecipe.recipe = recipe
+        recipe.recommendation = recommendedRecipe
+        
+        return recommendedRecipe
+    }
     
     // Closures
     let simpleInterestCalculationClosure = { (loanAmount : Double, var interestRate : Double, years : Int) -> Double in

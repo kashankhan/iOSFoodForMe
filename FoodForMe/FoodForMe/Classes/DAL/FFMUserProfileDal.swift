@@ -21,7 +21,20 @@ class FFMUserProfileDal: FFMBaseDal {
         var userEmail = user.objectForKey("email") as String
         userProfile.email = userEmail
         userProfile.profileLink = user.link
+        
+        // Save the data context.
+        let (success, error) = dataContext.save()
+        if !success {
+            // Replace this implementation with code to handle the error appropriately.
+            println("Unresolved error \(error), \(error?.userInfo)")
+            
+        }
+
 
         return userProfile
+    }
+    
+    func getUserProfile() -> UserProfile {
+       return dataContext.userProfiles.first()!
     }
 }

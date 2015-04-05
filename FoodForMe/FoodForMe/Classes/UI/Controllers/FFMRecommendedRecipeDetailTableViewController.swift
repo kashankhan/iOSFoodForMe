@@ -16,7 +16,7 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
     let sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.prepration]
     let sectionsHeight: [CGFloat] = [320.0,  40.0, 40.0]
     
-    var recipe: Recipe? {
+    var recommendedRecipe: RecommendedRecipe? {
         didSet {
             // Update the view.
             self.tableView.reloadData()
@@ -32,18 +32,6 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
     // MARK: - Private Methods
     func configureView() {
         configureTableView()
-        fetchRecipe()
-    }
-    
-    private func fetchRecipe() {
-        if let recipe: Recipe = self.recipe {
-            if (self.recipe?.valueForKey("instructions") == nil || self.recipe?.valueForKey("ingredients") == nil) {
-                let recipeBal: FFMRecipesBal = FFMRecipesBal()
-                recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
-                    self.tableView.reloadData()
-                })
-            }
-        }
     }
     
     private func configureTableView() {
@@ -72,12 +60,12 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
     private func objectsInSection(section: Int) -> [AnyObject]{
         var objects:[AnyObject] = []
         if section == 1 {
-            if let ingredients = self.recipe?.ingredients.allObjects {
+            if let ingredients = self.recommendedRecipe?.recipe.ingredients.allObjects {
                 objects = ingredients
             }
         }
-        else if (section == 2 && self.recipe?.valueForKey("instructions") != nil) {
-            let recipeDescription: AnyObject? = self.recipe?.instructions
+        else if (section == 2 && self.recommendedRecipe?.recipe.valueForKey("instructions") != nil) {
+            let recipeDescription: AnyObject? = self.recommendedRecipe?.recipe.instructions
             objects.append(recipeDescription!)
         }
         return objects
@@ -126,7 +114,8 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
                 tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: identifierheaderView)
                 recipeDetailHeaderView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMRecipeDetailHeaderView
             }
-            recipeDetailHeaderView?.configureView(self.recipe!)
+            let recipe: Recipe? = self.recommendedRecipe?.recipe
+            recipeDetailHeaderView?.configureView(recipe!)
         }
         
         return recipeDetailHeaderView

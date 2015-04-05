@@ -32,18 +32,13 @@ class FFMProfileHeaderView : UITableViewHeaderFooterView {
         self.profilePicView.profileID = nil
         self.nameLabel?.text = ""
     
-        if(notification.object is UserProfile) {
+        if notification.object is UserProfile {
             userProfile = notification.object as? UserProfile
             self.profilePicView.profileID = userProfile?.userId
             self.nameLabel?.text = userProfile?.name
         }
-        else if (userProfile != nil) {
+        else if userProfile != nil {
             dataContext.userProfiles.deleteEntity(userProfile!)
         }
-//        if (notification.object is FBGraphObject) {
-//            var userInfo: FBGraphObject = notification.object as FBGraphObject
-//            self.profilePicView.profileID = userInfo["id"] as String
-//            self.nameLabel?.text = userInfo["name"] as? String
-//        }
     }
 }

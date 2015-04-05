@@ -12,7 +12,7 @@ import Alamofire
 class FFMRecipesBalURLRequest : FFMBaseBal {
 
     enum Router: URLRequestConvertible {
-        static let baseUri       =  FFMGlobalConstants.FFMBaseServerUrl + "/recipe"
+        static let baseUri       =  FFMGlobalConstants.FFMBaseServerUrl
         static let perPage       = 20
         
         case Search(query: String, page: Int)
@@ -29,22 +29,22 @@ class FFMRecipesBalURLRequest : FFMBaseBal {
                 switch self {
                     
                 case .Search(let query, let page):
-                    return ("/searchrecipes", ["keyword": query, "page": page, "resultPerPage" : Router.perPage * page])
+                    return ("/recipe/searchrecipes", ["keyword": query, "page": page, "resultPerPage" : Router.perPage * page])
                 
                 case .Recipe(let recipeId):
-                    return ("/recipedetail", ["recipeId": recipeId])
+                    return ("/recipe/recipedetail", ["recipeId": recipeId])
                 
                 case .RateRecipe():
-                    return ("/raterecipe", nil)
+                    return ("/recipe/raterecipe", nil)
                     
                 case .PopularRecipes():
-                    return ("/popularrecipes", ["resultsize": Router.perPage])
+                    return ("/recipe/popularrecipes", ["resultsize": Router.perPage])
                     
                 case MyRecommendations(let userId, let category):
-                    return ("/myrecommendations", ["userId": userId])
+                    return ("/recommendation/myrecommendations", ["userId": userId])
                 
                 case AllRecipeCategories():
-                    return ("/allrecipecategories", nil)
+                    return ("/recipe/allrecipecategories", nil)
                 }
                 }()
             

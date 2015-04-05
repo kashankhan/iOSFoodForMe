@@ -14,6 +14,7 @@ import AlecrimCoreData
 class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate, UISearchControllerDelegate, UISearchBarDelegate {
     
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
+    var userProfile: UserProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,19 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
+        registerForNotificaitons()
+        fetchMyRecommendations()
+    }
+    
+    func fetchMyRecommendations() {
+    
+        let userId = (self.userProfile?.userId != nil) ? self.userProfile?.userId : ""
+        println("userId , \(userId)")
+        self.recipesBal.getMyRecommendations(userId!, category: "ALL", completion: { recipes in
+            if (recipes?.count > 0) {
+        
+            }
+        })
     }
     
     // MARK: - ENSideMenu Delegate
@@ -50,6 +64,20 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
         return true;
     }
     
+    func registerForNotificaitons() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLoginNotification:", name: FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogoutNotification:", name: FFMGlobalConstants.UIFacebookUserDidLogoutNotification, object: nil)
+    }
+    
+    func userDidLoginNotification(notification: NSNotification) {
+        if notification.object is UserProfile {
+            self.userProfile = notification.object as? UserProfile
+        }
+    }
+    
+    func userDidLogoutNotification(notification: NSNotification) {
+        self.userProfile = nil
+    }
     // MARK: - Table View
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -77,8 +105,8 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         
         let recipeCell: FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
-        let recipe: Recipe = self.fetchedResultsController.entityAtIndexPath(indexPath)
-        recipeCell.configureCell(recipe)
+        let recommendedRecipe: RecommendedRecipe = self.fetchedResultsController.entityAtIndexPath(indexPath)
+        recipeCell.configureCell(recommendedRecipe.recipe)
     }
     
 
@@ -89,7 +117,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
             let tableView: UITableView = ((self.searchDisplayController?.active) == true) ? self.searchDisplayController?.searchResultsTableView : self.tableView
             if let indexPath = tableView.indexPathForSelectedRow() {
                 let object = self.fetchedResultsController.entityAtIndexPath(indexPath)
-                (segue.destinationViewController as FFMRecipeDetailTableViewController).recipe = object
+                (segue.destinationViewController as FFMRecommendedRecipeDetailTableViewController).recommendedRecipe = object
             }
         }
     }
@@ -97,8 +125,8 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     // MARK: - Fetched results controller
     
     
-    lazy var fetchedResultsController: FetchedResultsController<Recipe> = {
-        let frc = dataContext.recipes.orderByAscending("title").toFetchedResultsController()
+    lazy var fetchedResultsController: FetchedResultsController<RecommendedRecipe> = {
+        let frc = dataContext.recommendedRecipes.orderByAscending("recipe.title").toFetchedResultsController()
         frc.bindToTableView(self.tableView)
         
         return frc
