@@ -16,7 +16,7 @@ class FFMRecipesBalURLRequest : FFMBaseBal {
         static let perPage       = 20
         
         case Search(query: String, page: Int)
-        case Recipe(recipeId: Int)
+        case Recipe(recipeId: String)
         case RateRecipe()
         case PopularRecipes()
         case MyRecommendations(userId: String, category: String)

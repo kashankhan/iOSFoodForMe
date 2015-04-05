@@ -12,8 +12,8 @@ import CoreData
 class RecommendedRecipe: NSManagedObject {
 
     @NSManaged var favoriteIngredientsInRepcie: String
-    @NSManaged var preferCookingTime: NSNumber
     @NSManaged var identifier: NSNumber
+    @NSManaged var preferCookingTime: NSNumber
     @NSManaged var recipe: Recipe
 
 }

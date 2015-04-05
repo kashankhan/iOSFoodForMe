@@ -22,7 +22,7 @@ class Recipe: NSManagedObject {
     @NSManaged var preparation: String
     @NSManaged var primaryIngredient: String
     @NSManaged var recipeDescription: String
-    @NSManaged var recipeId: NSNumber
+    @NSManaged var recipeId: String
     @NSManaged var reviewCount: NSNumber
     @NSManaged var starRating: NSNumber
     @NSManaged var subcategory: String

@@ -38,7 +38,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         if let recipe: Recipe = self.recipe {
             if (self.recipe?.valueForKey("instructions") == nil || self.recipe?.valueForKey("ingredients") == nil) {
                 let recipeBal: FFMRecipesBal = FFMRecipesBal()
-                recipeBal.getRecipe(recipe.recipeId.integerValue, completion: { recipe in
+                recipeBal.getRecipe(recipe.recipeId, completion: { recipe in
                     self.recipe = recipe
                 })
             }

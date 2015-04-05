@@ -35,7 +35,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
-        fetchPopularRecipes()
+        //fetchPopularRecipes()
     }
     
     func fetchPopularRecipes() {

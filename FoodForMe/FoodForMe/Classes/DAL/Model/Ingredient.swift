@@ -23,7 +23,7 @@ class Ingredient: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var preparationNotes: String
     @NSManaged var quantity: NSNumber
-    @NSManaged var recipeId: NSNumber
+    @NSManaged var recipeId: String
     @NSManaged var unit: String
     @NSManaged var recipes: NSSet
 

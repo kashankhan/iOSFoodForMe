@@ -13,7 +13,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preparationNotes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="recipeId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="recipeId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe" syncable="YES"/>
     </entity>
@@ -45,7 +45,7 @@
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="nutritionInfo" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <entity name="Recipe" representedClassName="FoodForMe.Recipe" syncable="YES">
-        <attribute name="activeMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="activeMinutes" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="allCategoriesText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cuisine" optional="YES" attributeType="String" syncable="YES"/>
@@ -56,7 +56,7 @@
         <attribute name="preparation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="primaryIngredient" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="recipeDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="recipeId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="recipeId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reviewCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="starRating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="subcategory" optional="YES" attributeType="String" syncable="YES"/>
@@ -90,11 +90,11 @@
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Ingredient" positionX="-9" positionY="-81" width="128" height="268"/>
         <element name="NutritionInfo" positionX="90" positionY="27" width="128" height="418"/>
         <element name="Recipe" positionX="52" positionY="-126" width="128" height="388"/>
+        <element name="RecipeCategory" positionX="0" positionY="36" width="128" height="73"/>
         <element name="RecommendedRecipe" positionX="90" positionY="27" width="128" height="103"/>
         <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="163"/>
-        <element name="Ingredient" positionX="-9" positionY="-81" width="128" height="268"/>
-        <element name="RecipeCategory" positionX="0" positionY="36" width="128" height="73"/>
     </elements>
 </model>

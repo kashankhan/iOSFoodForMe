@@ -35,6 +35,8 @@ class FFMRecipesParser: FFMBaseParser {
     
      func parseRecipeDetail(response: AnyObject?, completion: (Recipe?) -> Void) {
         performInBackground(dataContext) { backgroundDataContext in
+            
+            println(response)
             let recipe: Recipe = self.parseRecipe(response!, context: backgroundDataContext)!
             recipe.activeMinutes =  (response?["activeMinutes"] is Int) ? response?["activeMinutes"] as Int : 0
             recipe.recipeDescription = response?["description"] as String
@@ -71,7 +73,7 @@ class FFMRecipesParser: FFMBaseParser {
             var list: [RecommendedRecipe] = []
             if response is NSArray {
                 for recommendedRecipeInfo in response as NSArray {
-                    let recipeInfo = recommendedRecipeInfo["Recipe"] as NSDictionary
+                    let recipeInfo = recommendedRecipeInfo["recipe"] as NSDictionary
                     let recipe: Recipe = self.parseRecipe(recipeInfo, context: backgroundDataContext)!
                     //list.append(recipe)
                 }
@@ -111,8 +113,9 @@ class FFMRecipesParser: FFMBaseParser {
 
     
     private func parseRecipe(response: AnyObject, context: DataContext) -> Recipe? {
-        let recipeId = response["recipeId"] as Int
+        let recipeId = NSString(format:"%d", response["recipeId"] as Int)
         let recipe = context.recipes.createOrGetFirstEntity(whereAttribute: "recipeId", isEqualTo: recipeId)
+        println(recipeId);
         recipe.recipeId = recipeId
         recipe.title = response["title"] as String
         recipe.starRating = response["starRating"] as Int
@@ -127,8 +130,7 @@ class FFMRecipesParser: FFMBaseParser {
     }
     
     private func parseNutritionInfo(response: AnyObject?, context: DataContext, recipe: Recipe) -> NutritionInfo? {
-        let entityName = "NutritionInfo"
-        let nutritionInfo = dataContext.nutritions.createEntity()
+        let nutritionInfo = context.nutritions.createEntity()
         nutritionInfo.caloriesFromFat = response?["caloriesFromFat"] as Int
         nutritionInfo.cholesterol = response?["cholesterol"] as Int
         nutritionInfo.cholesterolPct = response?["cholesterolPct"] as Int
@@ -141,7 +143,7 @@ class FFMRecipesParser: FFMBaseParser {
         nutritionInfo.protein = response?["protein"] as Int
         nutritionInfo.proteinPct = response?["proteinPct"] as Int
         nutritionInfo.satFat = response?["satFat"] as Int
-        nutritionInfo.satFatPct = response?["satFatPct"] as Int
+        nutritionInfo.satFatPct =  (response?["satFatPct"] is Int) ? response?["satFatPct"] as Int : 0
         nutritionInfo.singularYieldUnit = response?["singularYieldUnit"] as String
         nutritionInfo.sodium = response?["sodium"] as Int
         nutritionInfo.sodiumPct = response?["sodiumPct"] as Int
@@ -151,8 +153,7 @@ class FFMRecipesParser: FFMBaseParser {
         nutritionInfo.totalCarbsPct = response?["totalCarbsPct"] as Int
         nutritionInfo.totalFat = response?["totalFat"] as Int
         nutritionInfo.totalFatPct = response?["totalFatPct"] as Int
-        nutritionInfo.transFat = response?["transFat"] as Int
-        
+        nutritionInfo.transFat = (response?["transFat"] is Int) ? response?["transFat"] as Int : 0
         //recipe: Recipe
         nutritionInfo.recipe = recipe
         
@@ -160,8 +161,8 @@ class FFMRecipesParser: FFMBaseParser {
     }
 
     private func parseIngredient(response: AnyObject, context: DataContext, recipe: Recipe) -> Ingredient {
-        let ingredient = dataContext.ingredients.createEntity()
-         let ingredientID = NSString(format:"%d", response["ingredientID"] as Int)
+        let ingredient = context.ingredients.createEntity()
+        let ingredientID = NSString(format:"%d", response["ingredientID"] as Int)
         ingredient.displayIndex = response["displayIndex"] as Int
         ingredient.ingredientID = ingredientID
         ingredient.recipeId = recipe.recipeId

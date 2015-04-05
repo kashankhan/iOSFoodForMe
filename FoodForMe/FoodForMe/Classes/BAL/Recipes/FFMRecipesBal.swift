@@ -22,7 +22,7 @@ class FFMRecipesBal: FFMBaseBal {
         }
     }
    
-    func getRecipe(recipeId: Int, completion: (Recipe?) -> Void) {
+    func getRecipe(recipeId: String, completion: (Recipe?) -> Void) {
         Alamofire.request(FFMRecipesBalURLRequest.Router.Recipe(recipeId: recipeId)).responseJSON
             { (request, response, data, error) in
                 self.recipesParse.parseRecipeDetail(data!, completion: { recipe in
