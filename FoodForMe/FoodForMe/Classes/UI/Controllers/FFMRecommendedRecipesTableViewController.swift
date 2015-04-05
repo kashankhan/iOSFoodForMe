@@ -36,7 +36,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
         registerForNotificaitons()
-        fetchMyRecommendations()
+        //fetchMyRecommendations()
     }
     
     func fetchMyRecommendations() {
@@ -44,9 +44,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
         let userId = (self.userProfile?.userId != nil) ? self.userProfile?.userId : ""
         println("userId , \(userId)")
         self.recipesBal.getMyRecommendations(userId!, category: "ALL", completion: { recipes in
-            if (recipes?.count > 0) {
-        
-            }
+          self.tableView.reloadData()
         })
     }
     

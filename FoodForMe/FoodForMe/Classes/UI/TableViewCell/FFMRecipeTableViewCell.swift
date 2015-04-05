@@ -24,7 +24,6 @@ class FFMRecipeTableViewCell: UITableViewCell {
     }
     
     func configureCell(recipe: Recipe) {
-        
         self.avatarImageView.image = nil
         self.avatarImageView.loadImage(recipe.imageUri, autoCache: true)
         self.recipeLabel?.text = recipe.title

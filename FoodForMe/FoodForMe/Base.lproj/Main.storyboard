@@ -202,6 +202,7 @@
                                     <outlet property="ratingStarView" destination="jhh-VN-veQ" id="cXg-vL-jmj"/>
                                     <outlet property="recipeLabel" destination="hea-6J-hfH" id="zOJ-RT-zdv"/>
                                     <outlet property="reviewLabel" destination="vAW-sN-2w0" id="4Yi-Xw-QCr"/>
+                                    <segue destination="QQ8-U7-2YL" kind="show" identifier="IdentifierSegueShowRecipeDetail" id="bQb-p2-ePS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
