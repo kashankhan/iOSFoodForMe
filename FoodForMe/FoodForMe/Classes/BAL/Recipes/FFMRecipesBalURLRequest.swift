@@ -19,8 +19,8 @@ class FFMRecipesBalURLRequest : FFMBaseBal {
         case Recipe(recipeId: String)
         case RateRecipe()
         case PopularRecipes()
-        case MyRecommendations(userId: String, category: String)
-        case AllRecipeCategories()
+        case MyRecommendations(userId: String, course: String)
+        case AllCourses()
         
         // MARK: URLRequestConvertible
 
@@ -40,11 +40,11 @@ class FFMRecipesBalURLRequest : FFMBaseBal {
                 case .PopularRecipes():
                     return ("/recipe/popularrecipes", ["resultsize": Router.perPage])
                     
-                case MyRecommendations(let userId, let category):
+                case MyRecommendations(let userId, let course):
                     return ("/recommendation/myrecommendations", ["userId": userId, "pagesize":Router.perPage])
                 
-                case AllRecipeCategories():
-                    return ("/recipe/allrecipecategories", nil)
+                case AllCourses():
+                    return ("/recipe/allcourses", nil)
                 }
                 }()
             
