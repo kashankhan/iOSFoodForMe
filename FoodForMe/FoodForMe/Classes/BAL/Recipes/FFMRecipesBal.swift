@@ -48,8 +48,8 @@ class FFMRecipesBal: FFMBaseBal {
     
     func getMyRecommendations(userId: String, category: String, completion: (NSArray?) -> Void) {
         Alamofire.request(FFMRecipesBalURLRequest.Router.MyRecommendations(userId: userId, category: category)).responseJSON { (request, response, data, error) in
-            self.recipesParse.parseRecommendedRecipes(data!, completion: { recipes in
-                completion(recipes!)
+            self.recipesParse.parseRecommendedRecipes(data!, completion: { recommendedRecipes in
+                completion(recommendedRecipes!)
             })
         }
     }

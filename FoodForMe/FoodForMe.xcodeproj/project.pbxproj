@@ -15,7 +15,8 @@
 		C019F40A1A90EDF100766D7C /* FFMBaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4091A90EDF100766D7C /* FFMBaseParser.swift */; };
 		C019F40C1A90EE2000766D7C /* FFMRecipesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F40B1A90EE2000766D7C /* FFMRecipesParser.swift */; };
 		C019F41C1A90F16500766D7C /* FFMBaseDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F41B1A90F16500766D7C /* FFMBaseDal.swift */; };
-		C026520C1AD2B12D00DADC98 /* RecommendedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026520B1AD2B12D00DADC98 /* RecommendedRecipe.swift */; };
+		C026520E1AD2EAE300DADC98 /* FFMUserPreferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026520D1AD2EAE300DADC98 /* FFMUserPreferenceTableViewController.swift */; };
+		C02652101AD3191500DADC98 /* RecommendedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026520F1AD3191500DADC98 /* RecommendedRecipe.swift */; };
 		C03B7B1A1A8ADB480043E5A1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */; };
 		C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = C03B7B231A8ADE630043E5A1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */; };
@@ -121,7 +122,8 @@
 		C019F4091A90EDF100766D7C /* FFMBaseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMBaseParser.swift; sourceTree = "<group>"; };
 		C019F40B1A90EE2000766D7C /* FFMRecipesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipesParser.swift; sourceTree = "<group>"; };
 		C019F41B1A90F16500766D7C /* FFMBaseDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMBaseDal.swift; sourceTree = "<group>"; };
-		C026520B1AD2B12D00DADC98 /* RecommendedRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedRecipe.swift; sourceTree = "<group>"; };
+		C026520D1AD2EAE300DADC98 /* FFMUserPreferenceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMUserPreferenceTableViewController.swift; sourceTree = "<group>"; };
+		C026520F1AD3191500DADC98 /* RecommendedRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedRecipe.swift; sourceTree = "<group>"; };
 		C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMLocalizedConstants.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				C0EA902A1A8CEA0400BB62F0 /* FFMRecipesTableViewController.swift */,
 				C091E7531ACF331100229732 /* FFMRecommendedRecipesTableViewController.swift */,
 				C091E7551AD017E300229732 /* FFMRecommendedRecipeDetailTableViewController.swift */,
+				C026520D1AD2EAE300DADC98 /* FFMUserPreferenceTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -452,7 +455,7 @@
 				C0D01D5D1AD170B5002612BE /* Recipe.swift */,
 				C0D01D5B1AD170B5002612BE /* UserProfile.swift */,
 				C0D01D591AD170B4002612BE /* RecipeCategory.swift */,
-				C026520B1AD2B12D00DADC98 /* RecommendedRecipe.swift */,
+				C026520F1AD3191500DADC98 /* RecommendedRecipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -620,12 +623,13 @@
 				C019F3F61A8F889800766D7C /* YummlyRecipesBal.swift in Sources */,
 				C0EA90281A8CE6E500BB62F0 /* FFMMenuTableViewController.swift in Sources */,
 				C0D01D5E1AD170B5002612BE /* Recipe.swift in Sources */,
+				C02652101AD3191500DADC98 /* RecommendedRecipe.swift in Sources */,
 				C06C788C1A8CF873001A9910 /* FFMUserProfileDal.swift in Sources */,
-				C026520C1AD2B12D00DADC98 /* RecommendedRecipe.swift in Sources */,
 				C091E7511ACEED7C00229732 /* FFMRecipesBalURLRequest.swift in Sources */,
 				C019F40A1A90EDF100766D7C /* FFMBaseParser.swift in Sources */,
 				C0EA90291A8CE6E500BB62F0 /* FFMNavigationController.swift in Sources */,
 				C07379F01A8F806D0069F678 /* AlamofireExtension.swift in Sources */,
+				C026520E1AD2EAE300DADC98 /* FFMUserPreferenceTableViewController.swift in Sources */,
 				C06C79191A8D64B9001A9910 /* UIImageViewAsyncImageExtension.swift in Sources */,
 				C0F0B0BD1A898A7E00752E0E /* FoodForMe.xcdatamodeld in Sources */,
 				C0D01D5C1AD170B5002612BE /* UserProfile.swift in Sources */,

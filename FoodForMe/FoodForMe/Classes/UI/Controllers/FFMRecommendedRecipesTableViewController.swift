@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 import AlecrimCoreData
 
-class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate, UISearchControllerDelegate, UISearchBarDelegate {
+class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate {
     
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
     var userProfile: UserProfile?
@@ -40,6 +40,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     }
     
     func fetchMyRecommendations() {
+        dataContext.recommendedRecipes.delete()
         let userId = (self.userProfile?.userId != nil) ? self.userProfile?.userId : ""
         self.recipesBal.getMyRecommendations(userId!, category: "ALL", completion: { recipes in
           self.tableView.reloadData()
@@ -74,6 +75,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     func userDidLogoutNotification(notification: NSNotification) {
         self.userProfile = nil
     }
+    
     // MARK: - Table View
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -124,7 +126,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     
     
     lazy var fetchedResultsController: FetchedResultsController<RecommendedRecipe> = {
-        let frc = dataContext.recommendedRecipes.orderByAscending("recipe.title").toFetchedResultsController()
+        let frc = dataContext.recommendedRecipes.sortBy("recipe.title", ascending: true).toFetchedResultsController()
         frc.bindToTableView(self.tableView)
         
         return frc

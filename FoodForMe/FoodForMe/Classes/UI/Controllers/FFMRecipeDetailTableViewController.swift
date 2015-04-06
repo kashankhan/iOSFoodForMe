@@ -90,14 +90,12 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        println("numberOfSections() , \(numberOfSections())")
         return numberOfSections()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rows: Int = 0
         let objects = objectsInSection(section)
-        println("objects , \(objects)")
         if !objects.isEmpty  {
             rows = objects.count
         }
