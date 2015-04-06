@@ -41,7 +41,7 @@ class FFMRecipesBalURLRequest : FFMBaseBal {
                     return ("/recipe/popularrecipes", ["resultsize": Router.perPage])
                     
                 case MyRecommendations(let userId, let category):
-                    return ("/recommendation/myrecommendations", ["userId": userId])
+                    return ("/recommendation/myrecommendations", ["userId": userId, "pagesize":Router.perPage])
                 
                 case AllRecipeCategories():
                     return ("/recipe/allrecipecategories", nil)

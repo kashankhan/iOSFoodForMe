@@ -11,6 +11,7 @@ import UIKit
 
 class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     var selectedMenuItem : Int = 0
+    let controllersTitle: [String] = [NSLS.popularRecipes, NSLS.recommendations]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 2
+        return controllersTitle.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -56,7 +57,7 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
             cell!.selectedBackgroundView = selectedBackgroundView
         }
         
-        cell!.textLabel?.text = "ViewController #\(indexPath.row+1)"
+        cell!.textLabel?.text = controllersTitle[indexPath.row]
         
         return cell!
     }

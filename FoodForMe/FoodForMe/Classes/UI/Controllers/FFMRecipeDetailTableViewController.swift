@@ -78,7 +78,6 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         else if (section == 2 && self.recipe?.valueForKey("instructions") != nil) {
             let recipeDescription: AnyObject? = self.recipe?.instructions
             objects.append(recipeDescription!)
-            println("objectsInSection , \(objects)")
         }
         return objects
         

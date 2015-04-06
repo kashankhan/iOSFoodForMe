@@ -124,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="-73" y="47"/>
         </scene>
-        <!--Recipe Recommendation-->
+        <!--Recommendations-->
         <scene sceneID="8CZ-Xo-QYg">
             <objects>
                 <tableViewController storyboardIdentifier="FFMRecommendedRecipesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="149-UM-zX8" customClass="FFMRecommendedRecipesTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,7 +211,7 @@
                             <outlet property="delegate" destination="149-UM-zX8" id="lPo-nf-qnp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Recipe Recommendation" id="QhN-vB-bte">
+                    <navigationItem key="navigationItem" title="Recommendations" id="QhN-vB-bte">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="eXf-TI-n3p">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="149-UM-zX8" id="0PT-8D-RDo"/>
@@ -224,7 +224,7 @@
             </objects>
             <point key="canvasLocation" x="-67" y="762"/>
         </scene>
-        <!--Recommended Recipe Detail Table View Controller-->
+        <!--Recipe Detail-->
         <scene sceneID="k6w-4z-o9y">
             <objects>
                 <tableViewController storyboardIdentifier="FFMRecommendedRecipeDetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QQ8-U7-2YL" customClass="FFMRecommendedRecipeDetailTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -263,6 +263,7 @@
                             <outlet property="delegate" destination="QQ8-U7-2YL" id="eHe-hW-ek2"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Recipe Detail" id="mNt-qR-5xC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQb-B2-bWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

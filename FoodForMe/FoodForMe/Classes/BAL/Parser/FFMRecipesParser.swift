@@ -36,25 +36,7 @@ class FFMRecipesParser: FFMBaseParser {
      func parseRecipeDetail(response: AnyObject?, completion: (Recipe?) -> Void) {
         
         performInBackground(dataContext) { backgroundDataContext in
-            let recipe: Recipe = self.parseRecipe(response!, context: backgroundDataContext)!
-            recipe.activeMinutes =  (response?["activeMinutes"] is Int) ? response?["activeMinutes"] as Int : 0
-            recipe.recipeDescription = response?["description"] as String
-            recipe.primaryIngredient = response?["primaryIngredient"] as String
-            recipe.totalMinutes = (response?["totalMinutes"] is Int) ? response?["totalMinutes"] as Int : 0
-            recipe.yieldNumber = response?["yieldNumber"] as Int
-            recipe.yieldUnit = response?["yieldUnit"] as String
-            recipe.instructions = response?["instructions"] as String
-            
-            //NutritionInfo
-            let nutritionInfo: NutritionInfo = self.parseNutritionInfo(response?["nutritionInfo"], context: backgroundDataContext, recipe: recipe) as NutritionInfo!
-            recipe.nutritionInfo = nutritionInfo
-            //Ingredient
-            var ingredientSet = NSMutableSet()
-            for ingredientsInfo: AnyObject in response?["ingredients"] as Array {
-                let ingredient = self.parseIngredient(ingredientsInfo, context: backgroundDataContext, recipe: recipe) as Ingredient!
-                ingredientSet.addObject(ingredient)
-            }
-            recipe.ingredients = ingredientSet
+            let recipe: Recipe = self.parseCompleteRecipe(response, context: backgroundDataContext)!
             // Save the background data context.
             let (success, error) = backgroundDataContext.save()
             if !success {
@@ -126,6 +108,28 @@ class FFMRecipesParser: FFMBaseParser {
         return recipe
     }
     
+    private func parseCompleteRecipe(response: AnyObject?, context: DataContext) -> Recipe? {
+        let recipe: Recipe = self.parseRecipe(response!, context: context)!
+        recipe.activeMinutes =  (response?["activeMinutes"] is Int) ? response?["activeMinutes"] as Int : 0
+        recipe.recipeDescription = response?["description"] as String
+        recipe.primaryIngredient = response?["primaryIngredient"] as String
+        recipe.totalMinutes = (response?["totalMinutes"] is Int) ? response?["totalMinutes"] as Int : 0
+        recipe.yieldNumber = response?["yieldNumber"] as Int
+        recipe.yieldUnit = response?["yieldUnit"] as String
+        recipe.instructions = response?["instructions"] as String
+        
+        //NutritionInfo
+        let nutritionInfo: NutritionInfo = self.parseNutritionInfo(response?["nutritionInfo"], context: context, recipe: recipe) as NutritionInfo!
+        recipe.nutritionInfo = nutritionInfo
+        //Ingredient
+        var ingredientSet = NSMutableSet()
+        for ingredientsInfo: AnyObject in response?["ingredients"] as Array {
+            let ingredient = self.parseIngredient(ingredientsInfo, context: context, recipe: recipe) as Ingredient!
+            ingredientSet.addObject(ingredient)
+        }
+        recipe.ingredients = ingredientSet
+        return recipe
+    }
     private func parseNutritionInfo(response: AnyObject?, context: DataContext, recipe: Recipe?) -> NutritionInfo? {
         let nutritionInfo = context.nutritions.createEntity()
         nutritionInfo.caloriesFromFat = response?["caloriesFromFat"] as Int
@@ -182,7 +186,7 @@ class FFMRecipesParser: FFMBaseParser {
     
     private func parseRecommendedRecipe(response: AnyObject, context: DataContext) -> RecommendedRecipe {
         let recipeInfo = response["recipe"] as NSDictionary
-        let recipe: Recipe = self.parseRecipe(recipeInfo, context: context)!
+        let recipe = self.parseCompleteRecipe(recipeInfo, context: context)
         let preferCookingTime = response["preferCookingTime"] as Int
         var list: [String] = []
         for ingredient: String in response["favoriteIngredientsInRepcie"] as Array {
@@ -192,10 +196,10 @@ class FFMRecipesParser: FFMBaseParser {
         let recommendedRecipe = context.recommendedRecipes.createEntity()
         recommendedRecipe.preferCookingTime = preferCookingTime
         recommendedRecipe.favoriteIngredientsInRepcie = favoriteIngredientsInRepcie
-        recommendedRecipe.recipe = recipe
-        recipe.recommendation = recommendedRecipe
-        
+        recommendedRecipe.recipe = recipe!
+        recipe?.recommendation = recommendedRecipe
         return recommendedRecipe
+
     }
     
     // Closures

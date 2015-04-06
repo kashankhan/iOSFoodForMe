@@ -36,13 +36,11 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
         registerForNotificaitons()
-        //fetchMyRecommendations()
+        fetchMyRecommendations()
     }
     
     func fetchMyRecommendations() {
-    
         let userId = (self.userProfile?.userId != nil) ? self.userProfile?.userId : ""
-        println("userId , \(userId)")
         self.recipesBal.getMyRecommendations(userId!, category: "ALL", completion: { recipes in
           self.tableView.reloadData()
         })
@@ -103,8 +101,10 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         
         let recipeCell: FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
-        let recommendedRecipe: RecommendedRecipe = self.fetchedResultsController.entityAtIndexPath(indexPath)
-        recipeCell.configureCell(recommendedRecipe.recipe)
+        let recommendedRecipe: RecommendedRecipe? = self.fetchedResultsController.entityAtIndexPath(indexPath)
+        if let recipe = recommendedRecipe?.recipe {
+            recipeCell.configureCell(recipe)
+        }
     }
     
 
