@@ -23,7 +23,7 @@ struct NSLS {
     static let popularRecipeExplaination = localizedString("popularRecipeExplaination", "This recipe is among one of popular recipe in catagoy of %@. In order to make recommendation specific to you taste and health please set your preference")
     static let preferences = localizedString("Preferences", "Preferences")
     static let cookingTime = localizedString("CookingTime", "Cooking Time")
-    static let catagory = localizedString("Catagory", "Catagory")
+    static let course = localizedString("Course", "Course")
     
 }
 

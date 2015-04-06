@@ -11,7 +11,7 @@ import UIKit
 
 class FFMUserPreferenceTableViewController: UITableViewController {
 
-    let items: [String] = [NSLS.cookingTime, NSLS.ingredients, NSLS.catagory]
+    let items: [String] = [NSLS.cookingTime, NSLS.ingredients, NSLS.course]
 
     override func viewDidLoad() {
         super.viewDidLoad()
