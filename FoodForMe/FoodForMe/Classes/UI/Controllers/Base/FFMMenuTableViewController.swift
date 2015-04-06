@@ -11,7 +11,7 @@ import UIKit
 
 class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     var selectedMenuItem : Int = 0
-    let controllersTitle: [String] = [NSLS.popularRecipes, NSLS.recommendations]
+    let controllersTitle: [String] = [NSLS.popularRecipes, NSLS.recommendations, NSLS.preferences]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,10 +84,10 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecommendedRecipesTableViewController") as FFMRecommendedRecipesTableViewController
             break
         case 2:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMUserPreferenceTableViewController") as FFMUserPreferenceTableViewController
             break
         default:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipesTableViewController") as FFMRecipesTableViewController
             break
         }
         sideMenuController()?.setContentViewController(destViewController)
