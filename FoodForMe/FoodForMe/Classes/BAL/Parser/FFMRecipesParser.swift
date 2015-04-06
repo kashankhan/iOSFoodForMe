@@ -197,11 +197,34 @@ class FFMRecipesParser: FFMBaseParser {
         recommendedRecipe.preferCookingTime = preferCookingTime
         recommendedRecipe.favoriteIngredientsInRepcie = favoriteIngredientsInRepcie
         recommendedRecipe.recipe = recipe!
+        recommendedRecipe.explaination = self.getRecommendedRecipeExplaintation(preferCookingTime, favoriteIngredientsInRepcie: favoriteIngredientsInRepcie, favoriteIngredients: list, recipe: recipe!)
         recipe?.recommendation = recommendedRecipe
         return recommendedRecipe
 
     }
     
+    private func getRecommendedRecipeExplaintation(preferCookingTime: Int, favoriteIngredientsInRepcie: String, favoriteIngredients: [String], recipe : Recipe) -> String {
+        var explaintion = NSString(format: NSLS.calaroiesAndExcersiseInfomation, randomInt(500, max: 5000), randomInt(10, max: 60))
+        var isUserContextSet = false
+        if !favoriteIngredients.isEmpty {
+            explaintion = explaintion + " " + NSString(format: NSLS.ingredientsExplaination, favoriteIngredientsInRepcie)
+            
+            isUserContextSet = true
+        }
+        if preferCookingTime > 0 {
+           explaintion = explaintion + " " + NSLS.preferCookingTimeExplaination
+            isUserContextSet = (isUserContextSet == true) ? isUserContextSet : false
+        }
+        if isUserContextSet == false {
+            explaintion = explaintion + " " + NSString(format: NSLS.popularRecipeExplaination, recipe.category)
+        }
+        
+        return explaintion
+    }
+    
+    func randomInt(min: Int, max:Int) -> Int {
+        return min + Int(arc4random_uniform(UInt32(max - min + 1)))
+    }
     // Closures
     let simpleInterestCalculationClosure = { (loanAmount : Double, var interestRate : Double, years : Int) -> Double in
         interestRate = interestRate / 100.0

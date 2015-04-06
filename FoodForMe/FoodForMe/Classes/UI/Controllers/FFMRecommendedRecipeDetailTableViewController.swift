@@ -13,8 +13,8 @@ import AlecrimCoreData
 
 class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
     
-    let sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.prepration]
-    let sectionsHeight: [CGFloat] = [320.0,  40.0, 40.0]
+    let sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.prepration, NSLS.explaination]
+    let sectionsHeight: [CGFloat] = [320.0,  40.0, 40.0, 40.0]
     
     var recommendedRecipe: RecommendedRecipe? {
         didSet {
@@ -50,7 +50,7 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
             // MetricQuantity + MetricUnit + Name + PreparationNotes
             object  = ingredient.metricDisplayQuantity + " " + ingredient.metricUnit + " " + ingredient.name + " " + ingredient.preparationNotes
         }
-        else if section == 2 {
+        else if section == 2 || section == 3 {
             object = objects[row] as String
         }
         
@@ -67,6 +67,10 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
         else if (section == 2 && self.recommendedRecipe?.recipe.valueForKey("instructions") != nil) {
             let recipeDescription: AnyObject? = self.recommendedRecipe?.recipe.instructions
             objects.append(recipeDescription!)
+        }
+        else if section == 3 {
+            let explaination: AnyObject? = self.recommendedRecipe?.explaination
+            objects.append(explaination!)
         }
         return objects
         

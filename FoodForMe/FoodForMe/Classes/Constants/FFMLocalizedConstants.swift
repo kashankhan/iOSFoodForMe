@@ -16,6 +16,11 @@ struct NSLS {
     static let prepration  = localizedString("Prepration", "Prepration")
     static let recommendations = localizedString("Recommendations", "Recommendations")
     static let popularRecipes = localizedString("PopularRecipes", "Popular Recipes")
+    static let explaination = localizedString("Explaination", "Explaination")
+    static let ingredientsExplaination = localizedString("ingredientsExplaination", "This recipe contains following indegredinets %@, which is similar to your taste and health requirments.")
+    static let calaroiesAndExcersiseInfomation = localizedString("calaroiesAndExcersiseInfomation", "It containts %d K caloaries, Inorder to burn these calaroies you have to do excersise around %d min.")
+    static let preferCookingTimeExplaination = localizedString("preferCookingTimeExplaination", "It matches your perfer cooking time %@ min")
+    static let popularRecipeExplaination = localizedString("popularRecipeExplaination", "This recipe is among one of popular recipe in catagoy of %@. In order to make recommendation specific to you taste and health please set your preference")
 }
 
 func localizedString(key: String, value: String)->String {

@@ -74,6 +74,7 @@
         <attribute name="selected" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>
     <entity name="RecommendedRecipe" representedClassName="FoodForMe.RecommendedRecipe" syncable="YES">
+        <attribute name="explaination" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favoriteIngredientsInRepcie" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="preferCookingTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -94,7 +95,7 @@
         <element name="NutritionInfo" positionX="90" positionY="27" width="128" height="418"/>
         <element name="Recipe" positionX="52" positionY="-126" width="128" height="388"/>
         <element name="RecipeCategory" positionX="0" positionY="36" width="128" height="73"/>
-        <element name="RecommendedRecipe" positionX="90" positionY="27" width="128" height="103"/>
+        <element name="RecommendedRecipe" positionX="90" positionY="27" width="128" height="118"/>
         <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="163"/>
     </elements>
 </model>
