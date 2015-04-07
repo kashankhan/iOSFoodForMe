@@ -130,8 +130,10 @@ class FFMRecipesParser: FFMBaseParser {
         recipe.ingredients = ingredientSet
         return recipe
     }
-    private func parseNutritionInfo(response: AnyObject?, context: DataContext, recipe: Recipe?) -> NutritionInfo? {
-        let nutritionInfo = context.nutritions.createEntity()
+    
+    private func parseNutritionInfo(response: AnyObject?, context: DataContext, recipe: Recipe) -> NutritionInfo? {
+        let nutritionInfo = context.nutritions.createOrGetFirstEntity(whereAttribute: "identifier", isEqualTo: recipe.recipeId)
+        nutritionInfo.identifier = recipe.recipeId
         nutritionInfo.caloriesFromFat = response?["caloriesFromFat"] as Int
         nutritionInfo.cholesterol = response?["cholesterol"] as Int
         nutritionInfo.cholesterolPct = response?["cholesterolPct"] as Int
@@ -156,14 +158,14 @@ class FFMRecipesParser: FFMBaseParser {
         nutritionInfo.totalFatPct = response?["totalFatPct"] as Int
         nutritionInfo.transFat = (response?["transFat"] is Int) ? response?["transFat"] as Int : 0
         //recipe: Recipe
-        nutritionInfo.recipe = recipe!
+        nutritionInfo.recipe = recipe
         
         return nutritionInfo
     }
 
     private func parseIngredient(response: AnyObject, context: DataContext, recipe: Recipe) -> Ingredient {
-        let ingredient = context.ingredients.createEntity()
         let ingredientId = NSString(format:"%d", response["ingredientID"] as Int)
+        let ingredient = context.ingredients.createOrGetFirstEntity(whereAttribute: "ingredientId", isEqualTo: ingredientId)
         ingredient.displayIndex = response["displayIndex"] as Int
         ingredient.ingredientId = ingredientId
         ingredient.recipeId = recipe.recipeId
@@ -186,19 +188,20 @@ class FFMRecipesParser: FFMBaseParser {
     
     private func parseRecommendedRecipe(response: AnyObject, context: DataContext) -> RecommendedRecipe {
         let recipeInfo = response["recipe"] as NSDictionary
-        let recipe = self.parseCompleteRecipe(recipeInfo, context: context)
+        let recipe: Recipe = self.parseCompleteRecipe(recipeInfo, context: context)!
         let preferCookingTime = response["preferCookingTime"] as Int
         var list: [String] = []
         for ingredient: String in response["favoriteIngredientsInRepcie"] as Array {
             list.append(ingredient)
         }
         let favoriteIngredientsInRepcie = list.description
-        let recommendedRecipe = context.recommendedRecipes.createEntity()
+        let recommendedRecipe = context.recommendedRecipes.createOrGetFirstEntity(whereAttribute: "identifier", isEqualTo: recipe.recipeId)
+        recommendedRecipe.identifier = recipe.recipeId
         recommendedRecipe.preferCookingTime = preferCookingTime
         recommendedRecipe.favoriteIngredientsInRepcie = favoriteIngredientsInRepcie
-        recommendedRecipe.recipe = recipe!
-        recommendedRecipe.explaination = self.getRecommendedRecipeExplaintation(preferCookingTime, favoriteIngredientsInRepcie: favoriteIngredientsInRepcie, favoriteIngredients: list, recipe: recipe!)
-        recipe?.recommendation = recommendedRecipe
+        recommendedRecipe.recipe = recipe
+        recommendedRecipe.explaination = self.getRecommendedRecipeExplaintation(preferCookingTime, favoriteIngredientsInRepcie: favoriteIngredientsInRepcie, favoriteIngredients: list, recipe: recipe)
+        recipe.recommendation = recommendedRecipe
         return recommendedRecipe
 
     }
@@ -225,6 +228,7 @@ class FFMRecipesParser: FFMBaseParser {
     func randomInt(min: Int, max:Int) -> Int {
         return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
+    
     // Closures
     let simpleInterestCalculationClosure = { (loanAmount : Double, var interestRate : Double, years : Int) -> Double in
         interestRate = interestRate / 100.0

@@ -1,5 +1,5 @@
 //
-//  RecipeCategory.swift
+//  CookingTimePreference.swift
 //  FoodForMe
 //
 //  Created by Kashan Khan on 07/04/2015.
@@ -9,9 +9,9 @@
 import Foundation
 import CoreData
 
-class RecipeCategory: NSManagedObject {
+class CookingTimePreference: NSManagedObject {
 
-    @NSManaged var name: String
-    @NSManaged var selected: NSNumber
+    @NSManaged var time: NSNumber
+    @NSManaged var userProfile: UserProfile
 
 }

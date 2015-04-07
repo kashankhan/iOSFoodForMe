@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D130a" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CookingTimePreference" representedClassName="FoodForMe.CookingTimePreference" syncable="YES">
+        <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="userProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="cookingTimePreference" inverseEntity="UserProfile" syncable="YES"/>
+    </entity>
+    <entity name="Course" representedClassName="FoodForMe.Course" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
     <entity name="Ingredient" representedClassName="FoodForMe.Ingredient" syncable="YES">
         <attribute name="department" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -17,19 +25,24 @@
         <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe" syncable="YES"/>
     </entity>
+    <entity name="IngredientPreference" representedClassName="FoodForMe.IngredientPreference" syncable="YES">
+        <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ingredient" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="userProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="ingredientPreference" inverseEntity="UserProfile" syncable="YES"/>
+    </entity>
     <entity name="NutritionInfo" representedClassName="FoodForMe.NutritionInfo" syncable="YES">
         <attribute name="caloriesFromFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="cholesterol" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="cholesterolPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="dietaryFiber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="dietaryFiberPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="monoFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="polyFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="potassium" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="potassiumPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="protein" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="proteinPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="recipeId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="satFat" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="satFatPct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="singularYieldUnit" optional="YES" attributeType="String" syncable="YES"/>
@@ -76,7 +89,7 @@
     <entity name="RecommendedRecipe" representedClassName="FoodForMe.RecommendedRecipe" syncable="YES">
         <attribute name="explaination" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favoriteIngredientsInRepcie" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preferCookingTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="recommendation" inverseEntity="Recipe" syncable="YES"/>
     </entity>
@@ -89,13 +102,18 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileLink" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cookingTimePreference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CookingTimePreference" inverseName="userProfile" inverseEntity="CookingTimePreference" syncable="YES"/>
+        <relationship name="ingredientPreference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientPreference" inverseName="userProfile" inverseEntity="IngredientPreference" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Ingredient" positionX="-9" positionY="-81" width="128" height="268"/>
+        <element name="CookingTimePreference" positionX="9" positionY="45" width="128" height="75"/>
+        <element name="Course" positionX="-9" positionY="27" width="128" height="75"/>
+        <element name="Ingredient" positionX="-9" positionY="-81" width="128" height="270"/>
+        <element name="IngredientPreference" positionX="0" positionY="36" width="128" height="90"/>
         <element name="NutritionInfo" positionX="90" positionY="27" width="128" height="418"/>
-        <element name="Recipe" positionX="52" positionY="-126" width="128" height="388"/>
-        <element name="RecipeCategory" positionX="0" positionY="36" width="128" height="73"/>
+        <element name="Recipe" positionX="52" positionY="-126" width="128" height="390"/>
+        <element name="RecipeCategory" positionX="0" positionY="36" width="128" height="75"/>
         <element name="RecommendedRecipe" positionX="90" positionY="27" width="128" height="118"/>
-        <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="163"/>
+        <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="195"/>
     </elements>
 </model>

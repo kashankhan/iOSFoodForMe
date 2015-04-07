@@ -1,5 +1,5 @@
 //
-//  RecipeCategory.swift
+//  Course.swift
 //  FoodForMe
 //
 //  Created by Kashan Khan on 07/04/2015.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class RecipeCategory: NSManagedObject {
+class Course: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var selected: NSNumber
