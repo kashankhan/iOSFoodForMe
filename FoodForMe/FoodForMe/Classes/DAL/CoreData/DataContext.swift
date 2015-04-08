@@ -28,4 +28,6 @@ final class DataContext: AlecrimCoreData.Context {
     
     var courses: AlecrimCoreData.Table<Course> { return AlecrimCoreData.Table<Course>(context: self) }
     
+    var cookingTimings: AlecrimCoreData.Table<CookingTimePreference> { return AlecrimCoreData.Table<CookingTimePreference>(context: self) }
+    
 }

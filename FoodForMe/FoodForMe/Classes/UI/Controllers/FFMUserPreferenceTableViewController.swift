@@ -15,17 +15,26 @@ class FFMUserPreferenceTableViewController: UITableViewController {
     let kTitleKey = "Title Key"
     let kObjectKey = "Object Key"
     let kSegueKey = "Segue Key"
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         configureView()
     }
-    
     // MARK: - Private Methods
     
     func configureView() {
-        insertObjectInItems(NSLS.cookingTime, object: "", segue: "")
+        
+        let cookingTimePreference: CookingTimePreference = dataContext.cookingTimings.filterBy(attribute: "selected", value: 1).first()!
+        var value: String = NSString(format:"%@ %@", cookingTimePreference.time, NSLS.mins)
+        insertObjectInItems(NSLS.cookingTime, object: value, segue: "IdentifierSegueShowPerferCookingTimeSelection")
+        
         insertObjectInItems(NSLS.ingredients, object: "", segue: "")
-        insertObjectInItems(NSLS.course, object: "", segue: "")
+        
+        value = ""
+        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+            value = course.name
+        }
+        insertObjectInItems(NSLS.course, object: value, segue: "IdentifierSegueShowCourseSelection")
     }
     
     private func insertObjectInItems(title: String, object: AnyObject?, segue: String){
@@ -58,6 +67,6 @@ class FFMUserPreferenceTableViewController: UITableViewController {
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let object = objectAtIndexPath(indexPath) as Dictionary
         cell.textLabel?.text = object[kTitleKey] as? String
-        cell.detailTextLabel?.text = ""
+        cell.detailTextLabel?.text = object[kObjectKey] as? String
     }
 }

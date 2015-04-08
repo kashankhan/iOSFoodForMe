@@ -14,6 +14,7 @@ import AlecrimCoreData
 class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate, UISearchControllerDelegate, UISearchBarDelegate {
     
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
+    let defaultDataDal: FFMDefaultDataDal = FFMDefaultDataDal()
     var searchResult: NSArray? = NSArray()
     
     override func viewDidLoad() {
@@ -34,12 +35,13 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     // MARK: - Private Methods
     
     func configureView() {
+        
+        defaultDataDal.loadDefaultData()
         self.sideMenuController()?.sideMenu?.delegate = self;
         fetchPopularRecipes()
     }
     
     func fetchPopularRecipes() {
-        self.recipesBal.getAllRecipeCategories({ catagories in})
         self.recipesBal.getPopularRecipes { recipes in
             self.tableView.reloadData()
         }

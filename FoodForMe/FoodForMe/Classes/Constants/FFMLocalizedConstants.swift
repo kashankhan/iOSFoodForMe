@@ -24,7 +24,7 @@ struct NSLS {
     static let preferences = localizedString("Preferences", "Preferences")
     static let cookingTime = localizedString("CookingTime", "Cooking Time")
     static let course = localizedString("Course", "Course")
-    
+    static let mins = localizedString("Mins", "mins")
 }
 
 func localizedString(key: String, value: String)->String {
