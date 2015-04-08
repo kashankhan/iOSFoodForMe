@@ -17,14 +17,9 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
     }
-    
+
     // MARK: - Private Methods
-    
-    func configureView() {
-    }
-    
     private func selectCourseAtIndexPath(indexPath: NSIndexPath?, tableView: UITableView, select: Bool) {
         var course: Course?
         if (indexPath != nil) {

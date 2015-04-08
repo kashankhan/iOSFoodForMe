@@ -21,8 +21,9 @@ class FFMUserPerferCookingTimeSelectionTableViewController
     }
 
     // MARK: - Private Methods
-
-    private func selectCourseAtIndexPath(indexPath: NSIndexPath?, tableView: UITableView, select: Bool) {
+    
+    private func selectCourseAtIndexPath(indexPath: NSIndexPath?, tableView: UITableView,
+        select: Bool) {
   
         var cookingTimePreference: CookingTimePreference?
         if (indexPath != nil) {

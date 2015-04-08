@@ -30,4 +30,15 @@ final class DataContext: AlecrimCoreData.Context {
     
     var cookingTimings: AlecrimCoreData.Table<CookingTimePreference> { return AlecrimCoreData.Table<CookingTimePreference>(context: self) }
     
+    internal func saveContext() {
+        // Save the background data context.
+        let (success, error) = self.save()
+        if !success {
+            // Replace this implementation with code to handle the error appropriately.
+            println("Unresolved error \(error), \(error?.userInfo)")
+            
+        }
+    
+    }
+    
 }

@@ -20,21 +20,41 @@ class FFMUserPreferenceTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         configureView()
     }
+    
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        println("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        println("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        println("sideMenuShouldOpenSideMenu")
+        return true;
+    }
+    
+    @IBAction func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
+    
     // MARK: - Private Methods
     
     func configureView() {
-        
-        let cookingTimePreference: CookingTimePreference = dataContext.cookingTimings.filterBy(attribute: "selected", value: 1).first()!
+        items.removeAll(keepCapacity: true)
+        let cookingTimePreference: CookingTimePreference = dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
         var value: String = NSString(format:"%@ %@", cookingTimePreference.time, NSLS.mins)
         insertObjectInItems(NSLS.cookingTime, object: value, segue: "IdentifierSegueShowPerferCookingTimeSelection")
         
-        insertObjectInItems(NSLS.ingredients, object: "", segue: "")
+       // insertObjectInItems(NSLS.ingredients, object: "", segue: "")
         
         value = ""
         if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
             value = course.name
         }
         insertObjectInItems(NSLS.course, object: value, segue: "IdentifierSegueShowCourseSelection")
+        self.tableView.reloadData()
     }
     
     private func insertObjectInItems(title: String, object: AnyObject?, segue: String){
@@ -68,5 +88,10 @@ class FFMUserPreferenceTableViewController: UITableViewController {
         let object = objectAtIndexPath(indexPath) as Dictionary
         cell.textLabel?.text = object[kTitleKey] as? String
         cell.detailTextLabel?.text = object[kObjectKey] as? String
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let object = objectAtIndexPath(indexPath) as Dictionary
+        performSegueWithIdentifier(object[kSegueKey] as? String, sender: self)
     }
 }
