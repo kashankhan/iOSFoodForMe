@@ -57,7 +57,6 @@
 		C0F8C0021AD46C0F0055F160 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8C0011AD46C0F0055F160 /* UserProfile.swift */; };
 		C0F8C0041AD46C100055F160 /* CookingTimePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8C0031AD46C100055F160 /* CookingTimePreference.swift */; };
 		C0F8C0061AD46C100055F160 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8C0051AD46C100055F160 /* Recipe.swift */; };
-		C0F8C0081AD46C100055F160 /* RecipeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8C0071AD46C100055F160 /* RecipeCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,7 +175,6 @@
 		C0F8C0011AD46C0F0055F160 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C0F8C0031AD46C100055F160 /* CookingTimePreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingTimePreference.swift; sourceTree = "<group>"; };
 		C0F8C0051AD46C100055F160 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		C0F8C0071AD46C100055F160 /* RecipeCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,7 +471,6 @@
 		C0F0B14A1A8999AC00752E0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C0F8C0071AD46C100055F160 /* RecipeCategory.swift */,
 				C0F8C0051AD46C100055F160 /* Recipe.swift */,
 				C0F8C0031AD46C100055F160 /* CookingTimePreference.swift */,
 				C0F8C0011AD46C0F0055F160 /* UserProfile.swift */,
@@ -629,7 +626,6 @@
 				C0F0B0E81A89970B00752E0E /* AppDelegate.swift in Sources */,
 				C019F40C1A90EE2000766D7C /* FFMRecipesParser.swift in Sources */,
 				C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */,
-				C0F8C0081AD46C100055F160 /* RecipeCategory.swift in Sources */,
 				C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */,
 				C06119651A962F0C00185559 /* FFMRecipeDetailTableViewCell.swift in Sources */,
 				C0F8BFFE1AD46C0F0055F160 /* NutritionInfo.swift in Sources */,

@@ -13,6 +13,8 @@ import AlecrimCoreData
 
 class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
  
+    var lastSelectedIndexPath: NSIndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -23,6 +25,15 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
     func configureView() {
     }
     
+    private func selectCourseAtIndexPath(indexPath: NSIndexPath?, tableView: UITableView, select: Bool) {
+        var course: Course?
+        if (indexPath != nil) {
+            course = self.fetchedResultsController.entityAtIndexPath(indexPath!)
+            course?.selected = select
+            let cell: UITableViewCell =  tableView.cellForRowAtIndexPath(indexPath!)!
+            cell.accessoryType = select ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+        }
+    }
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -37,23 +48,33 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let identifierCell = "IdentifierFFMRecipeTableViewCell"
-        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeTableViewCell
+        let identifierCell = "IdentifierDefaultTableViewCell"
+        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as UITableViewCell
         self.configureCell(tableView, cell: cell, atIndexPath: indexPath)
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectCourseAtIndexPath(lastSelectedIndexPath, tableView: tableView, select: false)
+        selectCourseAtIndexPath(indexPath, tableView: tableView, select: true)
+        lastSelectedIndexPath = indexPath
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let identifierCell = "IdentifierDefaultTableViewCell"
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as UITableViewCell
-        self.configureCell(tableView, cell: cell, atIndexPath: indexPath)
+        let course: Course = self.fetchedResultsController.entityAtIndexPath(indexPath)
+        cell.textLabel?.text = course.name
+        cell.accessoryType = course.selected.boolValue ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+        if course.selected.boolValue {
+            lastSelectedIndexPath = indexPath
+        }
     }
     
     // MARK: - Fetched results controller
     
     
-    lazy var fetchedResultsController: FetchedResultsController<Recipe> = {
-        let frc = dataContext.recipes.orderByAscending("title").toFetchedResultsController()
+    lazy var fetchedResultsController: FetchedResultsController<Course> = {
+        let frc = dataContext.courses.orderByAscending("name").toFetchedResultsController()
         frc.bindToTableView(self.tableView)
         
         return frc

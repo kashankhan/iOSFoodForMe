@@ -39,6 +39,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     }
     
     func fetchPopularRecipes() {
+        self.recipesBal.getAllRecipeCategories({ catagories in})
         self.recipesBal.getPopularRecipes { recipes in
             self.tableView.reloadData()
         }

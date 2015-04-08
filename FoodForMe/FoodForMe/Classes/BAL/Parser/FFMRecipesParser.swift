@@ -48,7 +48,7 @@ class FFMRecipesParser: FFMBaseParser {
         }
     }
 
-    func parseRecommendedRecipes(response: AnyObject, completion: (NSArray?) -> Void) {
+    func parseRecommendedRecipes(response: AnyObject?, completion: (NSArray?) -> Void) {
         performInBackground(dataContext) { backgroundDataContext in
             var list: [RecommendedRecipe] = []
             if response is NSArray {
@@ -69,7 +69,7 @@ class FFMRecipesParser: FFMBaseParser {
         }
     }
     
-    func parseRecipeCategories(response: AnyObject, completion: (NSArray?) -> Void) {
+    func parseRecipeCategories(response: AnyObject?, completion: (NSArray?) -> Void) {
         performInBackground(dataContext) { backgroundDataContext in
             var list: [Course] = []
             if response is NSArray {

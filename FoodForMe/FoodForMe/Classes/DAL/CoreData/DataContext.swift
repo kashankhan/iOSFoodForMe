@@ -22,8 +22,6 @@ final class DataContext: AlecrimCoreData.Context {
     
     var nutritions: AlecrimCoreData.Table<NutritionInfo> { return AlecrimCoreData.Table<NutritionInfo>(context: self) }
     
-    var recipeCategories: AlecrimCoreData.Table<RecipeCategory> { return AlecrimCoreData.Table<RecipeCategory>(context: self) }
-    
     var recommendedRecipes: AlecrimCoreData.Table<RecommendedRecipe> { return AlecrimCoreData.Table<RecommendedRecipe>(context: self) }
     
     var ingredientPreferences: AlecrimCoreData.Table<IngredientPreference> { return AlecrimCoreData.Table<IngredientPreference>(context: self) }
