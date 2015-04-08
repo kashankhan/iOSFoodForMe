@@ -25,9 +25,11 @@ struct NSLS {
     static let cookingTime = localizedString("CookingTime", "Cooking Time")
     static let course = localizedString("Course", "Course")
     static let mins = localizedString("Mins", "mins")
+    static let critique = localizedString("Critique", "Critique")
+    static let send = localizedString("Send", "Send")
 }
 
-func localizedString(key: String, value: String)->String {
+func localizedString(key: String, value: String) -> String {
     return NSLocalizedString(key, value:value, comment: "")
     
 }
