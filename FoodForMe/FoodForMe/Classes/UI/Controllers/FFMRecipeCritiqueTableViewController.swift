@@ -10,6 +10,9 @@ import Foundation
 
 class FFMRecipeCritiqueTableViewController: UITableViewController {
    
+    let sectionsTitle: [String] = ["", NSLS.ingredients]
+    let sectionsHeight: [CGFloat] = [320.0,  40.0]
+    
     @IBAction func sendRequest(sender: AnyObject) {
     }
 
