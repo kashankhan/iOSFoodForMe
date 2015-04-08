@@ -34,7 +34,6 @@ class FFMRecipesParser: FFMBaseParser {
     }
     
      func parseRecipeDetail(response: AnyObject?, completion: (Recipe?) -> Void) {
-        
         performInBackground(dataContext) { backgroundDataContext in
             let recipe: Recipe = self.parseCompleteRecipe(response, context: backgroundDataContext)!
             // Save the background data context.
@@ -72,11 +71,11 @@ class FFMRecipesParser: FFMBaseParser {
     
     func parseRecipeCategories(response: AnyObject, completion: (NSArray?) -> Void) {
         performInBackground(dataContext) { backgroundDataContext in
-            var list: [RecipeCategory] = []
+            var list: [Course] = []
             if response is NSArray {
                 for name in response as NSArray {
-                    let recipeCategory : RecipeCategory = backgroundDataContext.recipeCategories.createOrGetFirstEntity(whereAttribute: "name", isEqualTo: name)
-                    list.append(recipeCategory)
+                    let course : Course = self.parseCourse(name, context: backgroundDataContext)
+                    list.append(course)
                 }
                 
                 // Save the background data context.
@@ -225,9 +224,16 @@ class FFMRecipesParser: FFMBaseParser {
         return explaintion
     }
     
-    func randomInt(min: Int, max:Int) -> Int {
+    private func randomInt(min: Int, max:Int) -> Int {
         return min + Int(arc4random_uniform(UInt32(max - min + 1)))
     }
+    
+    private func parseCourse(response: AnyObject, context: DataContext) -> Course {
+       let course = context.courses.createOrGetFirstEntity(whereAttribute: "name", isEqualTo: response)
+        course.name = response as String
+        return course
+    }
+
     
     // Closures
     let simpleInterestCalculationClosure = { (loanAmount : Double, var interestRate : Double, years : Int) -> Double in

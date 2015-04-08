@@ -21,7 +21,7 @@ class FFMUserProfileDal: FFMBaseDal {
         var userEmail = user.objectForKey("email") as String
         userProfile.email = userEmail
         userProfile.profileLink = user.link
-        
+        userProfile.gender = user.objectForKey("gender") as String
         // Save the data context.
         let (success, error) = dataContext.save()
         if !success {
@@ -36,5 +36,9 @@ class FFMUserProfileDal: FFMBaseDal {
     
     func getUserProfile() -> UserProfile {
        return dataContext.userProfiles.first()!
+    }
+    
+    func deleteUserProfile() {
+        dataContext.userProfiles.delete()
     }
 }

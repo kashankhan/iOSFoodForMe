@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class FFMRecipesBalURLRequest : FFMBaseBal {
+class FFMRecipesBalURLRequest : NSObject {
 
     enum Router: URLRequestConvertible {
         static let baseUri       =  FFMGlobalConstants.FFMBaseServerUrl

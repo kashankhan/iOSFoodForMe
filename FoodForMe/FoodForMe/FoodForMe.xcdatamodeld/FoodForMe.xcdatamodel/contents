@@ -102,18 +102,18 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileLink" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="cookingTimePreference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CookingTimePreference" inverseName="userProfile" inverseEntity="CookingTimePreference" syncable="YES"/>
-        <relationship name="ingredientPreference" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientPreference" inverseName="userProfile" inverseEntity="IngredientPreference" syncable="YES"/>
+        <relationship name="cookingTimePreference" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CookingTimePreference" inverseName="userProfile" inverseEntity="CookingTimePreference" syncable="YES"/>
+        <relationship name="ingredientPreference" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IngredientPreference" inverseName="userProfile" inverseEntity="IngredientPreference" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CookingTimePreference" positionX="9" positionY="45" width="128" height="75"/>
-        <element name="Course" positionX="-9" positionY="27" width="128" height="75"/>
-        <element name="Ingredient" positionX="-9" positionY="-81" width="128" height="270"/>
-        <element name="IngredientPreference" positionX="0" positionY="36" width="128" height="90"/>
+        <element name="CookingTimePreference" positionX="9" positionY="45" width="128" height="73"/>
+        <element name="Course" positionX="-9" positionY="27" width="128" height="73"/>
+        <element name="Ingredient" positionX="-9" positionY="-81" width="128" height="268"/>
+        <element name="IngredientPreference" positionX="0" positionY="36" width="128" height="88"/>
         <element name="NutritionInfo" positionX="90" positionY="27" width="128" height="418"/>
-        <element name="Recipe" positionX="52" positionY="-126" width="128" height="390"/>
-        <element name="RecipeCategory" positionX="0" positionY="36" width="128" height="75"/>
+        <element name="Recipe" positionX="52" positionY="-126" width="128" height="388"/>
+        <element name="RecipeCategory" positionX="0" positionY="36" width="128" height="73"/>
         <element name="RecommendedRecipe" positionX="90" positionY="27" width="128" height="118"/>
-        <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="195"/>
+        <element name="UserProfile" positionX="-117" positionY="-27" width="128" height="193"/>
     </elements>
 </model>

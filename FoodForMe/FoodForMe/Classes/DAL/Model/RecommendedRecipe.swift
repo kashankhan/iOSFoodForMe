@@ -15,6 +15,6 @@ class RecommendedRecipe: NSManagedObject {
     @NSManaged var favoriteIngredientsInRepcie: String
     @NSManaged var identifier: String
     @NSManaged var preferCookingTime: NSNumber
-    @NSManaged var recipe: FoodForMe.Recipe
+    @NSManaged var recipe: Recipe
 
 }

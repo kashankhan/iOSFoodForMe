@@ -35,6 +35,6 @@ class NutritionInfo: NSManagedObject {
     @NSManaged var totalFat: NSNumber
     @NSManaged var totalFatPct: NSNumber
     @NSManaged var transFat: NSNumber
-    @NSManaged var recipe: FoodForMe.Recipe
+    @NSManaged var recipe: Recipe
 
 }

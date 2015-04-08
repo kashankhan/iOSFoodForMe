@@ -12,6 +12,7 @@ import UIKit
 class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     var selectedMenuItem : Int = 0
     let controllersTitle: [String] = [NSLS.popularRecipes, NSLS.recommendations, NSLS.preferences]
+    let profileDal: FFMUserProfileDal =  FFMUserProfileDal()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +122,7 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
         var loginView: FBLoginView = FBLoginView()
         loginView.frame.size.width = CGRectGetWidth(tableView.frame) * 0.95
         loginView.frame = CGRectOffset(loginView.frame, (tableView.center.x - (loginView.frame.size.width / 2)), 5)
-        loginView.readPermissions = ["public_profile", "email", "user_friends"];
+        loginView.readPermissions = ["public_profile", "email", "user_friends", "user_birthday"]
         loginView.delegate = self
         footerView.addSubview(loginView)
         
@@ -130,14 +131,19 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     }
     
     // MARK: Facebook
+    
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
-        let profileDal: FFMUserProfileDal =  FFMUserProfileDal()
         let userProfile =  profileDal.saveFacebookProfile(user)
+        let profileBal = FFMUserProfileBal()
+        profileBal.saveUserProfile(userProfile, complettion: { response in
+            println("response ... \(response)")
+        })
         NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: userProfile)
     }
     
     func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
         NSNotificationCenter.defaultCenter().postNotificationName(FFMGlobalConstants.UIFacebookUserDidLogoutNotification, object: nil)
+        profileDal.deleteUserProfile()
     }
     
     func loginView(loginView : FBLoginView!, handleError:NSError) {
