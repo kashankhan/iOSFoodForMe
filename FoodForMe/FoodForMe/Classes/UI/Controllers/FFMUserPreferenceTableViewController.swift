@@ -11,8 +11,10 @@ import UIKit
 
 class FFMUserPreferenceTableViewController: UITableViewController {
 
-    let items: [String] = [NSLS.cookingTime, NSLS.ingredients, NSLS.course]
-
+    var items = [Dictionary<String, AnyObject>]()
+    let kTitleKey = "Title Key"
+    let kObjectKey = "Object Key"
+    let kSegueKey = "Segue Key"
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -21,9 +23,17 @@ class FFMUserPreferenceTableViewController: UITableViewController {
     // MARK: - Private Methods
     
     func configureView() {
+        insertObjectInItems(NSLS.cookingTime, object: "", segue: "")
+        insertObjectInItems(NSLS.ingredients, object: "", segue: "")
+        insertObjectInItems(NSLS.course, object: "", segue: "")
     }
     
-    private func objectAtIndexPath(indexPath: NSIndexPath) -> String {
+    private func insertObjectInItems(title: String, object: AnyObject?, segue: String){
+        items.append([kTitleKey: title, kObjectKey: object!, kSegueKey: segue])
+    }
+    
+    
+    private func objectAtIndexPath(indexPath: NSIndexPath) -> Dictionary<String, AnyObject> {
         var object: String = ""
         return items[indexPath.row]
     }
@@ -46,6 +56,8 @@ class FFMUserPreferenceTableViewController: UITableViewController {
     }
     
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        cell.textLabel?.text = objectAtIndexPath(indexPath) as String
+        let object = objectAtIndexPath(indexPath) as Dictionary
+        cell.textLabel?.text = object[kTitleKey] as? String
+        cell.detailTextLabel?.text = ""
     }
 }
