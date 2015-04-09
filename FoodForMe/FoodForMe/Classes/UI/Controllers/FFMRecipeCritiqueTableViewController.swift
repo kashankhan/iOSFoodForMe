@@ -106,13 +106,19 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
         let identifierCell = "IdentifierFFMIngredientCritiqueTableViewCell"
         let cell: FFMIngredientCritiqueTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMIngredientCritiqueTableViewCell
         cell.configureCell(objectAtIndexPath(indexPath) as Dictionary)
+        cell.didChange = { ingredientCritiqueTableViewCell, object in
+            println("object, \(object)")
+        }
         return cell
     }
     
     func configureRecipeRatingTableViewCell(tableView: UITableView, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierFFMRecipeRatingTableViewCell"
         let cell: FFMRecipeRatingTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeRatingTableViewCell
-         cell.configureCell(objectAtIndexPath(indexPath) as NSNumber)
+        cell.configureCell(objectAtIndexPath(indexPath) as NSNumber)
+        cell.ratingChange = { recipeRatingTableViewCell, rating in
+            self.recipeStarRating = rating
+        }
         return cell
     }
     

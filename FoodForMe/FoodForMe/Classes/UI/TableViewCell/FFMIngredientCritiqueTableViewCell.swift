@@ -14,21 +14,44 @@ class FFMIngredientCritiqueTableViewCell: UITableViewCell {
     @IBOutlet weak var ingredientLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var unlikeButton: UIButton!
+    typealias DidChangeDelegate = (FFMIngredientCritiqueTableViewCell, Dictionary<String, String>) -> ()
+    var didChange: DidChangeDelegate?
     
-    let state = "State"
-    var object: Dictionary<String, String>?
+    let stateKey = "State"
+    let nameKey = "Name"
     
-    @IBAction func actionLikeButton(sender: AnyObject) {
-    
+    @IBAction func actionLikeButton(sender: UIButton) {
+        changeButtonState(sender, secondaryButton: unlikeButton)
+        valueDidChange(getButtonStatus(sender))
     }
     
-    @IBAction func actionUnlikeButton(sender: AnyObject) {
-    
+    @IBAction func actionUnlikeButton(sender: UIButton) {
+        changeButtonState(sender, secondaryButton: likeButton)
+        valueDidChange(getButtonStatus(sender))
     }
     
     func configureCell(object: Dictionary<String, String>) {
-        self.object = object
-        ingredientLabel.text = object["Name"]
+        ingredientLabel.text = object[nameKey]
+    }
+    
+    private func valueDidChange(value: String) {
+        let object = [nameKey: ingredientLabel.text!, stateKey: value]
+        self.didChange!(self, object)
+    }
+    
+    private func changeButtonState(mainButton: UIButton, secondaryButton: UIButton) {
+        mainButton.selected = !mainButton.selected
+        if mainButton.selected {
+            secondaryButton.selected = false
+        }
+    }
+    
+    private func getButtonStatus(button: UIButton) -> String {
+        var status = NSLS.normal
+        if button.selected {
+            status = (button == likeButton) ? NSLS.like : NSLS.unlike
+        }
+        return status
     }
     
 }
