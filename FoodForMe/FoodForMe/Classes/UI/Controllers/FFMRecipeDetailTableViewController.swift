@@ -21,7 +21,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -141,5 +141,13 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionsTitle[section]
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "IdentifierSegueShowRecipeCritique" {
+            (segue.destinationViewController as FFMRecipeCritiqueTableViewController).recipe = self.recipe
+        }
     }
 }

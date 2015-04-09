@@ -24,7 +24,7 @@ class FFMIngredientCritiqueTableViewCell: UITableViewCell {
     }
     
     func configureCell(object: Dictionary<String, AnyObject>) {
-        
+        ingredientLabel.text = object["Name"] as? String
     }
     
 }

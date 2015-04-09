@@ -136,4 +136,12 @@ class FFMRecommendedRecipeDetailTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionsTitle[section]
     }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "IdentifierSegueShowRecipeCritique" {
+        (segue.destinationViewController as FFMRecipeCritiqueTableViewController).recipe = self.recommendedRecipe?.recipe
+        }
+    }
 }

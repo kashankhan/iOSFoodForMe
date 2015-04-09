@@ -433,7 +433,6 @@
                                 <connections>
                                     <outlet property="ingredientLabel" destination="Zcb-ko-Dlm" id="nEe-JZ-j6b"/>
                                     <outlet property="likeButton" destination="bQQ-OY-WvA" id="HFa-Jz-N9d"/>
-                                    <outlet property="titleLabel" destination="Zcb-ko-Dlm" id="elu-oQ-KzV"/>
                                     <outlet property="unlikeButton" destination="ULK-52-lMf" id="1iV-v4-yvb"/>
                                 </connections>
                             </tableViewCell>
@@ -566,7 +565,7 @@
         <image name="menu" width="28" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r4b-4p-zwf"/>
+        <segue reference="T7K-NY-Gie"/>
         <segue reference="2A6-ZK-bam"/>
     </inferredMetricsTieBreakers>
 </document>
