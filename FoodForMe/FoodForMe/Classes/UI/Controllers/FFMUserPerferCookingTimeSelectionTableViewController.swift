@@ -19,8 +19,6 @@ class FFMUserPerferCookingTimeSelectionTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    // MARK: - Private Methods
     
     private func selectCourseAtIndexPath(indexPath: NSIndexPath?, tableView: UITableView,
         select: Bool) {

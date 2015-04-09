@@ -382,13 +382,60 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="EZh-Wc-IeB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wqC-0M-fAU">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IdentifierFFMIngredientCritiqueTableViewCell" id="Jba-lc-KZc" customClass="FFMIngredientCritiqueTableViewCell" customModule="FoodForMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wqC-0M-fAU" id="bWQ-hT-dyV">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jba-lc-KZc" id="4gE-Zd-Wf5">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-ko-Dlm">
+                                            <rect key="frame" x="20" y="11" width="427" height="22"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-OY-WvA">
+                                            <rect key="frame" x="455" y="7" width="55" height="30"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                            <state key="normal" title="Like">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="actionLikeButton:" destination="Jba-lc-KZc" eventType="touchUpInside" id="228-fo-xWS"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULK-52-lMf">
+                                            <rect key="frame" x="518" y="7" width="63" height="30"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                            <state key="normal" title="UnLike">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="0.727738361" green="0.0" blue="0.0078966935670000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="actionUnlikeButton:" destination="Jba-lc-KZc" eventType="touchUpInside" id="YSn-4n-msc"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Zcb-ko-Dlm" firstAttribute="top" secondItem="4gE-Zd-Wf5" secondAttribute="top" constant="11" id="Qqs-M8-TdU"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zcb-ko-Dlm" secondAttribute="trailing" constant="153" id="VBd-2O-mbo"/>
+                                        <constraint firstAttribute="bottom" secondItem="Zcb-ko-Dlm" secondAttribute="bottom" constant="10" id="Xk5-YF-bEM"/>
+                                        <constraint firstItem="Zcb-ko-Dlm" firstAttribute="leading" secondItem="4gE-Zd-Wf5" secondAttribute="leading" constant="20" id="aaz-wZ-j0u"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ingredientLabel" destination="Zcb-ko-Dlm" id="nEe-JZ-j6b"/>
+                                    <outlet property="likeButton" destination="bQQ-OY-WvA" id="HFa-Jz-N9d"/>
+                                    <outlet property="titleLabel" destination="Zcb-ko-Dlm" id="elu-oQ-KzV"/>
+                                    <outlet property="unlikeButton" destination="ULK-52-lMf" id="1iV-v4-yvb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -407,7 +454,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKM-56-U93" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="480"/>
+            <point key="canvasLocation" x="1344" y="476"/>
         </scene>
         <!--Recipe Detail-->
         <scene sceneID="QKj-TG-t4D">
@@ -519,7 +566,7 @@
         <image name="menu" width="28" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="r4b-4p-zwf"/>
         <segue reference="2A6-ZK-bam"/>
-        <segue reference="T7K-NY-Gie"/>
     </inferredMetricsTieBreakers>
 </document>

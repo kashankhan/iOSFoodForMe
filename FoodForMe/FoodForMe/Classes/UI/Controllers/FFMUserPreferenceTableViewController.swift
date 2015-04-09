@@ -21,26 +21,6 @@ class FFMUserPreferenceTableViewController: UITableViewController {
         configureView()
     }
     
-    // MARK: - ENSideMenu Delegate
-    func sideMenuWillOpen() {
-        println("sideMenuWillOpen")
-    }
-    
-    func sideMenuWillClose() {
-        println("sideMenuWillClose")
-    }
-    
-    func sideMenuShouldOpenSideMenu() -> Bool {
-        println("sideMenuShouldOpenSideMenu")
-        return true;
-    }
-    
-    @IBAction func toggleSideMenu(sender: AnyObject) {
-        toggleSideMenuView()
-    }
-    
-    // MARK: - Private Methods
-    
     func configureView() {
         items.removeAll(keepCapacity: true)
         let cookingTimePreference: CookingTimePreference = dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
@@ -66,6 +46,25 @@ class FFMUserPreferenceTableViewController: UITableViewController {
         var object: String = ""
         return items[indexPath.row]
     }
+
+   // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        println("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        println("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        println("sideMenuShouldOpenSideMenu")
+        return true;
+    }
+    
+    @IBAction func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
+    
     
     // MARK: - Table View
     

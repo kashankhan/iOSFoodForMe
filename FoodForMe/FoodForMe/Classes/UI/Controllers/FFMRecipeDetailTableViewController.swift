@@ -22,13 +22,11 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         }
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
     
-    // MARK: - Private Methods
     func configureView() {
         configureTableView()
         fetchRecipe()

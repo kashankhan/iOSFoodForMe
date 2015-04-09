@@ -26,14 +26,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    @IBAction func toggleSideMenu(sender: AnyObject) {
-        toggleSideMenuView()
-    }
-    
-    // MARK: - Private Methods
-    
+
     func configureView() {
         
         defaultDataDal.loadDefaultData()
@@ -60,7 +53,10 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
         println("sideMenuShouldOpenSideMenu")
         return true;
     }
-    
+
+    @IBAction func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
     
     // MARK: - Table View
     

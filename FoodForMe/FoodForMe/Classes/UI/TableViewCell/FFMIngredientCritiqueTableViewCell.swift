@@ -7,8 +7,24 @@
 //
 
 import Foundation
+import UIKit
 
 class FFMIngredientCritiqueTableViewCell: UITableViewCell {
+ 
+    @IBOutlet weak var ingredientLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var unlikeButton: UIButton!
     
+    @IBAction func actionLikeButton(sender: AnyObject) {
+    
+    }
+    
+    @IBAction func actionUnlikeButton(sender: AnyObject) {
+    
+    }
+    
+    func configureCell(object: Dictionary<String, AnyObject>) {
+        
+    }
     
 }

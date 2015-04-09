@@ -25,14 +25,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    @IBAction func toggleSideMenu(sender: AnyObject) {
-        toggleSideMenuView()
-    }
-    
-    // MARK: - Private Methods
-    
+
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
         registerForNotificaitons()
@@ -60,7 +53,12 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
         println("sideMenuShouldOpenSideMenu")
         return true;
     }
+
+    @IBAction func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
     
+    // MARK: - Notification
     func registerForNotificaitons() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLoginNotification:", name: FFMGlobalConstants.UIFacebookUserDidLoginNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogoutNotification:", name: FFMGlobalConstants.UIFacebookUserDidLogoutNotification, object: nil)

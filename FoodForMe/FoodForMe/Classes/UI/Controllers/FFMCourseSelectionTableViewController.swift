@@ -19,7 +19,6 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
         super.viewDidLoad()
     }
 
-    // MARK: - Private Methods
     private func selectCourseAtIndexPath(indexPath: NSIndexPath?, tableView: UITableView, select: Bool) {
         var course: Course?
         if (indexPath != nil) {
