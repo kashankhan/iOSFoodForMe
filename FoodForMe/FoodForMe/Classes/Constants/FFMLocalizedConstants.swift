@@ -27,6 +27,10 @@ struct NSLS {
     static let mins = localizedString("Mins", "mins")
     static let critique = localizedString("Critique", "Critique")
     static let send = localizedString("Send", "Send")
+    static let normal = localizedString("Normal", "Normal")
+    static let like = localizedString("Like", "Like")
+    static let unlike = localizedString("Unlike", "Unlike")
+    static let rating = localizedString("Rating", "Rating")
 }
 
 func localizedString(key: String, value: String) -> String {

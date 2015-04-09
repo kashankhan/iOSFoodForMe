@@ -396,8 +396,11 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-OY-WvA">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-OY-WvA">
                                             <rect key="frame" x="455" y="7" width="55" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="55" id="Nco-sC-H3i"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                             <state key="normal" title="Like">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -409,10 +412,13 @@
                                                 <action selector="actionLikeButton:" destination="Jba-lc-KZc" eventType="touchUpInside" id="228-fo-xWS"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULK-52-lMf">
-                                            <rect key="frame" x="518" y="7" width="63" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULK-52-lMf">
+                                            <rect key="frame" x="518" y="7" width="55" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="55" id="BQ1-ZK-t4A"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
-                                            <state key="normal" title="UnLike">
+                                            <state key="normal" title="Unlike">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="selected">
@@ -424,16 +430,54 @@
                                         </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ULK-52-lMf" secondAttribute="bottom" constant="6" id="Ajl-yN-14u"/>
+                                        <constraint firstAttribute="bottom" secondItem="bQQ-OY-WvA" secondAttribute="bottom" constant="6" id="Avg-p0-n3s"/>
                                         <constraint firstItem="Zcb-ko-Dlm" firstAttribute="top" secondItem="4gE-Zd-Wf5" secondAttribute="top" constant="11" id="Qqs-M8-TdU"/>
                                         <constraint firstAttribute="trailing" secondItem="Zcb-ko-Dlm" secondAttribute="trailing" constant="153" id="VBd-2O-mbo"/>
+                                        <constraint firstAttribute="trailing" secondItem="ULK-52-lMf" secondAttribute="trailing" constant="27" id="WyL-2O-iwR"/>
                                         <constraint firstAttribute="bottom" secondItem="Zcb-ko-Dlm" secondAttribute="bottom" constant="10" id="Xk5-YF-bEM"/>
                                         <constraint firstItem="Zcb-ko-Dlm" firstAttribute="leading" secondItem="4gE-Zd-Wf5" secondAttribute="leading" constant="20" id="aaz-wZ-j0u"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zcb-ko-Dlm" secondAttribute="trailing" constant="153" id="qi2-Ln-AH7"/>
+                                        <constraint firstItem="bQQ-OY-WvA" firstAttribute="top" secondItem="4gE-Zd-Wf5" secondAttribute="top" constant="7" id="qum-c5-6Jl"/>
+                                        <constraint firstItem="ULK-52-lMf" firstAttribute="top" secondItem="4gE-Zd-Wf5" secondAttribute="top" constant="7" id="ujK-qp-ila"/>
+                                        <constraint firstAttribute="trailing" secondItem="bQQ-OY-WvA" secondAttribute="trailing" constant="90" id="yNt-Nq-akb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ingredientLabel" destination="Zcb-ko-Dlm" id="nEe-JZ-j6b"/>
                                     <outlet property="likeButton" destination="bQQ-OY-WvA" id="HFa-Jz-N9d"/>
                                     <outlet property="unlikeButton" destination="ULK-52-lMf" id="1iV-v4-yvb"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeRatingTableViewCell" id="1S6-RC-3UL" customClass="FFMRecipeRatingTableViewCell" customModule="FoodForMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1S6-RC-3UL" id="iH9-hw-388">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAv-bx-lkL" customClass="FloatRatingView" customModule="FoodForMe" customModuleProvider="target">
+                                            <rect key="frame" x="48" y="5" width="504" height="35"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="jkh-o4-Zrg"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AAv-bx-lkL" firstAttribute="top" secondItem="iH9-hw-388" secondAttribute="top" constant="5" id="N3f-vz-4CV"/>
+                                        <constraint firstItem="AAv-bx-lkL" firstAttribute="leading" secondItem="iH9-hw-388" secondAttribute="leading" constant="48" id="k8m-Lw-iMi"/>
+                                        <constraint firstAttribute="trailing" secondItem="AAv-bx-lkL" secondAttribute="trailing" constant="48" id="xie-uH-6GL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="starRatingView" destination="AAv-bx-lkL" id="CXR-14-0P7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -453,7 +497,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKM-56-U93" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="476"/>
+            <point key="canvasLocation" x="1344" y="473"/>
         </scene>
         <!--Recipe Detail-->
         <scene sceneID="QKj-TG-t4D">

@@ -10,10 +10,10 @@ import Foundation
 
 class FFMRecipeCritiqueTableViewController: UITableViewController {
    
-    let sectionsTitle: [String] = ["", NSLS.ingredients]
-    let sectionsHeight: [CGFloat] = [320.0,  40.0]
-    var items = [Dictionary<String, AnyObject>]()
-
+    let sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.rating]
+    let sectionsHeight: [CGFloat] = [320.0,  40.0, 40.0]
+    var items = [Dictionary<String, String>]()
+    var recipeStarRating: NSNumber?
 
     var recipe: Recipe? {
         didSet {
@@ -25,6 +25,7 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
     }
     
     private func configureTableView() {
@@ -34,32 +35,34 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     
     private func loadItems() {
         items.removeAll(keepCapacity: true)
-        
+        let nameKey = "Name"
+        let stateKey = "State"
         if let ingredients:  [Ingredient] = self.recipe?.ingredients.allObjects as? [Ingredient] {
             for ingredient:Ingredient in ingredients {
-                items.append(["Name": ingredient.name, "State": "Yo"])
+                items.append(["Name": ingredient.name, "State": NSLS.normal])
             }
         }
-       
+        recipeStarRating = recipe?.starRating
     }
     
     private func objectAtIndexPath(indexPath: NSIndexPath) -> AnyObject {
-        var object: AnyObject = ""
+        var object: AnyObject?
         let section = indexPath.section
         let row = indexPath.row
         let objects = objectsInSection(section)
-        if section == 1 &&  objects.count > 0 {
+        if  objects.count > 0 {
             object = objects[row]
         }
-        return object
+        return object!
     }
     
     private func objectsInSection(section: Int) -> [AnyObject]{
         var objects:[AnyObject] = []
         if section == 1 {
-            if let ingredients = self.recipe?.ingredients.allObjects {
-                objects = ingredients
-            }
+            objects = self.items
+        }
+        else if section == 2 {
+            objects.append(recipeStarRating!)
         }
      
         return objects
@@ -89,15 +92,28 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: UITableViewCell?
+        if indexPath.section == 1 {
+            cell = self.configureIngredientCritiqueTableViewCell(tableView, atIndexPath: indexPath) as UITableViewCell
+        }
+        else {
+            cell = self.configureRecipeRatingTableViewCell(tableView, atIndexPath: indexPath) as UITableViewCell
+        }
+        return cell!
+    }
+    
+    func configureIngredientCritiqueTableViewCell(tableView: UITableView, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierFFMIngredientCritiqueTableViewCell"
-        var cell: FFMIngredientCritiqueTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMIngredientCritiqueTableViewCell
-        self.configureCell(cell, atIndexPath: indexPath)
+        let cell: FFMIngredientCritiqueTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMIngredientCritiqueTableViewCell
+        cell.configureCell(objectAtIndexPath(indexPath) as Dictionary)
         return cell
     }
     
-    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let recipeCell:FFMIngredientCritiqueTableViewCell = cell as FFMIngredientCritiqueTableViewCell
-       // recipeCell.configureCell()
+    func configureRecipeRatingTableViewCell(tableView: UITableView, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let identifierCell = "IdentifierFFMRecipeRatingTableViewCell"
+        let cell: FFMRecipeRatingTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeRatingTableViewCell
+         cell.configureCell(objectAtIndexPath(indexPath) as NSNumber)
+        return cell
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -110,6 +126,7 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
                 let nib: UINib = UINib(nibName: "FFMRecipeDetailHeaderView", bundle: NSBundle.mainBundle())
                 tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: identifierheaderView)
                 recipeDetailHeaderView = tableView.dequeueReusableHeaderFooterViewWithIdentifier(identifierheaderView) as? FFMRecipeDetailHeaderView
+
             }
             recipeDetailHeaderView?.configureView(self.recipe!)
         }

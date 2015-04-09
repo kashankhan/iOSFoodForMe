@@ -15,6 +15,9 @@ class FFMIngredientCritiqueTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var unlikeButton: UIButton!
     
+    let state = "State"
+    var object: Dictionary<String, String>?
+    
     @IBAction func actionLikeButton(sender: AnyObject) {
     
     }
@@ -23,8 +26,9 @@ class FFMIngredientCritiqueTableViewCell: UITableViewCell {
     
     }
     
-    func configureCell(object: Dictionary<String, AnyObject>) {
-        ingredientLabel.text = object["Name"] as? String
+    func configureCell(object: Dictionary<String, String>) {
+        self.object = object
+        ingredientLabel.text = object["Name"]
     }
     
 }
