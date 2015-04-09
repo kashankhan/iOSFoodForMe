@@ -391,13 +391,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-ko-Dlm">
-                                            <rect key="frame" x="20" y="11" width="427" height="22"/>
+                                            <rect key="frame" x="20" y="11" width="450" height="22"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-OY-WvA">
-                                            <rect key="frame" x="455" y="7" width="55" height="30"/>
+                                            <rect key="frame" x="475" y="7" width="55" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="55" id="Nco-sC-H3i"/>
                                             </constraints>
@@ -413,7 +413,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULK-52-lMf">
-                                            <rect key="frame" x="518" y="7" width="55" height="30"/>
+                                            <rect key="frame" x="535" y="7" width="55" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="55" id="BQ1-ZK-t4A"/>
                                             </constraints>
@@ -433,14 +433,14 @@
                                         <constraint firstAttribute="bottom" secondItem="ULK-52-lMf" secondAttribute="bottom" constant="6" id="Ajl-yN-14u"/>
                                         <constraint firstAttribute="bottom" secondItem="bQQ-OY-WvA" secondAttribute="bottom" constant="6" id="Avg-p0-n3s"/>
                                         <constraint firstItem="Zcb-ko-Dlm" firstAttribute="top" secondItem="4gE-Zd-Wf5" secondAttribute="top" constant="11" id="Qqs-M8-TdU"/>
-                                        <constraint firstAttribute="trailing" secondItem="Zcb-ko-Dlm" secondAttribute="trailing" constant="153" id="VBd-2O-mbo"/>
-                                        <constraint firstAttribute="trailing" secondItem="ULK-52-lMf" secondAttribute="trailing" constant="27" id="WyL-2O-iwR"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zcb-ko-Dlm" secondAttribute="trailing" constant="130" id="VBd-2O-mbo"/>
+                                        <constraint firstAttribute="trailing" secondItem="ULK-52-lMf" secondAttribute="trailing" constant="10" id="WyL-2O-iwR"/>
                                         <constraint firstAttribute="bottom" secondItem="Zcb-ko-Dlm" secondAttribute="bottom" constant="10" id="Xk5-YF-bEM"/>
                                         <constraint firstItem="Zcb-ko-Dlm" firstAttribute="leading" secondItem="4gE-Zd-Wf5" secondAttribute="leading" constant="20" id="aaz-wZ-j0u"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zcb-ko-Dlm" secondAttribute="trailing" constant="153" id="qi2-Ln-AH7"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zcb-ko-Dlm" secondAttribute="trailing" constant="130" id="qi2-Ln-AH7"/>
                                         <constraint firstItem="bQQ-OY-WvA" firstAttribute="top" secondItem="4gE-Zd-Wf5" secondAttribute="top" constant="7" id="qum-c5-6Jl"/>
                                         <constraint firstItem="ULK-52-lMf" firstAttribute="top" secondItem="4gE-Zd-Wf5" secondAttribute="top" constant="7" id="ujK-qp-ila"/>
-                                        <constraint firstAttribute="trailing" secondItem="bQQ-OY-WvA" secondAttribute="trailing" constant="90" id="yNt-Nq-akb"/>
+                                        <constraint firstAttribute="trailing" secondItem="bQQ-OY-WvA" secondAttribute="trailing" constant="70" id="yNt-Nq-akb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
