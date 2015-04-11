@@ -35,6 +35,8 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     }
     
     func fetchPopularRecipes() {
+//        dataContext.recipes.delete()
+//        dataContext.recommendedRecipes.delete()
         var value = ""
         if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
             value = course.name

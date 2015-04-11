@@ -214,7 +214,7 @@ class FFMRecipesParser: FFMBaseParser {
             isUserContextSet = true
         }
         if preferCookingTime > 0 {
-           explaintion = explaintion + " " + NSLS.preferCookingTimeExplaination
+           explaintion = explaintion + " " +  NSString(format: NSLS.preferCookingTimeExplaination, preferCookingTime)
             isUserContextSet = (isUserContextSet == true) ? isUserContextSet : false
         }
         if isUserContextSet == false {

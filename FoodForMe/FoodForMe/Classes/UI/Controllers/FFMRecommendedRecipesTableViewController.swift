@@ -32,7 +32,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
         fetchMyRecommendations()
     }
     
-    func fetchMyRecommendations() {        
+    func fetchMyRecommendations() {
         if userProfile == nil {
             let profileDal: FFMUserProfileDal = FFMUserProfileDal()
             userProfile = profileDal.getUserProfile()
