@@ -12,9 +12,10 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
    
     let sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.rating]
     let sectionsHeight: [CGFloat] = [320.0,  40.0, 40.0]
-    var items = [Dictionary<String, String>]()
+    var items:NSMutableArray = NSMutableArray()
     var recipeStarRating: NSNumber?
-
+    let recipeBal: FFMRecipesBal = FFMRecipesBal()
+    
     var recipe: Recipe? {
         didSet {
             // Update the view.
@@ -34,12 +35,12 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     }
     
     private func loadItems() {
-        items.removeAll(keepCapacity: true)
+        items.removeAllObjects()
         let nameKey = "Name"
         let stateKey = "State"
-        if let ingredients:  [Ingredient] = self.recipe?.ingredients.allObjects as? [Ingredient] {
+        if let ingredients: [Ingredient] = self.recipe?.ingredients.allObjects as? [Ingredient] {
             for ingredient:Ingredient in ingredients {
-                items.append(["Name": ingredient.name, "State": NSLS.normal])
+                items.addObject(["Name": ingredient.name, "State": NSLS.normal])
             }
         }
         recipeStarRating = recipe?.starRating
@@ -73,9 +74,30 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     }
     
     @IBAction func sendRequest(sender: AnyObject) {
-        
+        let likeIngredients = filterIngredients(NSLS.like)
+        let dislikeIngredients = filterIngredients(NSLS.unlike)
+        let recipeRating = recipeStarRating
+        let recipeId = recipe?.recipeId
+        let profileDal: FFMUserProfileDal = FFMUserProfileDal()
+        let userProfile: UserProfile? = profileDal.getUserProfile()
+        if let userId = userProfile?.userId  {
+            recipeBal.rateRecipe(userId, recipeId: recipeId!, likeIngredients: likeIngredients, dislikeIngredients: dislikeIngredients, completion: { response in
+            })
+        }
+
     }
 
+    private func filterIngredients(param: String) -> [String] {
+        var filterList:[String] = []
+        for item in self.items {
+            let object:Dictionary<String, String> = item as Dictionary
+            if object["State"] == param {
+                filterList.append(object["Name"] as String!)
+            }
+        }
+        return filterList
+    }
+    
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -107,7 +129,8 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
         let cell: FFMIngredientCritiqueTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMIngredientCritiqueTableViewCell
         cell.configureCell(objectAtIndexPath(indexPath) as Dictionary)
         cell.didChange = { ingredientCritiqueTableViewCell, object in
-            println("object, \(object)")
+            let indexPath = self.tableView.indexPathForCell(ingredientCritiqueTableViewCell)!
+            self.items.replaceObjectAtIndex(indexPath.row, withObject: object)
         }
         return cell
     }

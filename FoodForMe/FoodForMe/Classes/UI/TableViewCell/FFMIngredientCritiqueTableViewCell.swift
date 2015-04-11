@@ -32,6 +32,13 @@ class FFMIngredientCritiqueTableViewCell: UITableViewCell {
     
     func configureCell(object: Dictionary<String, String>) {
         ingredientLabel.text = object[nameKey]
+        let state: String = object[stateKey] as String!
+        if state == NSLS.like {
+            likeButton.selected = true
+        }
+        else if state == NSLS.unlike {
+            unlikeButton.selected = true
+        }
     }
     
     private func valueDidChange(value: String) {

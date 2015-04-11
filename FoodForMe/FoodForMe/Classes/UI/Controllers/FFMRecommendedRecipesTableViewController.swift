@@ -32,11 +32,23 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
         fetchMyRecommendations()
     }
     
-    func fetchMyRecommendations() {
-        dataContext.recommendedRecipes.delete()
+    func fetchMyRecommendations() {        
+        if userProfile == nil {
+            let profileDal: FFMUserProfileDal = FFMUserProfileDal()
+            userProfile = profileDal.getUserProfile()
+        }
+        
         let userId = (self.userProfile?.userId != nil) ? self.userProfile?.userId : ""
-        self.recipesBal.getMyRecommendations(userId!, category: "ALL", completion: { recipes in
-          self.tableView.reloadData()
+        var selectedCourse = ""
+        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+            selectedCourse = course.name
+        }
+        let cookingTimePreference: CookingTimePreference = dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
+        
+        let preferCookingTime = cookingTimePreference.time.integerValue
+        
+        self.recipesBal.getMyRecommendations(userId!, course: selectedCourse, preferCookingTime: preferCookingTime, completion: { recipes in
+            self.tableView.reloadData()
         })
     }
     

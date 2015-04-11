@@ -35,12 +35,17 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     }
     
     func fetchPopularRecipes() {
-        self.recipesBal.getPopularRecipes { recipes in
+        var value = ""
+        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+            value = course.name
+        }
+        self.recipesBal.getPopularRecipes(value) { recipes in
             self.tableView.reloadData()
         }
     }
     
     // MARK: - ENSideMenu Delegate
+    
     func sideMenuWillOpen() {
         println("sideMenuWillOpen")
     }

@@ -31,23 +31,24 @@ class FFMRecipesBal: FFMBaseBal {
         }
     }
     
-    func getPopularRecipes(completion: (NSArray?) -> Void) {
-        Alamofire.request(FFMRecipesBalURLRequest.Router.PopularRecipes()).responseJSON { (request, response, data, error) in
+    func getPopularRecipes(course: String, completion: (NSArray?) -> Void) {
+        Alamofire.request(FFMRecipesBalURLRequest.Router.PopularRecipes(course:course)).responseJSON { (request, response, data, error) in
             self.recipesParse.parseRecipes(data, completion: { recipes in
                 completion(recipes!)
             })
         }
     }
     
-    func rateRecipe(userId: String, recipeId: String, likeIngredints: NSArray, dislikeIngredints: NSArray,  complettion: (NSDictionary?) -> Void) {
-        let parameters = ["recipeId":recipeId, "likeIngredints" : likeIngredints, "dislikeIngredints" : dislikeIngredints]
+    func rateRecipe(userId: String, recipeId: String, likeIngredients: NSArray, dislikeIngredients: NSArray,  completion: (AnyObject?) -> Void) {
+        let parameters = ["recipeId":recipeId.toInt()! , "likeIngredients" : likeIngredients, "dislikeIngredients" : dislikeIngredients, "userId": userId]
         Alamofire.request(.POST, FFMRecipesBalURLRequest.Router.RateRecipe().URLRequest.URLString, parameters: parameters, encoding:  .JSON).response {(request, response, _, error) in
             println(response)
+            completion(response?)
         }
     }
     
-    func getMyRecommendations(userId: String, category: String, completion: (NSArray?) -> Void) {
-        Alamofire.request(FFMRecipesBalURLRequest.Router.MyRecommendations(userId: userId, course: category)).responseJSON { (request, response, data, error) in
+    func getMyRecommendations(userId: String, course: String, preferCookingTime: Int, completion: (NSArray?) -> Void) {
+        Alamofire.request(FFMRecipesBalURLRequest.Router.MyRecommendations(userId: userId, course: course, preferCookingTime: preferCookingTime)).responseJSON { (request, response, data, error) in
             self.recipesParse.parseRecommendedRecipes(data, completion: { recommendedRecipes in
                 completion(recommendedRecipes!)
             })

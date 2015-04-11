@@ -34,8 +34,14 @@ class FFMUserProfileDal: FFMBaseDal {
         return userProfile
     }
     
-    func getUserProfile() -> UserProfile {
-       return dataContext.userProfiles.first()!
+    func getUserProfile() -> UserProfile? {
+        var userProfile: UserProfile?
+        if let profiles:[UserProfile] = dataContext.userProfiles.toArray() as [UserProfile]? {
+            if profiles.count > 0 {
+                userProfile = profiles[0]
+            }
+        }
+       return userProfile
     }
     
     func deleteUserProfile() {

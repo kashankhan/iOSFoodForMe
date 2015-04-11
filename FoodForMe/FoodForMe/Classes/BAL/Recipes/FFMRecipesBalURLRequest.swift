@@ -18,8 +18,8 @@ class FFMRecipesBalURLRequest : NSObject {
         case Search(query: String, page: Int)
         case Recipe(recipeId: String)
         case RateRecipe()
-        case PopularRecipes()
-        case MyRecommendations(userId: String, course: String)
+        case PopularRecipes(course: String)
+        case MyRecommendations(userId: String, course: String, preferCookingTime: Int)
         case AllCourses()
         
         // MARK: URLRequestConvertible
@@ -37,11 +37,11 @@ class FFMRecipesBalURLRequest : NSObject {
                 case .RateRecipe():
                     return ("/recipe/raterecipe", nil)
                     
-                case .PopularRecipes():
-                    return ("/recipe/popularrecipes", ["resultsize": Router.perPage])
+                case .PopularRecipes(let course):
+                    return ("/recipe/popularrecipes", ["resultsize": Router.perPage, "course": course])
                     
-                case MyRecommendations(let userId, let course):
-                    return ("/recommendation/myrecommendations", ["userId": userId, "pagesize":Router.perPage])
+                case MyRecommendations(let userId, let course, let preferCookingTime):
+                    return ("/recommendation/myrecommendations", ["userId": userId, "pagesize":Router.perPage, "course": course, "prefercookingtime" : preferCookingTime])
                 
                 case AllCourses():
                     return ("/recipe/allcourses", nil)
