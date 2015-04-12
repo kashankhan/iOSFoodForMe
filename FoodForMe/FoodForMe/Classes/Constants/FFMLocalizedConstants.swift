@@ -19,7 +19,7 @@ struct NSLS {
     static let explaination = localizedString("Explaination", "Explaination")
     static let ingredientsExplaination = localizedString("ingredientsExplaination", "This recipe contains following indegredinets %@, which is similar to your taste and health requirments.")
     static let calaroiesAndExcersiseInfomation = localizedString("calaroiesAndExcersiseInfomation", "It containts %d K caloaries, Inorder to burn these calaroies you have to do excersise around %d min.")
-    static let preferCookingTimeExplaination = localizedString("preferCookingTimeExplaination", "It matches your perfer cooking time %@ min")
+    static let preferCookingTimeExplaination = localizedString("preferCookingTimeExplaination", "It matches your perfer cooking time %d min")
     static let popularRecipeExplaination = localizedString("popularRecipeExplaination", "This recipe is among one of popular recipe in catagoy of %@. In order to make recommendation specific to you taste and health please set your preference")
     static let preferences = localizedString("Preferences", "Preferences")
     static let cookingTime = localizedString("CookingTime", "Cooking Time")

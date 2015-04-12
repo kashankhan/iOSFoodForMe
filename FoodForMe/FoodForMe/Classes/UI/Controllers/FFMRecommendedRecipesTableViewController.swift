@@ -46,7 +46,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
         let cookingTimePreference: CookingTimePreference = dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
         
         let preferCookingTime = cookingTimePreference.time.integerValue
-        
+
         self.recipesBal.getMyRecommendations(userId!, course: selectedCourse, preferCookingTime: preferCookingTime, completion: { recipes in
             self.tableView.reloadData()
         })
@@ -136,9 +136,12 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     
     
     lazy var fetchedResultsController: FetchedResultsController<RecommendedRecipe> = {
-        let frc = dataContext.recommendedRecipes.sortBy("recipe.title", ascending: true).toFetchedResultsController()
+        var frc = dataContext.recommendedRecipes.sortBy("recipe.title", ascending: true).toFetchedResultsController()
+        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+            let predicate: NSPredicate =  NSPredicate(format: "recipe.category contains[c] %@",  course.name)!
+          frc =  dataContext.recommendedRecipes.filterBy(predicate: predicate).sortBy("recipe.title", ascending: true).toFetchedResultsController()
+        }
         frc.bindToTableView(self.tableView)
-        
         return frc
         }()
     

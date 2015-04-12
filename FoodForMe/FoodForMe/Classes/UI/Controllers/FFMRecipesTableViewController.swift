@@ -35,8 +35,6 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     }
     
     func fetchPopularRecipes() {
-//        dataContext.recipes.delete()
-//        dataContext.recommendedRecipes.delete()
         var value = ""
         if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
             value = course.name
@@ -131,9 +129,12 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     
     
     lazy var fetchedResultsController: FetchedResultsController<Recipe> = {
-        let frc = dataContext.recipes.orderByAscending("title").toFetchedResultsController()
+        var frc = dataContext.recipes.orderByAscending("title").toFetchedResultsController()
+        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+            let predicate: NSPredicate =  NSPredicate(format: "category contains[c] %@",  course.name)!
+            frc =  dataContext.recipes.filterBy(predicate: predicate).sortBy("title", ascending: true).toFetchedResultsController()
+        }
         frc.bindToTableView(self.tableView)
-        
         return frc
         }()
     
