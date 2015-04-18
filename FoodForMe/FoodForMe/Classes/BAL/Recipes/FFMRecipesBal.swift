@@ -43,7 +43,7 @@ class FFMRecipesBal: FFMBaseBal {
         let parameters = ["recipeId":recipeId.toInt()! , "likeIngredients" : likeIngredients, "dislikeIngredients" : dislikeIngredients, "userId": userId]
         Alamofire.request(.POST, FFMRecipesBalURLRequest.Router.RateRecipe().URLRequest.URLString, parameters: parameters, encoding:  .JSON).response {(request, response, _, error) in
             println(response)
-            completion(response?)
+            completion(response)
         }
     }
     

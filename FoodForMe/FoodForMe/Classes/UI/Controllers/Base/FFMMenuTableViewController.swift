@@ -79,16 +79,16 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipesTableViewController") as FFMRecipesTableViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipesTableViewController") as! FFMRecipesTableViewController
             break
         case 1:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecommendedRecipesTableViewController") as FFMRecommendedRecipesTableViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecommendedRecipesTableViewController") as! FFMRecommendedRecipesTableViewController
             break
         case 2:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMUserPreferenceTableViewController") as FFMUserPreferenceTableViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMUserPreferenceTableViewController") as! FFMUserPreferenceTableViewController
             break
         default:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipesTableViewController") as FFMRecipesTableViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipesTableViewController") as! FFMRecipesTableViewController
             break
         }
         sideMenuController()?.setContentViewController(destViewController)

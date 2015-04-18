@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0111D071AE30AAE002C3FBF /* FFMRecipeDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0111D061AE30AAE002C3FBF /* FFMRecipeDal.swift */; };
 		C019F3F41A8F884800766D7C /* FFMRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */; };
 		C019F3F61A8F889800766D7C /* YummlyRecipesBal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */; };
 		C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F4001A9026EE00766D7C /* FloatRatingView.swift */; };
@@ -17,7 +18,6 @@
 		C019F41C1A90F16500766D7C /* FFMBaseDal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019F41B1A90F16500766D7C /* FFMBaseDal.swift */; };
 		C026520E1AD2EAE300DADC98 /* FFMUserPreferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C026520D1AD2EAE300DADC98 /* FFMUserPreferenceTableViewController.swift */; };
 		C03B7B1A1A8ADB480043E5A1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03B7B191A8ADB480043E5A1 /* FacebookSDK.framework */; };
-		C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = C03B7B231A8ADE630043E5A1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2D1A8AE0090043E5A1 /* FFMLocalizedConstants.swift */; };
 		C03B7B301A8AE03F0043E5A1 /* FFMGlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */; };
 		C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */; };
@@ -53,8 +53,6 @@
 		C0F0B0C91A898A7E00752E0E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F0B0C71A898A7E00752E0E /* LaunchScreen.xib */; };
 		C0F0B0D51A898A7E00752E0E /* FoodForMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B0D41A898A7E00752E0E /* FoodForMeTests.swift */; };
 		C0F0B0E81A89970B00752E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B0E31A89970B00752E0E /* AppDelegate.swift */; };
-		C0F0B0E91A89970B00752E0E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B0E41A89970B00752E0E /* DetailViewController.swift */; };
-		C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0B0E51A89970B00752E0E /* MasterViewController.swift */; };
 		C0F8BFF81AD46C0E0055F160 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8BFF71AD46C0E0055F160 /* Course.swift */; };
 		C0F8BFFA1AD46C0F0055F160 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8BFF91AD46C0F0055F160 /* Ingredient.swift */; };
 		C0F8BFFC1AD46C0F0055F160 /* IngredientPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F8BFFB1AD46C0F0055F160 /* IngredientPreference.swift */; };
@@ -65,40 +63,75 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C03B7B221A8ADE630043E5A1 /* PBXContainerItemProxy */ = {
+		C0111CDC1AE2FBF3002C3FBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 27AB60071A7FAFBF0069F786;
-			remoteInfo = Alamofire;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
 		};
-		C03B7B241A8ADE630043E5A1 /* PBXContainerItemProxy */ = {
+		C0111CDE1AE2FBF3002C3FBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 27AB60121A7FAFBF0069F786;
-			remoteInfo = AlamofireTests;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
 		};
-		C03B7B261A8ADE8D0043E5A1 /* PBXContainerItemProxy */ = {
+		C0111CE01AE2FBF3002C3FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		C0111CE21AE2FBF3002C3FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		C0111CE91AE2FC2A002C3FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0111CE41AE2FC2A002C3FBF /* AlecrimCoreData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14CCE8A11AC10E5500AE47F1;
+			remoteInfo = "AlecrimCoreData iOS";
+		};
+		C0111CEB1AE2FC2A002C3FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0111CE41AE2FC2A002C3FBF /* AlecrimCoreData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14CCE8C21AC10F4600AE47F1;
+			remoteInfo = "AlecrimCoreData OS X";
+		};
+		C0111CFA1AE2FDD7002C3FBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 27AB60061A7FAFBF0069F786;
-			remoteInfo = Alamofire;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
 		};
-		C061191A1A9547B900185559 /* PBXContainerItemProxy */ = {
+		C0111CFC1AE2FDDF002C3FBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 14FB83461A2BC1AC00FCBD7C;
-			remoteInfo = AlecrimCoreData;
-		};
-		C061191E1A95486500185559 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */;
+			containerPortal = C0111CE41AE2FC2A002C3FBF /* AlecrimCoreData.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 14FB83451A2BC1AC00FCBD7C;
-			remoteInfo = AlecrimCoreData;
+			remoteGlobalIDString = 14CCE8C11AC10F4600AE47F1;
+			remoteInfo = "AlecrimCoreData OS X";
+		};
+		C0111CFE1AE2FDE5002C3FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DD67C0A1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		C0111D001AE2FDE9002C3FBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0111CE41AE2FC2A002C3FBF /* AlecrimCoreData.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 14CCE8A01AC10E5500AE47F1;
+			remoteInfo = "AlecrimCoreData iOS";
 		};
 		C0F0B0CF1A898A7E00752E0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -116,7 +149,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C03B7B291A8ADEF70043E5A1 /* Alamofire.framework in Copy Files (1 item) */,
 			);
 			name = "Copy Files (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +156,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C0111CE41AE2FC2A002C3FBF /* AlecrimCoreData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlecrimCoreData.xcodeproj; path = AlecrimCoreData/AlecrimCoreData.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C0111D061AE30AAE002C3FBF /* FFMRecipeDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipeDal.swift; sourceTree = "<group>"; };
 		C019F3F31A8F884800766D7C /* FFMRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipesBal.swift; sourceTree = "<group>"; };
 		C019F3F51A8F889800766D7C /* YummlyRecipesBal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YummlyRecipesBal.swift; sourceTree = "<group>"; };
 		C019F4001A9026EE00766D7C /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
@@ -139,7 +173,6 @@
 		C03B7B2F1A8AE03F0043E5A1 /* FFMGlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMGlobalConstants.swift; sourceTree = "<group>"; };
 		C054866E1A8C21AB002E55E1 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		C054866F1A8C21AB002E55E1 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
-		C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlecrimCoreData.xcodeproj; path = AlecrimCoreData/Source/iOS/AlecrimCoreData.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C061191C1A95481000185559 /* DataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContext.swift; sourceTree = "<group>"; };
 		C06119641A962F0C00185559 /* FFMRecipeDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMRecipeDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFMUserProfileDal.swift; sourceTree = "<group>"; };
@@ -175,8 +208,6 @@
 		C0F0B0D31A898A7E00752E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F0B0D41A898A7E00752E0E /* FoodForMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodForMeTests.swift; sourceTree = "<group>"; };
 		C0F0B0E31A89970B00752E0E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0F0B0E41A89970B00752E0E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		C0F0B0E51A89970B00752E0E /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		C0F0B0EB1A89973500752E0E /* FoodForMeBridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodForMeBridgeHeader.h; sourceTree = "<group>"; };
 		C0F8BFF71AD46C0E0055F160 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		C0F8BFF91AD46C0F0055F160 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -206,6 +237,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0111CE51AE2FC2A002C3FBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0111CEA1AE2FC2A002C3FBF /* AlecrimCoreData.framework */,
+				C0111CEC1AE2FC2A002C3FBF /* AlecrimCoreData.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C019F3F21A8F883800766D7C /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,8 +304,10 @@
 		C03B7B1E1A8ADE630043E5A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C03B7B231A8ADE630043E5A1 /* Alamofire.framework */,
-				C03B7B251A8ADE630043E5A1 /* AlamofireTests.xctest */,
+				C0111CDD1AE2FBF3002C3FBF /* Alamofire.framework */,
+				C0111CDF1AE2FBF3002C3FBF /* Alamofire.framework */,
+				C0111CE11AE2FBF3002C3FBF /* Alamofire iOS Tests.xctest */,
+				C0111CE31AE2FBF3002C3FBF /* Alamofire OSX Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,17 +368,9 @@
 		C06119141A95475600185559 /* AlecrimCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */,
+				C0111CE41AE2FC2A002C3FBF /* AlecrimCoreData.xcodeproj */,
 			);
 			name = AlecrimCoreData;
-			sourceTree = "<group>";
-		};
-		C06119171A9547B900185559 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C061191B1A9547B900185559 /* AlecrimCoreData.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		C06C79131A8D5BA2001A9910 /* TableViewCell */ = {
@@ -464,6 +498,7 @@
 				C019F41B1A90F16500766D7C /* FFMBaseDal.swift */,
 				C06C788B1A8CF873001A9910 /* FFMUserProfileDal.swift */,
 				C06F4B341AD59BBC0073DF51 /* FFMDefaultDataDal.swift */,
+				C0111D061AE30AAE002C3FBF /* FFMRecipeDal.swift */,
 				C054867E1A8CD70F002E55E1 /* CoreData */,
 				C0F0B14A1A8999AC00752E0E /* Model */,
 			);
@@ -474,8 +509,6 @@
 			isa = PBXGroup;
 			children = (
 				C0F0B0E31A89970B00752E0E /* AppDelegate.swift */,
-				C0F0B0E41A89970B00752E0E /* DetailViewController.swift */,
-				C0F0B0E51A89970B00752E0E /* MasterViewController.swift */,
 				C06C79131A8D5BA2001A9910 /* TableViewCell */,
 				C054868C1A8CD788002E55E1 /* Views */,
 				C05486851A8CD757002E55E1 /* Controllers */,
@@ -513,8 +546,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				C061191F1A95486500185559 /* PBXTargetDependency */,
-				C03B7B271A8ADE8D0043E5A1 /* PBXTargetDependency */,
+				C0111D011AE2FDE9002C3FBF /* PBXTargetDependency */,
+				C0111CFF1AE2FDE5002C3FBF /* PBXTargetDependency */,
+				C0111CFD1AE2FDDF002C3FBF /* PBXTargetDependency */,
+				C0111CFB1AE2FDD7002C3FBF /* PBXTargetDependency */,
 			);
 			name = FoodForMe;
 			productName = FoodForMe;
@@ -574,8 +609,8 @@
 					ProjectRef = C03B7B1D1A8ADE630043E5A1 /* Alamofire.xcodeproj */;
 				},
 				{
-					ProductGroup = C06119171A9547B900185559 /* Products */;
-					ProjectRef = C06119161A9547B900185559 /* AlecrimCoreData.xcodeproj */;
+					ProductGroup = C0111CE51AE2FC2A002C3FBF /* Products */;
+					ProjectRef = C0111CE41AE2FC2A002C3FBF /* AlecrimCoreData.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -587,25 +622,46 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C03B7B231A8ADE630043E5A1 /* Alamofire.framework */ = {
+		C0111CDD1AE2FBF3002C3FBF /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
-			remoteRef = C03B7B221A8ADE630043E5A1 /* PBXContainerItemProxy */;
+			remoteRef = C0111CDC1AE2FBF3002C3FBF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C03B7B251A8ADE630043E5A1 /* AlamofireTests.xctest */ = {
+		C0111CDF1AE2FBF3002C3FBF /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C0111CDE1AE2FBF3002C3FBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C0111CE11AE2FBF3002C3FBF /* Alamofire iOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = AlamofireTests.xctest;
-			remoteRef = C03B7B241A8ADE630043E5A1 /* PBXContainerItemProxy */;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = C0111CE01AE2FBF3002C3FBF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C061191B1A9547B900185559 /* AlecrimCoreData.framework */ = {
+		C0111CE31AE2FBF3002C3FBF /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = C0111CE21AE2FBF3002C3FBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C0111CEA1AE2FC2A002C3FBF /* AlecrimCoreData.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AlecrimCoreData.framework;
-			remoteRef = C061191A1A9547B900185559 /* PBXContainerItemProxy */;
+			remoteRef = C0111CE91AE2FC2A002C3FBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C0111CEC1AE2FC2A002C3FBF /* AlecrimCoreData.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AlecrimCoreData.framework;
+			remoteRef = C0111CEB1AE2FC2A002C3FBF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -642,6 +698,7 @@
 				C019F40C1A90EE2000766D7C /* FFMRecipesParser.swift in Sources */,
 				C019F4011A9026EE00766D7C /* FloatRatingView.swift in Sources */,
 				C0EA90181A8CD8DC00BB62F0 /* FFMProfileHeaderView.swift in Sources */,
+				C0111D071AE30AAE002C3FBF /* FFMRecipeDal.swift in Sources */,
 				C06119651A962F0C00185559 /* FFMRecipeDetailTableViewCell.swift in Sources */,
 				C0F8BFFE1AD46C0F0055F160 /* NutritionInfo.swift in Sources */,
 				C06F4B291AD548380073DF51 /* FFMUserProfileBal.swift in Sources */,
@@ -649,7 +706,6 @@
 				C061191D1A95481000185559 /* DataContext.swift in Sources */,
 				C03B7B2E1A8AE0090043E5A1 /* FFMLocalizedConstants.swift in Sources */,
 				C05486701A8C21AB002E55E1 /* ENSideMenu.swift in Sources */,
-				C0F0B0EA1A89970B00752E0E /* MasterViewController.swift in Sources */,
 				C0AC959F1AD6E5610021F2EC /* FFMRecipeRatingTableViewCell.swift in Sources */,
 				C091E7541ACF331100229732 /* FFMRecommendedRecipesTableViewController.swift in Sources */,
 				C091E7561AD017E300229732 /* FFMRecommendedRecipeDetailTableViewController.swift in Sources */,
@@ -659,7 +715,6 @@
 				C019F41C1A90F16500766D7C /* FFMBaseDal.swift in Sources */,
 				C06F4B2D1AD549690073DF51 /* FFMUserProfileBalURLRequest.swift in Sources */,
 				C019F4061A90E95600766D7C /* FFMRecipeDetailTableViewController.swift in Sources */,
-				C0F0B0E91A89970B00752E0E /* DetailViewController.swift in Sources */,
 				C06F4B391AD5D57A0073DF51 /* FFMIngredientCritiqueTableViewCell.swift in Sources */,
 				C0EA902B1A8CEA0400BB62F0 /* FFMRecipesTableViewController.swift in Sources */,
 				C06F4B371AD5CA2B0073DF51 /* FFMRecipeCritiqueTableViewController.swift in Sources */,
@@ -698,15 +753,25 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C03B7B271A8ADE8D0043E5A1 /* PBXTargetDependency */ = {
+		C0111CFB1AE2FDD7002C3FBF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Alamofire;
-			targetProxy = C03B7B261A8ADE8D0043E5A1 /* PBXContainerItemProxy */;
+			name = "Alamofire iOS";
+			targetProxy = C0111CFA1AE2FDD7002C3FBF /* PBXContainerItemProxy */;
 		};
-		C061191F1A95486500185559 /* PBXTargetDependency */ = {
+		C0111CFD1AE2FDDF002C3FBF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = AlecrimCoreData;
-			targetProxy = C061191E1A95486500185559 /* PBXContainerItemProxy */;
+			name = "AlecrimCoreData OS X";
+			targetProxy = C0111CFC1AE2FDDF002C3FBF /* PBXContainerItemProxy */;
+		};
+		C0111CFF1AE2FDE5002C3FBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire OSX";
+			targetProxy = C0111CFE1AE2FDE5002C3FBF /* PBXContainerItemProxy */;
+		};
+		C0111D011AE2FDE9002C3FBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "AlecrimCoreData iOS";
+			targetProxy = C0111D001AE2FDE9002C3FBF /* PBXContainerItemProxy */;
 		};
 		C0F0B0D01A898A7E00752E0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -825,6 +890,7 @@
 					"$(PROJECT_DIR)/FoodForMe/External/Facebook",
 				);
 				INFOPLIST_FILE = FoodForMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -839,6 +905,7 @@
 					"$(PROJECT_DIR)/FoodForMe/External/Facebook",
 				);
 				INFOPLIST_FILE = FoodForMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

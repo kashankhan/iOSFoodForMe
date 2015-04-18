@@ -41,13 +41,13 @@ class FFMUserPerferCookingTimeSelectionTableViewController
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
         let sectionInfo = self.fetchedResultsController.sections![section]
-        var rows = sectionInfo.numberOfObjects
+        var rows = sectionInfo.numberOfEntities
         return rows
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierDefaultTableViewCell"
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as UITableViewCell
+        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as! UITableViewCell
         self.configureCell(tableView, cell: cell, atIndexPath: indexPath)
         return cell
     }
@@ -61,7 +61,7 @@ class FFMUserPerferCookingTimeSelectionTableViewController
     
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let cookingTimePreference: CookingTimePreference = self.fetchedResultsController.entityAtIndexPath(indexPath)
-        cell.textLabel?.text = NSString(format:"%@ %@", cookingTimePreference.time, NSLS.mins)
+        cell.textLabel?.text = NSString(format:"%@ %@", cookingTimePreference.time, NSLS.mins) as String
         cell.accessoryType = cookingTimePreference.selected.boolValue ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
             if cookingTimePreference.selected.boolValue {
                 lastSelectedIndexPath = indexPath
@@ -72,7 +72,8 @@ class FFMUserPerferCookingTimeSelectionTableViewController
     
     
     lazy var fetchedResultsController: FetchedResultsController<CookingTimePreference> = {
-        let frc = dataContext.cookingTimings.orderByAscending("time").toFetchedResultsController()
+        let recipeDal: FFMRecipeDal = FFMRecipeDal()
+        let frc = recipeDal.dataContext.cookingTimings.orderByAscending("time").toFetchedResultsController()
         frc.bindToTableView(self.tableView)
         
         return frc

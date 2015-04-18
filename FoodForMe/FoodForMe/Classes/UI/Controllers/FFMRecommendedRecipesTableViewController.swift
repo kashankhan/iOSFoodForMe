@@ -14,6 +14,7 @@ import AlecrimCoreData
 class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideMenuDelegate , NSFetchedResultsControllerDelegate {
     
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
+    let recipeDal: FFMRecipeDal = FFMRecipeDal()
     var userProfile: UserProfile?
     
     override func viewDidLoad() {
@@ -40,10 +41,10 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
         
         let userId = (self.userProfile?.userId != nil) ? self.userProfile?.userId : ""
         var selectedCourse = ""
-        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+        if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
             selectedCourse = course.name
         }
-        let cookingTimePreference: CookingTimePreference = dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
+        let cookingTimePreference: CookingTimePreference = recipeDal.dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
         
         let preferCookingTime = cookingTimePreference.time.integerValue
 
@@ -99,20 +100,20 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let sectionInfo = self.fetchedResultsController.sections![section]
-        var rows = sectionInfo.numberOfObjects
+        var rows = sectionInfo.numberOfEntities
         return rows
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierFFMRecipeTableViewCell"
-        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeTableViewCell
+        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as! FFMRecipeTableViewCell
         self.configureCell(tableView, cell: cell, atIndexPath: indexPath)
         return cell
     }
     
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         
-        let recipeCell: FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
+        let recipeCell: FFMRecipeTableViewCell = cell as! FFMRecipeTableViewCell
         let recommendedRecipe: RecommendedRecipe? = self.fetchedResultsController.entityAtIndexPath(indexPath)
         if let recipe = recommendedRecipe?.recipe {
             recipeCell.configureCell(recipe)
@@ -127,7 +128,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
             let tableView: UITableView = ((self.searchDisplayController?.active) == true) ? self.searchDisplayController?.searchResultsTableView : self.tableView
             if let indexPath = tableView.indexPathForSelectedRow() {
                 let object = self.fetchedResultsController.entityAtIndexPath(indexPath)
-                (segue.destinationViewController as FFMRecommendedRecipeDetailTableViewController).recommendedRecipe = object
+                (segue.destinationViewController as! FFMRecommendedRecipeDetailTableViewController).recommendedRecipe = object
             }
         }
     }
@@ -136,10 +137,11 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     
     
     lazy var fetchedResultsController: FetchedResultsController<RecommendedRecipe> = {
-        var frc = dataContext.recommendedRecipes.sortBy("recipe.title", ascending: true).toFetchedResultsController()
-        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
-            let predicate: NSPredicate =  NSPredicate(format: "recipe.category contains[c] %@",  course.name)!
-          frc =  dataContext.recommendedRecipes.filterBy(predicate: predicate).sortBy("recipe.title", ascending: true).toFetchedResultsController()
+          let recipeDal: FFMRecipeDal = FFMRecipeDal()
+        var frc = recipeDal.dataContext.recommendedRecipes.sortBy("recipe.title", ascending: true).toFetchedResultsController()
+        if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+            let predicate: NSPredicate =  NSPredicate(format: "recipe.category contains[c] %@",  course.name)
+          frc =  recipeDal.dataContext.recommendedRecipes.filterBy(predicate: predicate).sortBy("recipe.title", ascending: true).toFetchedResultsController()
         }
         frc.bindToTableView(self.tableView)
         return frc

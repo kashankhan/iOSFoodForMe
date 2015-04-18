@@ -40,7 +40,7 @@ extension Alamofire.Request {
 */
 
 @objc public protocol ResponseCollectionSerializable {
-    class func collection(#response: NSHTTPURLResponse, representation: AnyObject) -> [Self]
+    static func collection(#response: NSHTTPURLResponse, representation: AnyObject) -> [Self]
 }
 
 extension Alamofire.Request {

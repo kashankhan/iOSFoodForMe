@@ -60,7 +60,7 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     private func objectsInSection(section: Int) -> [AnyObject]{
         var objects:[AnyObject] = []
         if section == 1 {
-            objects = self.items
+            objects = self.items as [AnyObject]
         }
         else if section == 2 {
             objects.append(recipeStarRating!)
@@ -90,7 +90,7 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     private func filterIngredients(param: String) -> [String] {
         var filterList:[String] = []
         for item in self.items {
-            let object:Dictionary<String, String> = item as Dictionary
+            let object:Dictionary<String, String> = item as! Dictionary
             if object["State"] == param {
                 filterList.append(object["Name"] as String!)
             }
@@ -126,8 +126,8 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     
     func configureIngredientCritiqueTableViewCell(tableView: UITableView, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierFFMIngredientCritiqueTableViewCell"
-        let cell: FFMIngredientCritiqueTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMIngredientCritiqueTableViewCell
-        cell.configureCell(objectAtIndexPath(indexPath) as Dictionary)
+        let cell: FFMIngredientCritiqueTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as! FFMIngredientCritiqueTableViewCell
+        cell.configureCell(objectAtIndexPath(indexPath) as! Dictionary)
         cell.didChange = { ingredientCritiqueTableViewCell, object in
             let indexPath = self.tableView.indexPathForCell(ingredientCritiqueTableViewCell)!
             self.items.replaceObjectAtIndex(indexPath.row, withObject: object)
@@ -137,8 +137,8 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     
     func configureRecipeRatingTableViewCell(tableView: UITableView, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierFFMRecipeRatingTableViewCell"
-        let cell: FFMRecipeRatingTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeRatingTableViewCell
-        cell.configureCell(objectAtIndexPath(indexPath) as NSNumber)
+        let cell: FFMRecipeRatingTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifierCell) as! FFMRecipeRatingTableViewCell
+        cell.configureCell(objectAtIndexPath(indexPath) as! NSNumber)
         cell.ratingChange = { recipeRatingTableViewCell, rating in
             self.recipeStarRating = rating
         }
@@ -168,7 +168,7 @@ class FFMRecipeCritiqueTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header:UITableViewHeaderFooterView = view as UITableViewHeaderFooterView
+        let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.textLabel.font = UIFont(name: FFMGlobalConstants.UIAppFontName, size: 18.0)!
         header.textLabel.frame = header.frame
     }

@@ -55,12 +55,12 @@ class FFMRecipeDetailTableViewController: UITableViewController {
         let row = indexPath.row
         let objects = objectsInSection(section)
         if section == 1 &&  objects.count > 0 {
-            let ingredient: Ingredient = objects[row] as Ingredient
+            let ingredient: Ingredient = objects[row] as! Ingredient
             // MetricQuantity + MetricUnit + Name + PreparationNotes
             object  = ingredient.metricDisplayQuantity + " " + ingredient.metricUnit + " " + ingredient.name + " " + ingredient.preparationNotes
         }
         else if section == 2 {
-            object = objects[row] as String
+            object = objects[row] as! String
         }
     
         return object
@@ -102,13 +102,13 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierFFMRecipeDetailTableViewCell"
-        var cell: FFMRecipeDetailTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeDetailTableViewCell
+        var cell: FFMRecipeDetailTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as! FFMRecipeDetailTableViewCell
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
     
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let recipeCell:FFMRecipeDetailTableViewCell = cell as FFMRecipeDetailTableViewCell
+        let recipeCell:FFMRecipeDetailTableViewCell = cell as! FFMRecipeDetailTableViewCell
         recipeCell.titleLabel?.text = objectAtIndexPath(indexPath) as String
     }
     
@@ -134,7 +134,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header:UITableViewHeaderFooterView = view as UITableViewHeaderFooterView
+        let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         header.textLabel.font = UIFont(name: FFMGlobalConstants.UIAppFontName, size: 18.0)!
         header.textLabel.frame = header.frame
     }
@@ -147,7 +147,7 @@ class FFMRecipeDetailTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "IdentifierSegueShowRecipeCritique" {
-            (segue.destinationViewController as FFMRecipeCritiqueTableViewController).recipe = self.recipe
+            (segue.destinationViewController as! FFMRecipeCritiqueTableViewController).recipe = self.recipe
         }
     }
 }

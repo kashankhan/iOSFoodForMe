@@ -15,6 +15,7 @@ class FFMProfileHeaderView : UITableViewHeaderFooterView {
     @IBOutlet weak var nameLabel: UILabel!
     
     private var userProfile: UserProfile?
+    private let dataDal: FFMDefaultDataDal = FFMDefaultDataDal()
     
     override func awakeFromNib() {
         profilePicView.layer.cornerRadius = profilePicView.frame.size.width / 2
@@ -38,7 +39,7 @@ class FFMProfileHeaderView : UITableViewHeaderFooterView {
             self.nameLabel?.text = userProfile?.name
         }
         else if userProfile != nil {
-            dataContext.userProfiles.deleteEntity(userProfile!)
+            dataDal.dataContext.userProfiles.deleteEntity(userProfile!)
         }
     }
 }

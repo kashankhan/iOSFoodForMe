@@ -36,7 +36,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     
     func fetchPopularRecipes() {
         var value = ""
-        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+        if let course: Course = defaultDataDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
             value = course.name
         }
         self.recipesBal.getPopularRecipes(value) { recipes in
@@ -76,7 +76,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let sectionInfo = self.fetchedResultsController.sections![section]
-        var rows = sectionInfo.numberOfObjects
+        var rows = sectionInfo.numberOfEntities
         if tableView == self.searchDisplayController?.searchResultsTableView {
             rows = (searchResult != nil) ? searchResult!.count : 0
         }
@@ -85,16 +85,16 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierFFMRecipeTableViewCell"
-        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as FFMRecipeTableViewCell
+        var cell: FFMRecipeTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as! FFMRecipeTableViewCell
         self.configureCell(tableView, cell: cell, atIndexPath: indexPath)
         return cell
     }
     
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
 
-        let recipeCell: FFMRecipeTableViewCell = cell as FFMRecipeTableViewCell
+        let recipeCell: FFMRecipeTableViewCell = cell as! FFMRecipeTableViewCell
         let recipe: Recipe = (tableView == self.searchDisplayController?.searchResultsTableView) ?
-        self.searchResult?.objectAtIndex(indexPath.row) as Recipe : self.fetchedResultsController.entityAtIndexPath(indexPath)
+        self.searchResult?.objectAtIndex(indexPath.row) as! Recipe : self.fetchedResultsController.entityAtIndexPath(indexPath)
         recipeCell.configureCell(recipe)
     }
     
@@ -119,8 +119,8 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
             let tableView: UITableView = ((self.searchDisplayController?.active) == true) ? self.searchDisplayController?.searchResultsTableView : self.tableView
             if let indexPath = tableView.indexPathForSelectedRow() {
                 let object =  ((self.searchDisplayController?.active) == true) ?
-                    self.searchResult?.objectAtIndex(indexPath.row) as Recipe :self.fetchedResultsController.entityAtIndexPath(indexPath)
-                (segue.destinationViewController as FFMRecipeDetailTableViewController).recipe = object
+                    self.searchResult?.objectAtIndex(indexPath.row) as! Recipe :self.fetchedResultsController.entityAtIndexPath(indexPath)
+                (segue.destinationViewController as! FFMRecipeDetailTableViewController).recipe = object
             }
         }
     }
@@ -129,10 +129,11 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     
     
     lazy var fetchedResultsController: FetchedResultsController<Recipe> = {
-        var frc = dataContext.recipes.orderByAscending("title").toFetchedResultsController()
-        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
-            let predicate: NSPredicate =  NSPredicate(format: "category contains[c] %@",  course.name)!
-            frc =  dataContext.recipes.filterBy(predicate: predicate).sortBy("title", ascending: true).toFetchedResultsController()
+        let defaultDataDal: FFMDefaultDataDal = FFMDefaultDataDal()
+        var frc = defaultDataDal.dataContext.recipes.orderByAscending("title").toFetchedResultsController()
+        if let course: Course = defaultDataDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+            let predicate: NSPredicate =  NSPredicate(format: "category contains[c] %@",  course.name)
+            frc =  defaultDataDal.dataContext.recipes.filterBy(predicate: predicate).sortBy("title", ascending: true).toFetchedResultsController()
         }
         frc.bindToTableView(self.tableView)
         return frc

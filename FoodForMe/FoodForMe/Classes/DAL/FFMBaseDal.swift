@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 class FFMBaseDal: NSObject {
-
+    
+  internal let dataContext = DataContext()!
 
 }

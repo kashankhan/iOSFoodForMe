@@ -37,13 +37,13 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let sectionInfo = self.fetchedResultsController.sections![section]
-        var rows = sectionInfo.numberOfObjects
+        var rows = sectionInfo.numberOfEntities
         return rows
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierDefaultTableViewCell"
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as UITableViewCell
+        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as! UITableViewCell
         self.configureCell(tableView, cell: cell, atIndexPath: indexPath)
         return cell
     }
@@ -68,7 +68,8 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
     
     
     lazy var fetchedResultsController: FetchedResultsController<Course> = {
-        let frc = dataContext.courses.orderByAscending("name").toFetchedResultsController()
+        let recipeDal: FFMRecipeDal = FFMRecipeDal()
+        let frc = recipeDal.dataContext.courses.orderByAscending("name").toFetchedResultsController()
         frc.bindToTableView(self.tableView)
         
         return frc

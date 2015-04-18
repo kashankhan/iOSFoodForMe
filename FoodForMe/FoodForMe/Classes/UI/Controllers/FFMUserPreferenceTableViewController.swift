@@ -22,15 +22,16 @@ class FFMUserPreferenceTableViewController: UITableViewController {
     }
     
     func configureView() {
+        let recipeDal: FFMRecipeDal = FFMRecipeDal()
         items.removeAll(keepCapacity: true)
-        let cookingTimePreference: CookingTimePreference = dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
-        var value: String = NSString(format:"%@ %@", cookingTimePreference.time, NSLS.mins)
+        let cookingTimePreference: CookingTimePreference = recipeDal.dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
+        var value: String = NSString(format:"%@ %@", cookingTimePreference.time, NSLS.mins) as String
         insertObjectInItems(NSLS.cookingTime, object: value, segue: "IdentifierSegueShowPerferCookingTimeSelection")
         
        // insertObjectInItems(NSLS.ingredients, object: "", segue: "")
         
         value = ""
-        if let course: Course = dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+        if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
             value = course.name
         }
         insertObjectInItems(NSLS.course, object: value, segue: "IdentifierSegueShowCourseSelection")
@@ -78,7 +79,7 @@ class FFMUserPreferenceTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifierCell = "IdentifierDefaultTableViewCell"
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as UITableViewCell
+        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(identifierCell) as! UITableViewCell
         self.configureCell(tableView, cell: cell, atIndexPath: indexPath)
         return cell
     }

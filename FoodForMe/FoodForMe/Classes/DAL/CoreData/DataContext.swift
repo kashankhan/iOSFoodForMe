@@ -10,8 +10,6 @@ import UIKit
 import Foundation
 import AlecrimCoreData
 
-let dataContext = DataContext()!
-
 final class DataContext: AlecrimCoreData.Context {
     
     var userProfiles: AlecrimCoreData.Table<UserProfile> { return AlecrimCoreData.Table<UserProfile>(context: self) }
@@ -29,6 +27,7 @@ final class DataContext: AlecrimCoreData.Context {
     var courses: AlecrimCoreData.Table<Course> { return AlecrimCoreData.Table<Course>(context: self) }
     
     var cookingTimings: AlecrimCoreData.Table<CookingTimePreference> { return AlecrimCoreData.Table<CookingTimePreference>(context: self) }
+    
     
     internal func saveContext() {
         // Save the background data context.

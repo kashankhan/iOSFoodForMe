@@ -10,4 +10,6 @@ import Foundation
 
 class FFMBaseParser: NSObject {
     
+     let dataContext = DataContext()!
+    
 }

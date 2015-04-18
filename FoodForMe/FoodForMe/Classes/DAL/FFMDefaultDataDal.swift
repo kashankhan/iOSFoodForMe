@@ -20,7 +20,7 @@ class FFMDefaultDataDal: FFMBaseDal {
     
     private func loadCategories() {
         self.recipesBal.getAllRecipeCategories({ catagories in
-            performInBackground(dataContext) { backgroundDataContext in
+            performInBackground(self.dataContext) { backgroundDataContext in
                 var course: Course? = backgroundDataContext.courses.filterBy(attribute: "selected", value: 1).first()
                 if course == nil {
                   course = backgroundDataContext.courses.filterBy(attribute: "name", value: "Any").first()

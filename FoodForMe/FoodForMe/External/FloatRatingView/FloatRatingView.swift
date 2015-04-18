@@ -17,7 +17,7 @@ import UIKit
     /**
     Returns the rating value as the user pans
     */
-    func floatRatingView(ratingView: FloatRatingView, isUpdating rating: Float)
+    optional func floatRatingView(ratingView: FloatRatingView, isUpdating rating: Float)
 }
 
 /**
@@ -290,30 +290,29 @@ public class FloatRatingView: UIView {
         
         // Update delegate
         if let delegate = self.delegate {
-            delegate.floatRatingView(self, isUpdating: self.rating)
+            delegate.floatRatingView?(self, isUpdating: self.rating)
         }
     }
     
-    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        if let touch = touches.anyObject() as? UITouch {
+    override public func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let touch = touches.first as? UITouch {
             let touchLocation = touch.locationInView(self)
             self.handleTouchAtLocation(touchLocation)
         }
     }
     
-    override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        if let touch = touches.anyObject() as? UITouch {
+    override public func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let touch = touches.first as? UITouch {
             let touchLocation = touch.locationInView(self)
             self.handleTouchAtLocation(touchLocation)
         }
     }
     
-    override public func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override public func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         // Update delegate
         if let delegate = self.delegate {
             delegate.floatRatingView(self, didUpdate: self.rating)
         }
     }
-    
     
 }
