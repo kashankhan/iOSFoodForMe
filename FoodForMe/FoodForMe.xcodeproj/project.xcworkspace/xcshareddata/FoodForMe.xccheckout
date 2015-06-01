@@ -22,11 +22,11 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
-		<string>../../..FoodForMe/Alamofire/</string>
+		<string>../../..FoodForMe/Alamofire</string>
 		<key>A253B9B4301A80334FF2A6415C79DBFB02A57246</key>
 		<string>../../..</string>
 		<key>D240516802CF077A7A082675F4C7FA7DB155FFF6</key>
-		<string>../../..FoodForMe/AlecrimCoreData/</string>
+		<string>../../..FoodForMe/AlecrimCoreData</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kashankhan/iOSFoodForMe.git</string>

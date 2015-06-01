@@ -12,8 +12,7 @@ import AlecrimCoreData
 class FFMUserProfileDal: FFMBaseDal {
     
     func saveFacebookProfile(user: FBGraphUser) -> UserProfile {
-        
-        let userProfile = self.dataContext.userProfiles.firstOrCreated(whereAttribute: "", isEqualTo: user.objectID)
+        let userProfile = self.dataContext.userProfiles.firstOrCreated(whereAttribute: "userId", isEqualTo: user.objectID)
         userProfile.userId = user.objectID
         userProfile.name = user.name
         userProfile.lastName = user.last_name

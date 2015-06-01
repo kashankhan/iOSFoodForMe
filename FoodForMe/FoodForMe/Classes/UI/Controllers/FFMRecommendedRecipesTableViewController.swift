@@ -38,19 +38,20 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
             let profileDal: FFMUserProfileDal = FFMUserProfileDal()
             userProfile = profileDal.getUserProfile()
         }
-        
-        let userId = (self.userProfile?.userId != nil) ? self.userProfile?.userId : ""
-        var selectedCourse = ""
-        if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
-            selectedCourse = course.name
-        }
-        let cookingTimePreference: CookingTimePreference = recipeDal.dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
-        
-        let preferCookingTime = cookingTimePreference.time.integerValue
+        println(self.userProfile)
+        if let userId =  self.userProfile?.userId {
+            var selectedCourse = ""
+            if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+                selectedCourse = course.name
+            }
+            let cookingTimePreference: CookingTimePreference = recipeDal.dataContext.cookingTimings.filterBy(attribute: "selected", value: true).first()!
+            
+            let preferCookingTime = cookingTimePreference.time.integerValue
 
-        self.recipesBal.getMyRecommendations(userId!, course: selectedCourse, preferCookingTime: preferCookingTime, completion: { recipes in
-            self.tableView.reloadData()
-        })
+            self.recipesBal.getMyRecommendations(userId, course: selectedCourse, preferCookingTime: preferCookingTime, completion: { recipes in
+                self.tableView.reloadData()
+            })
+        }
     }
     
     // MARK: - ENSideMenu Delegate
