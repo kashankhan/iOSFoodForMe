@@ -11,7 +11,26 @@ import UIKit
 import CoreData
 import AlecrimCoreData
 
-class FFMEvaluationRecipeTableViewController: FFMRecipesTableViewController {
+class FFMEvaluationRecipeTableViewController: UITableViewController {
     
+ 
+    
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        println("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        println("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        println("sideMenuShouldOpenSideMenu")
+        return true;
+    }
+    
+    @IBAction func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
     
 }
