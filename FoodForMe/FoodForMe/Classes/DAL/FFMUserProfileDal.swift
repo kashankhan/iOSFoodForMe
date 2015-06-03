@@ -22,6 +22,7 @@ class FFMUserProfileDal: FFMBaseDal {
         userProfile.email = userEmail
         userProfile.profileLink = user.link
         userProfile.gender = user.objectForKey("gender") as! String
+        
         // Save the data context.
         let (success, error) = dataContext.save()
         if !success {
@@ -29,8 +30,7 @@ class FFMUserProfileDal: FFMBaseDal {
             println("Unresolved error \(error), \(error?.userInfo)")
             
         }
-
-
+        
         return userProfile
     }
     

@@ -34,11 +34,15 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     }
     
     func fetchMyRecommendations() {
+        let empty = ""
+        var userId = empty
         if userProfile == nil {
             let profileDal: FFMUserProfileDal = FFMUserProfileDal()
-            userProfile = profileDal.getUserProfile()
+            self.userProfile = profileDal.getUserProfile()
+            userId = self.userProfile?.userId ?? empty
         }
-        if let userId =  self.userProfile?.userId {
+      
+        if userId != empty {
             var selectedCourse = ""
             if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
                 selectedCourse = course.name
@@ -54,6 +58,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     }
     
     // MARK: - ENSideMenu Delegate
+    
     func sideMenuWillOpen() {
         println("sideMenuWillOpen")
     }
@@ -134,7 +139,6 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     }
     
     // MARK: - Fetched results controller
-    
     
     lazy var fetchedResultsController: FetchedResultsController<RecommendedRecipe> = {
           let recipeDal: FFMRecipeDal = FFMRecipeDal()

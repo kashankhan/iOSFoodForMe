@@ -339,8 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				C0EA90251A8CE6E500BB62F0 /* Base */,
-				C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */,
 				C0EA902A1A8CEA0400BB62F0 /* FFMRecipesTableViewController.swift */,
+				C019F4051A90E95600766D7C /* FFMRecipeDetailTableViewController.swift */,
 				C091E7531ACF331100229732 /* FFMRecommendedRecipesTableViewController.swift */,
 				C091E7551AD017E300229732 /* FFMRecommendedRecipeDetailTableViewController.swift */,
 				C026520D1AD2EAE300DADC98 /* FFMUserPreferenceTableViewController.swift */,
