@@ -15,6 +15,7 @@ class FFMUserPerferCookingTimeSelectionTableViewController
     : UITableViewController, NSFetchedResultsControllerDelegate {
     
     var lastSelectedIndexPath: NSIndexPath?
+    let recipeDal: FFMRecipeDal = FFMRecipeDal()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +23,13 @@ class FFMUserPerferCookingTimeSelectionTableViewController
     
     private func selectCourseAtIndexPath(indexPath: NSIndexPath?, tableView: UITableView,
         select: Bool) {
-  
         var cookingTimePreference: CookingTimePreference?
         if (indexPath != nil) {
             cookingTimePreference = self.fetchedResultsController.entityAtIndexPath(indexPath!)
             cookingTimePreference?.selected = select
             let cell: UITableViewCell =  tableView.cellForRowAtIndexPath(indexPath!)!
             cell.accessoryType = select ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+            recipeDal.dataContext.saveContext()
         }
     }
     
@@ -72,8 +73,8 @@ class FFMUserPerferCookingTimeSelectionTableViewController
     
     
     lazy var fetchedResultsController: FetchedResultsController<CookingTimePreference> = {
-        let recipeDal: FFMRecipeDal = FFMRecipeDal()
-        let frc = recipeDal.dataContext.cookingTimings.orderByAscending("time").toFetchedResultsController()
+        
+        let frc = self.recipeDal.dataContext.cookingTimings.orderByAscending("time").toFetchedResultsController()
         frc.bindToTableView(self.tableView)
         
         return frc

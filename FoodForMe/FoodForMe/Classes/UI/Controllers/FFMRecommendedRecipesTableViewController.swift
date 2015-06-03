@@ -38,7 +38,6 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
             let profileDal: FFMUserProfileDal = FFMUserProfileDal()
             userProfile = profileDal.getUserProfile()
         }
-        println(self.userProfile)
         if let userId =  self.userProfile?.userId {
             var selectedCourse = ""
             if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {

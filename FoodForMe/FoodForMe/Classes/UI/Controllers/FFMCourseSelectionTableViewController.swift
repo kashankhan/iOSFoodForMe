@@ -14,6 +14,7 @@ import AlecrimCoreData
 class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
  
     var lastSelectedIndexPath: NSIndexPath?
+    let recipeDal: FFMRecipeDal = FFMRecipeDal()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
             course?.selected = select
             let cell: UITableViewCell =  tableView.cellForRowAtIndexPath(indexPath!)!
             cell.accessoryType = select ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
-        
+            recipeDal.dataContext.saveContext()
         }
     }
     // MARK: - Table View
@@ -69,8 +70,8 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
     
     
     lazy var fetchedResultsController: FetchedResultsController<Course> = {
-        let recipeDal: FFMRecipeDal = FFMRecipeDal()
-        let frc = recipeDal.dataContext.courses.orderByAscending("name").toFetchedResultsController()
+       
+        let frc = self.recipeDal.dataContext.courses.orderByAscending("name").toFetchedResultsController()
         frc.bindToTableView(self.tableView)
         
         return frc
