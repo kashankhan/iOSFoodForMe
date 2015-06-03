@@ -31,6 +31,8 @@ struct NSLS {
     static let like = localizedString("Like", "Like")
     static let unlike = localizedString("Unlike", "Unlike")
     static let rating = localizedString("Rating", "Rating")
+    static let evaluation = localizedString("evaluation", "Evaluation")
+    
 }
 
 func localizedString(key: String, value: String) -> String {

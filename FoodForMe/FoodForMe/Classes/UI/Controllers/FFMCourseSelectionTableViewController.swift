@@ -26,6 +26,7 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
             course?.selected = select
             let cell: UITableViewCell =  tableView.cellForRowAtIndexPath(indexPath!)!
             cell.accessoryType = select ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+        
         }
     }
     // MARK: - Table View

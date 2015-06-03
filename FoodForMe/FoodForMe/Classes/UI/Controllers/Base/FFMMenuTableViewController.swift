@@ -11,7 +11,7 @@ import UIKit
 
 class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
     var selectedMenuItem : Int = 0
-    let controllersTitle: [String] = [NSLS.popularRecipes, NSLS.recommendations, NSLS.preferences]
+    let controllersTitle: [String] = [NSLS.popularRecipes, NSLS.recommendations, NSLS.preferences, NSLS.evaluation]
     let profileDal: FFMUserProfileDal =  FFMUserProfileDal()
     
     override func viewDidLoad() {
@@ -86,6 +86,9 @@ class FFMMenuTableViewController: UITableViewController, FBLoginViewDelegate {
             break
         case 2:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMUserPreferenceTableViewController") as! FFMUserPreferenceTableViewController
+            break
+        case 3:
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMEvaluationRecipeTableViewController") as! FFMEvaluationRecipeTableViewController
             break
         default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FFMRecipesTableViewController") as! FFMRecipesTableViewController

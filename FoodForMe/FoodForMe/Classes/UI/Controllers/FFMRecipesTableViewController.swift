@@ -22,16 +22,19 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
         configureView()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchPopularRecipes()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     func configureView() {
-        
         defaultDataDal.loadDefaultData()
         self.sideMenuController()?.sideMenu?.delegate = self;
-        fetchPopularRecipes()
     }
     
     func fetchPopularRecipes() {
