@@ -16,7 +16,7 @@ class FFMRecipesParser: FFMBaseParser {
             var list: [Recipe] = []
             if response is NSArray {
                 for recipeInfo in response as! NSArray {
-                    let recipe: Recipe = self.parseRecipe(recipeInfo, context: dataContext)!
+                    let recipe: Recipe = self.parseCompleteRecipe(recipeInfo, context: dataContext)!
                     list.append(recipe)
                 }
         
