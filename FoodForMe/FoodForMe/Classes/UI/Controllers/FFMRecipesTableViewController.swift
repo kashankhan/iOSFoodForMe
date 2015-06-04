@@ -22,11 +22,6 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
         configureView()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchPopularRecipes()
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,7 +29,8 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
 
     func configureView() {
         defaultDataDal.loadDefaultData()
-        self.sideMenuController()?.sideMenu?.delegate = self;
+        self.sideMenuController()?.sideMenu?.delegate = self
+        fetchPopularRecipes()
     }
     
     func fetchPopularRecipes() {
@@ -124,6 +120,11 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
                 let object =  ((self.searchDisplayController?.active) == true) ?
                     self.searchResult?.objectAtIndex(indexPath.row) as! Recipe :self.fetchedResultsController.entityAtIndexPath(indexPath)
                 (segue.destinationViewController as! FFMRecipeDetailTableViewController).recipe = object
+            }
+        }
+        else if segue.identifier == "IdentifierSegueShowCourseSelection" {
+            (segue.destinationViewController as! FFMCourseSelectionTableViewController).courseChangeCallBack = { course in
+                self.fetchPopularRecipes()
             }
         }
     }

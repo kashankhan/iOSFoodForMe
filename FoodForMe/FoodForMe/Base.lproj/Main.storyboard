@@ -294,7 +294,7 @@
                                     <outlet property="avatarImageView" destination="3EM-KP-ULR" id="8B8-P9-L29"/>
                                     <outlet property="ratingStarView" destination="HsT-Mm-lhv" id="t4m-Hr-mNO"/>
                                     <outlet property="recipeLabel" destination="yyG-Ia-b3c" id="UZ8-Kg-pi1"/>
-                                    <segue destination="yRD-wG-Uc5" kind="show" id="5ma-rQ-Wid"/>
+                                    <segue destination="yRD-wG-Uc5" kind="show" identifier="IdentifierSegueShowRecipeDetail" id="5ma-rQ-Wid"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -310,7 +310,11 @@
                                 <action selector="toggleSideMenu:" destination="QfI-pT-vBQ" id="hAH-rs-ZVw"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Course" style="plain" id="tBW-ow-1tF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Course" style="plain" id="tBW-ow-1tF">
+                            <connections>
+                                <segue destination="PG7-r1-EqC" kind="show" identifier="IdentifierSegueShowCourseSelection" id="PBi-kT-C4v"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -646,16 +650,34 @@
         <scene sceneID="TJh-qc-iBD">
             <objects>
                 <tableViewController id="yRD-wG-Uc5" customClass="FFMEvaluationRecipeDetailTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="daH-pF-TWm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="daH-pF-TWm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="51d-kP-Dmz">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeDetailTableViewCell" id="vKh-8K-pRn" customClass="FFMRecipeDetailTableViewCell" customModule="FoodForMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="51d-kP-Dmz" id="MNL-Vm-00z">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vKh-8K-pRn" id="2wv-Ck-aXK">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcG-V2-Zan">
+                                            <rect key="frame" x="20" y="10" width="560" height="23"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="fcG-V2-Zan" secondAttribute="trailing" constant="20" id="8rV-TK-5GJ"/>
+                                        <constraint firstItem="fcG-V2-Zan" firstAttribute="leading" secondItem="2wv-Ck-aXK" secondAttribute="leading" constant="20" id="JiF-Xx-g1C"/>
+                                        <constraint firstItem="fcG-V2-Zan" firstAttribute="top" secondItem="2wv-Ck-aXK" secondAttribute="top" constant="10" id="g0Q-3b-BeT"/>
+                                        <constraint firstAttribute="bottom" secondItem="fcG-V2-Zan" secondAttribute="bottom" constant="10" id="ncu-zR-yjh"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="fcG-V2-Zan" id="C0d-Lt-BZm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -674,7 +696,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pk2-Yv-Y3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="1419"/>
+            <point key="canvasLocation" x="596" y="1425"/>
         </scene>
         <!--Critique-->
         <scene sceneID="u91-hy-yIz">
@@ -707,7 +729,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcC-KI-m2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="1419"/>
+            <point key="canvasLocation" x="1301" y="1425"/>
         </scene>
         <!--Select Course-->
         <scene sceneID="Kqk-U7-2PC">
@@ -743,7 +765,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZV-1S-it4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="631" y="2053"/>
+            <point key="canvasLocation" x="727" y="2109"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cvg-r3-oiY">
@@ -769,6 +791,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="r4b-4p-zwf"/>
-        <segue reference="YXK-5J-t5d"/>
+        <segue reference="PBi-kT-C4v"/>
     </inferredMetricsTieBreakers>
 </document>

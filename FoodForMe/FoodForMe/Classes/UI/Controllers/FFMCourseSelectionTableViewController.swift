@@ -16,6 +16,9 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
     var lastSelectedIndexPath: NSIndexPath?
     let recipeDal: FFMRecipeDal = FFMRecipeDal()
     
+    typealias CourseSelectionCallBack = ((course : Course?)-> ())
+    var courseChangeCallBack: CourseSelectionCallBack! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,6 +31,9 @@ class FFMCourseSelectionTableViewController: UITableViewController, NSFetchedRes
             let cell: UITableViewCell =  tableView.cellForRowAtIndexPath(indexPath!)!
             cell.accessoryType = select ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
             recipeDal.dataContext.saveContext()
+            if select && self.courseChangeCallBack != nil {
+                self.courseChangeCallBack(course: course)
+            }
         }
     }
     // MARK: - Table View

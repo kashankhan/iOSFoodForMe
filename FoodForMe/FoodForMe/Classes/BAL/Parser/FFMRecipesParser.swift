@@ -27,6 +27,7 @@ class FFMRecipesParser: FFMBaseParser {
                     println("Unresolved error \(error), \(error?.userInfo)")
                     
                 }
+                
                 completion(list)
             }
         }
