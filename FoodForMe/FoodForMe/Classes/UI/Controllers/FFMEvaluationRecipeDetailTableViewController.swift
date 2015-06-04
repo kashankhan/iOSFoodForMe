@@ -16,8 +16,8 @@ class FFMEvaluationRecipeDetailTableViewController: UITableViewController {
     var recipe: Recipe? {
         didSet {
             // Update the view.
-            if let recipName = self.recipe?.title {
-                self.sectionsTitle[0] = recipName
+            if let recipeName = self.recipe?.title {
+                self.sectionsTitle[0] = recipeName
             }
             
             self.tableView.reloadData()
@@ -132,7 +132,7 @@ class FFMEvaluationRecipeDetailTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "IdentifierSegueShowRecipeCritique" {
-            (segue.destinationViewController as! FFMRecipeCritiqueTableViewController).recipe = self.recipe
+            (segue.destinationViewController as! FFMEvaluationRecipeCritiqueTableViewController).recipe = self.recipe
         }
     }
 

@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>885FD04F-9B6A-4723-B3AF-1FA3B1A7DE0D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>FoodForMe</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
@@ -18,15 +18,15 @@
 		<string>https://github.com/Alecrim/AlecrimCoreData.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FoodForMe/FoodForMe.xcodeproj</string>
+	<string>FoodForMe/FoodForMe.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
-		<string>../../..FoodForMe/Alamofire</string>
+		<string>../../..FoodForMe/Alamofire/</string>
 		<key>A253B9B4301A80334FF2A6415C79DBFB02A57246</key>
 		<string>../../..</string>
 		<key>D240516802CF077A7A082675F4C7FA7DB155FFF6</key>
-		<string>../../..FoodForMe/AlecrimCoreData</string>
+		<string>../../..FoodForMe/AlecrimCoreData/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kashankhan/iOSFoodForMe.git</string>

@@ -653,7 +653,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="daH-pF-TWm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeDetailTableViewCell" id="vKh-8K-pRn" customClass="FFMRecipeDetailTableViewCell" customModule="FoodForMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -689,7 +689,7 @@
                     <navigationItem key="navigationItem" title="Recipe Detail" id="eYZ-mM-wCu">
                         <barButtonItem key="rightBarButtonItem" title="Critique" id="UGS-in-v2m">
                             <connections>
-                                <segue destination="Qvj-aJ-7lM" kind="show" id="ERK-IG-8Ys"/>
+                                <segue destination="Qvj-aJ-7lM" kind="show" identifier="IdentifierSegueShowRecipeCritique" id="ERK-IG-8Ys"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -701,17 +701,42 @@
         <!--Critique-->
         <scene sceneID="u91-hy-yIz">
             <objects>
-                <tableViewController id="Qvj-aJ-7lM" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dNd-Ts-fxQ">
+                <tableViewController storyboardIdentifier="FFMEvaluationRecipeCritiqueTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qvj-aJ-7lM" customClass="FFMEvaluationRecipeCritiqueTableViewController" customModule="FoodForMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="dNd-Ts-fxQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="slO-P0-Av8">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdentifierFFMRecipeRatingTableViewCell" id="bAb-mv-kau" customClass="FFMRecipeRatingTableViewCell" customModule="FoodForMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="slO-P0-Av8" id="B7a-YS-6ZX">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bAb-mv-kau" id="uOD-iz-r8i">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNx-Gp-WGW" customClass="FloatRatingView" customModule="FoodForMe" customModuleProvider="target">
+                                            <rect key="frame" x="48" y="5" width="504" height="35"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="Xjv-i1-Y3A"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qNx-Gp-WGW" firstAttribute="top" secondItem="uOD-iz-r8i" secondAttribute="top" constant="5" id="BES-B4-eve"/>
+                                        <constraint firstAttribute="trailing" secondItem="qNx-Gp-WGW" secondAttribute="trailing" constant="48" id="r5d-ww-dgy"/>
+                                        <constraint firstItem="qNx-Gp-WGW" firstAttribute="leading" secondItem="uOD-iz-r8i" secondAttribute="leading" constant="48" id="vWD-hV-QjO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="starRatingView" destination="qNx-Gp-WGW" id="pUh-Iy-Uug"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -722,7 +747,7 @@
                     <navigationItem key="navigationItem" title="Critique" id="wqO-R9-WoQ" userLabel="Critique">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="bdV-qW-SFi">
                             <connections>
-                                <action selector="sendRequest:" destination="Iij-0R-qhM" id="ukU-Cs-Ki6"/>
+                                <action selector="sendRequest:" destination="Qvj-aJ-7lM" id="xNN-Bh-d9J"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
