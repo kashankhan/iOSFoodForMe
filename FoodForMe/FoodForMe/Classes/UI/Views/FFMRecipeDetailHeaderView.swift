@@ -17,7 +17,6 @@ class FFMRecipeDetailHeaderView : UITableViewHeaderFooterView {
     @IBOutlet weak var recipeCatagoryLabel: UILabel!
     
     func configureView(recipe: Recipe) {
-        
         self.avatarImageView.image = nil
         self.avatarImageView.loadImage(recipe.largeImageUri, autoCache: true)
         self.recipeTitleLabel?.text = recipe.title

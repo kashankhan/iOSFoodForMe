@@ -16,6 +16,8 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
     let defaultDataDal: FFMDefaultDataDal = FFMDefaultDataDal()
     var searchResult: NSArray? = NSArray()
+    private var _fetchedResultsController: FetchedResultsController<Recipe>? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func configureView() {
         defaultDataDal.loadDefaultData()
         self.sideMenuController()?.sideMenu?.delegate = self
@@ -39,6 +41,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
             value = course.name
         }
         self.recipesBal.getPopularRecipes(value) { recipes in
+            self._fetchedResultsController = nil
             self.tableView.reloadData()
         }
     }
@@ -57,7 +60,7 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
         println("sideMenuShouldOpenSideMenu")
         return true;
     }
-
+    
     @IBAction func toggleSideMenu(sender: AnyObject) {
         toggleSideMenuView()
     }
@@ -90,10 +93,10 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     }
     
     func configureCell(tableView: UITableView, cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-
+        
         let recipeCell: FFMRecipeTableViewCell = cell as! FFMRecipeTableViewCell
         let recipe: Recipe = (tableView == self.searchDisplayController?.searchResultsTableView) ?
-        self.searchResult?.objectAtIndex(indexPath.row) as! Recipe : self.fetchedResultsController.entityAtIndexPath(indexPath)
+            self.searchResult?.objectAtIndex(indexPath.row) as! Recipe : self.fetchedResultsController.entityAtIndexPath(indexPath)
         recipeCell.configureCell(recipe)
     }
     
@@ -132,16 +135,19 @@ class FFMRecipesTableViewController: UITableViewController , ENSideMenuDelegate 
     // MARK: - Fetched results controller
     
     
-    lazy var fetchedResultsController: FetchedResultsController<Recipe> = {
-        let defaultDataDal: FFMDefaultDataDal = FFMDefaultDataDal()
-        var frc = defaultDataDal.dataContext.recipes.orderByAscending("title").toFetchedResultsController()
-        if let course: Course = defaultDataDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
-            let predicate: NSPredicate =  NSPredicate(format: "category contains[c] %@",  course.name)
-            frc =  defaultDataDal.dataContext.recipes.filterBy(predicate: predicate).sortBy("title", ascending: true).toFetchedResultsController()
+    var fetchedResultsController: FetchedResultsController<Recipe>  {
+        if _fetchedResultsController == nil {
+            let defaultDataDal: FFMDefaultDataDal = FFMDefaultDataDal()
+            var frc = defaultDataDal.dataContext.recipes.orderByAscending("title").toFetchedResultsController()
+            if let course: Course = defaultDataDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+                let predicate: NSPredicate =  NSPredicate(format: "category contains[c] %@",  course.name)
+                frc =  defaultDataDal.dataContext.recipes.filterBy(predicate: predicate).sortBy("title", ascending: true).toFetchedResultsController()
+            }
+            frc.bindToTableView(self.tableView)
+            _fetchedResultsController = frc
         }
-        frc.bindToTableView(self.tableView)
-        return frc
-        }()
+        return _fetchedResultsController!
+    }
     
     func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {

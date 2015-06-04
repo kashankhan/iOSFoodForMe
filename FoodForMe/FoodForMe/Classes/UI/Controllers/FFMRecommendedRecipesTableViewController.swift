@@ -16,6 +16,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
     let recipeDal: FFMRecipeDal = FFMRecipeDal()
     var userProfile: UserProfile?
+    private var _fetchedResultsController: FetchedResultsController<RecommendedRecipe>? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
             let preferCookingTime = cookingTimePreference.time.integerValue
 
             self.recipesBal.getMyRecommendations(userId, course: selectedCourse, preferCookingTime: preferCookingTime, completion: { recipes in
+                self._fetchedResultsController = nil
                 self.tableView.reloadData()
             })
         }
@@ -140,16 +142,19 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     
     // MARK: - Fetched results controller
     
-    lazy var fetchedResultsController: FetchedResultsController<RecommendedRecipe> = {
-          let recipeDal: FFMRecipeDal = FFMRecipeDal()
-        var frc = recipeDal.dataContext.recommendedRecipes.sortBy("recipe.title", ascending: true).toFetchedResultsController()
-        if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
-            let predicate: NSPredicate =  NSPredicate(format: "recipe.category contains[c] %@",  course.name)
-          frc =  recipeDal.dataContext.recommendedRecipes.filterBy(predicate: predicate).sortBy("recipe.title", ascending: true).toFetchedResultsController()
+    var fetchedResultsController: FetchedResultsController<RecommendedRecipe>  {
+        if _fetchedResultsController == nil {
+              let recipeDal: FFMRecipeDal = FFMRecipeDal()
+            var frc = recipeDal.dataContext.recommendedRecipes.sortBy("recipe.title", ascending: true).toFetchedResultsController()
+            if let course: Course = recipeDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+                let predicate: NSPredicate =  NSPredicate(format: "recipe.category contains[c] %@",  course.name)
+              frc =  recipeDal.dataContext.recommendedRecipes.filterBy(predicate: predicate).sortBy("recipe.title", ascending: true).toFetchedResultsController()
+            }
+            frc.bindToTableView(self.tableView)
+            _fetchedResultsController =  frc
         }
-        frc.bindToTableView(self.tableView)
-        return frc
-        }()
+        return _fetchedResultsController!
+        }
     
     func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {

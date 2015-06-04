@@ -8,14 +8,18 @@
 
 import Foundation
 
-class FFMEvaluationRecipeDetailTableViewController : UITableViewController {
+class FFMEvaluationRecipeDetailTableViewController: UITableViewController {
     
-    let sectionsTitle: [String] = [NSLS.ingredients, NSLS.prepration]
-    let sectionsHeight: [CGFloat] = [40.0, 40.0]
+    var sectionsTitle: [String] = ["", NSLS.ingredients, NSLS.prepration]
+    let sectionsHeight: [CGFloat] = [40.0,  40.0, 40.0]
     
     var recipe: Recipe? {
         didSet {
             // Update the view.
+            if let recipName = self.recipe?.title {
+                self.sectionsTitle[0] = recipName
+            }
+            
             self.tableView.reloadData()
         }
     }
@@ -52,12 +56,12 @@ class FFMEvaluationRecipeDetailTableViewController : UITableViewController {
         let section = indexPath.section
         let row = indexPath.row
         let objects = objectsInSection(section)
-        if section == 0 &&  objects.count > 0 {
+        if section == 1 &&  objects.count > 0 {
             let ingredient: Ingredient = objects[row] as! Ingredient
             // MetricQuantity + MetricUnit + Name + PreparationNotes
             object  = ingredient.metricDisplayQuantity + " " + ingredient.metricUnit + " " + ingredient.name + " " + ingredient.preparationNotes
         }
-        else if section == 1 {
+        else if section == 2 {
             object = objects[row] as! String
         }
         
@@ -66,12 +70,12 @@ class FFMEvaluationRecipeDetailTableViewController : UITableViewController {
     
     private func objectsInSection(section: Int) -> [AnyObject]{
         var objects:[AnyObject] = []
-        if section == 0 {
+        if section == 1 {
             if let ingredients = self.recipe?.ingredients.allObjects {
                 objects = ingredients
             }
         }
-        else if (section == 1 && self.recipe?.valueForKey("instructions") != nil) {
+        else if (section == 2 && self.recipe?.valueForKey("instructions") != nil) {
             let recipeDescription: AnyObject? = self.recipe?.instructions
             objects.append(recipeDescription!)
         }
@@ -131,4 +135,5 @@ class FFMEvaluationRecipeDetailTableViewController : UITableViewController {
             (segue.destinationViewController as! FFMRecipeCritiqueTableViewController).recipe = self.recipe
         }
     }
+
 }

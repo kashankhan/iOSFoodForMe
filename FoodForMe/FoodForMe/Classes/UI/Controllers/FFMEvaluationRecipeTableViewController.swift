@@ -16,15 +16,11 @@ class FFMEvaluationRecipeTableViewController:  UITableViewController , ENSideMen
     let recipesBal: FFMRecipesBal = FFMRecipesBal()
     let defaultDataDal: FFMDefaultDataDal = FFMDefaultDataDal()
     var searchResult: NSArray? = NSArray()
+    private var _fetchedResultsController: FetchedResultsController<Recipe>? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchPopularRecipes()
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +31,7 @@ class FFMEvaluationRecipeTableViewController:  UITableViewController , ENSideMen
     func configureView() {
         defaultDataDal.loadDefaultData()
         self.sideMenuController()?.sideMenu?.delegate = self;
+        fetchPopularRecipes()
     }
     
     func fetchPopularRecipes() {
@@ -117,16 +114,19 @@ class FFMEvaluationRecipeTableViewController:  UITableViewController , ENSideMen
     // MARK: - Fetched results controller
     
     
-    lazy var fetchedResultsController: FetchedResultsController<Recipe> = {
-        let defaultDataDal: FFMDefaultDataDal = FFMDefaultDataDal()
-        var frc = defaultDataDal.dataContext.recipes.orderByAscending("title").toFetchedResultsController()
-        if let course: Course = defaultDataDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
-            let predicate: NSPredicate =  NSPredicate(format: "category contains[c] %@",  course.name)
-            frc =  defaultDataDal.dataContext.recipes.filterBy(predicate: predicate).sortBy("title", ascending: true).toFetchedResultsController()
+    var fetchedResultsController: FetchedResultsController<Recipe>  {
+        if _fetchedResultsController == nil {
+            let defaultDataDal: FFMDefaultDataDal = FFMDefaultDataDal()
+            var frc = defaultDataDal.dataContext.recipes.orderByAscending("title").toFetchedResultsController()
+            if let course: Course = defaultDataDal.dataContext.courses.filterBy(attribute: "selected", value: 1).first() {
+                let predicate: NSPredicate =  NSPredicate(format: "category contains[c] %@",  course.name)
+                frc =  defaultDataDal.dataContext.recipes.filterBy(predicate: predicate).sortBy("title", ascending: true).toFetchedResultsController()
+            }
+            frc.bindToTableView(self.tableView)
+            _fetchedResultsController = frc
         }
-        frc.bindToTableView(self.tableView)
-        return frc
-        }()
+        return _fetchedResultsController!
+    }
     
     func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
