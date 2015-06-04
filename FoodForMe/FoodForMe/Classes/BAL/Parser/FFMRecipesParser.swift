@@ -12,16 +12,16 @@ import AlecrimCoreData
 class FFMRecipesParser: FFMBaseParser {
     
     func parseRecipes(response: AnyObject?, completion: (NSArray?) -> Void) {
-        performInBackground(dataContext) { backgroundDataContext in
+        //performInBackground(dataContext) { backgroundDataContext in
             var list: [Recipe] = []
             if response is NSArray {
                 for recipeInfo in response as! NSArray {
-                    let recipe: Recipe = self.parseRecipe(recipeInfo, context: backgroundDataContext)!
+                    let recipe: Recipe = self.parseRecipe(recipeInfo, context: dataContext)!
                     list.append(recipe)
                 }
         
                 // Save the background data context.
-                let (success, error) = backgroundDataContext.save()
+                let (success, error) = dataContext.save()
                 if !success {
                     // Replace this implementation with code to handle the error appropriately.
                     println("Unresolved error \(error), \(error?.userInfo)")
@@ -30,14 +30,14 @@ class FFMRecipesParser: FFMBaseParser {
                 
                 completion(list)
             }
-        }
+        //}
     }
     
      func parseRecipeDetail(response: AnyObject?, completion: (Recipe?) -> Void) {
-        performInBackground(dataContext) { backgroundDataContext in
-            let recipe: Recipe = self.parseCompleteRecipe(response, context: backgroundDataContext)!
+       // performInBackground(dataContext) { backgroundDataContext in
+            let recipe: Recipe = self.parseCompleteRecipe(response, context: dataContext)!
             // Save the background data context.
-            let (success, error) = backgroundDataContext.save()
+            let (success, error) = dataContext.save()
             if !success {
                 // Replace this implementation with code to handle the error appropriately.
                 println("Unresolved error \(error), \(error?.userInfo)")
@@ -45,20 +45,20 @@ class FFMRecipesParser: FFMBaseParser {
             
             completion(recipe)
             
-        }
+        //}
     }
 
     func parseRecommendedRecipes(response: AnyObject?, completion: (NSArray?) -> Void) {
-        performInBackground(dataContext) { backgroundDataContext in
+        //performInBackground(dataContext) { backgroundDataContext in
             var list: [RecommendedRecipe] = []
             if response is NSArray {
                 for recommendedRecipeInfo in response as! NSArray {
-                let recommendedRecipe: RecommendedRecipe = self.parseRecommendedRecipe(recommendedRecipeInfo, context: backgroundDataContext)
+                let recommendedRecipe: RecommendedRecipe = self.parseRecommendedRecipe(recommendedRecipeInfo, context: dataContext)
                     list.append(recommendedRecipe)
                 }
                 
                 // Save the background data context.
-                let (success, error) = backgroundDataContext.save()
+                let (success, error) = dataContext.save()
                 if !success {
                     // Replace this implementation with code to handle the error appropriately.
                     println("Unresolved error \(error), \(error?.userInfo)")
@@ -66,20 +66,20 @@ class FFMRecipesParser: FFMBaseParser {
                 }
                 completion(list)
             }
-        }
+        //}
     }
     
     func parseRecipeCategories(response: AnyObject?, completion: (NSArray?) -> Void) {
-        performInBackground(dataContext) { backgroundDataContext in
+        //performInBackground(dataContext) { backgroundDataContext in
             var list: [Course] = []
             if response is NSArray {
                 for name in response as! NSArray {
-                    let course : Course = self.parseCourse(name, context: backgroundDataContext)
+                    let course : Course = self.parseCourse(name, context: dataContext)
                     list.append(course)
                 }
                 
                 // Save the background data context.
-                let (success, error) = backgroundDataContext.save()
+                let (success, error) = dataContext.save()
                 if !success {
                     // Replace this implementation with code to handle the error appropriately.
                     println("Unresolved error \(error), \(error?.userInfo)")
@@ -87,7 +87,7 @@ class FFMRecipesParser: FFMBaseParser {
                 }
                 completion(list)
             }
-        }
+        //}
     }
 
     
