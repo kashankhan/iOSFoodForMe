@@ -31,6 +31,7 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
     func configureView() {
         self.sideMenuController()?.sideMenu?.delegate = self;
         registerForNotificaitons()
+        refresh()
         fetchMyRecommendations()
     }
     
@@ -53,12 +54,16 @@ class FFMRecommendedRecipesTableViewController : UITableViewController , ENSideM
             let preferCookingTime = cookingTimePreference.time.integerValue
 
             self.recipesBal.getMyRecommendations(userId, course: selectedCourse, preferCookingTime: preferCookingTime, completion: { recipes in
-                self._fetchedResultsController = nil
-                self.tableView.reloadData()
+                self.refresh()
             })
         }
     }
     
+    func refresh() {
+        recipeDal.dataContext.recommendedRecipes.delete()
+        self._fetchedResultsController = nil
+        self.tableView.reloadData()
+    }
     // MARK: - ENSideMenu Delegate
     
     func sideMenuWillOpen() {
